@@ -7,7 +7,10 @@ public class SoundManager : MonoBehaviour
 {
     public AudioSource bgm;
     public static SoundManager instance;
+    public int bGMNumber;
     public AudioClip[] bgmList;
+    public AudioClip[] sFXList;
+
     public AudioMixer mixer;
 
     public void Awake()
@@ -16,6 +19,7 @@ public class SoundManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(instance);
+            BGMSound(bgmList[bGMNumber]);
         }
         else
         {
@@ -26,11 +30,11 @@ public class SoundManager : MonoBehaviour
     {
         mixer.SetFloat("BGMVolume", Mathf.Log10(volume) * 20);
     }
-    public void PlaySound(AudioClip clip)
+    public void SFXSound(AudioClip clip)
     {
-        GameObject soundGM = new GameObject("Sound");
+        GameObject soundGM = new GameObject("SFX Sound");
         AudioSource audioSource = soundGM.AddComponent<AudioSource>();
-        audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("PlaySound")[0];
+        audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
         audioSource.clip = clip;
         audioSource.Play();
 
