@@ -16,7 +16,7 @@ public class RightPositionDiscriminator : MonoBehaviour
 
     void Awake()
     {
-        areaToCoordinate = GameObject.Find("AreaManager").GetComponent<AreaToCoordinate>();
+        areaToCoordinate = GameObject.Find("GameManager").GetComponent<AreaToCoordinate>();
         wasteCoordinateList = areaToCoordinate.wasteCoordinateList;
     }
 

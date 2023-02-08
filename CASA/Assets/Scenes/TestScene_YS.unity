@@ -1049,7 +1049,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 954905387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 84.97, y: 0, z: 0}
+  m_LocalPosition: {x: 90, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 776037920}
@@ -1250,8 +1250,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1385128600}
   - component: {fileID: 1385128601}
+  - component: {fileID: 1385128602}
   m_Layer: 0
-  m_Name: AreaManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1285,6 +1286,19 @@ MonoBehaviour:
   paperArea: {fileID: 8932386}
   canArea: {fileID: 1196652534}
   generalArea: {fileID: 738361470}
+--- !u!114 &1385128602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1385128599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e492ee8afdaa664c8361383dc7033a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingTrashPrefab: {fileID: 1841183576212074, guid: ca3e430322f983d4a8582f4a1eb73287,
+    type: 2}
 --- !u!1 &1510576165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,10 +1466,10 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1830573696}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 85.06, y: 2.7, z: -10.8}
+  m_LocalRotation: {x: -0.15258981, y: -0, z: -0, w: 0.9882896}
+  m_LocalPosition: {x: 89.94, y: 2.7, z: -15.867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -17.554, y: 0, z: 0}
