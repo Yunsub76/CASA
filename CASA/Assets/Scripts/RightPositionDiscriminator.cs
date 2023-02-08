@@ -1,69 +1,63 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RightPositionDiscriminator : MonoBehaviour
 {
-    private int wasteIndex;
+    private int wasteTypeIndex;
 
-    private GameObject areaManager;
     private AreaToCoordinate areaToCoordinate;
-    private List<float[]> plasticCoordinateList;  
-    private List<float[]> paperCoordinateList;
-    private List<float[]> generalCoordinateList;
-    private int i = 0;
-    private int team1Point = 0;
-    private int team2Point = 0;
+    private List<float[]> wasteCoordinateList;
+    
+    private int type = 0;
+    private int Point = 0;
     private bool justOnce = false;
 
     void Awake()
     {
-        areaManager = GameObject.Find("AreaManager");
-        areaToCoordinate = areaManager.GetComponent<AreaToCoordinate>();
-        plasticCoordinateList = areaToCoordinate.PlasticCoordinateList;
+        areaToCoordinate = GameObject.Find("AreaManager").GetComponent<AreaToCoordinate>();
+        wasteCoordinateList = areaToCoordinate.wasteCoordinateList;
     }
 
     void Start()
     {
         if(this.gameObject.tag == "Plastic")
         {
-            wasteIndex = 0;
+            wasteTypeIndex = 0;
         }
         else if(this.gameObject.tag == "Paper")
         {
-            wasteIndex = 1;
+            wasteTypeIndex = 1;
+        }
+        else if(this.gameObject.tag == "Can")
+        {
+            wasteTypeIndex = 2;
         }
         else if(this.gameObject.tag == "General")
         {
-            wasteIndex = 2;
+            wasteTypeIndex = 3;
         }
     }
 
     void Update()
     {
-        for (int i = 0; i < plasticCoordinateList.Count; i++)
-        {
-            IsInCorrectPlace(i);
-        }
+        IsInCorrectPlace();   
     }
 
-    private void IsInCorrectPlace(int i)
+    private void IsInCorrectPlace()
     {
-        if(this.gameObject.transform.position.x > plasticCoordinateList[i][0] &&
-            this.gameObject.transform.position.x < plasticCoordinateList[i][1] &&
-            this.gameObject.transform.position.z > plasticCoordinateList[i][2] &&
-            this.gameObject.transform.position.z < plasticCoordinateList[i][3])
-        {
-            if(this.gameObject.transform.position.y < plasticCoordinateList[i][4])
+        if(justOnce == false)
+        { 
+            if(this.gameObject.transform.position.x > wasteCoordinateList[wasteTypeIndex][0] &&
+                this.gameObject.transform.position.x < wasteCoordinateList[wasteTypeIndex][1] &&
+                this.gameObject.transform.position.z > wasteCoordinateList[wasteTypeIndex][2] &&
+                this.gameObject.transform.position.z < wasteCoordinateList[wasteTypeIndex][3] &&
+                this.gameObject.transform.position.y < wasteCoordinateList[wasteTypeIndex][4])
             {   
-                if(justOnce == true)
-                {    
-                    if(i == 0)
-                        team1Point += 100;
-                    else if(i == 1)
-                        team2Point += 100;
-                }
-                Debug.Log(team1Point+" VS "+team2Point);
+                Point += 100;
+                justOnce = true;
+                Debug.Log("잘들어갔어요!");
             }
         }
     }
