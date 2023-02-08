@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AreaToCoordinate.cs" />
      <Compile Include="Assets\Scripts\RightPositionDiscriminator.cs" />
+     <Compile Include="Assets\Scripts\SoundManager.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/윤섭/CGLab/CASA/CASA/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
