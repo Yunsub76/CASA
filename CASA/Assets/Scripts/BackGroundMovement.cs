@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BackGroundMovement : MonoBehaviour {
 	public float S;
+	bool xy = true;
 
 	// Use this for initialization
 	void Start () {
@@ -12,14 +13,23 @@ public class BackGroundMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 
-		if (transform.position.x >= 750)
+		if (transform.position.x >= 150)
 		{
-			transform.position = new Vector3(-750, transform.position.y, transform.position.z);
+			xy = false;
 		}
-		else 
-		{ 
-		transform.position = new Vector3(transform.position.x + S, transform.position.y, transform.position.z);
-		Debug.Log(transform.position.x);
+		else if(transform.position.x <= -150)
+		{
+			xy = true;
+		}
+		if (xy == true) 
+		{
+			transform.position = new Vector3(transform.position.x + S, transform.position.y, transform.position.z);
+			//Debug.Log(transform.position.x);
+		}
+		if (xy == false)
+		{
+			transform.position = new Vector3(transform.position.x - S, transform.position.y, transform.position.z);
+			//Debug.Log(transform.position.x);
 		}
 	}
 }
