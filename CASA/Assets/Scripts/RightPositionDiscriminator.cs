@@ -6,7 +6,7 @@ using UnityEngine;
 public class RightPositionDiscriminator : MonoBehaviour
 {
     private int wasteTypeIndex;
-    private GameObject goodPrefab;
+    private List<GameObject> goodPrefab;
 
     private AreaToCoordinate areaToCoordinate;
     private List<float[]> wasteCoordinateList;
@@ -17,7 +17,7 @@ public class RightPositionDiscriminator : MonoBehaviour
 
     void Awake()
     {
-        goodPrefab = GameObject.Find("GameManager").GetComponent<GoodObjectList>().goodObjectList[0];
+        goodPrefab = GameObject.Find("GameManager").GetComponent<GoodObjectList>().goodObjectList;
         areaToCoordinate = GameObject.Find("GameManager").GetComponent<AreaToCoordinate>();
         wasteCoordinateList = areaToCoordinate.wasteCoordinateList;
     }
@@ -62,10 +62,11 @@ public class RightPositionDiscriminator : MonoBehaviour
                 Debug.Log("잘들어갔어요!");
                 
                 GameObject fallingTrash = GameObject.Find("fallingTrash(Clone)");
-                Transform fallingTrashPosition = fallingTrash.transform;
+                Vector3 fallingTrashPosition = fallingTrash.transform.position;
                 Destroy(fallingTrash);
-                Instantiate(goodPrefab, fallingTrashPosition);
+
+                Instantiate(goodPrefab[0], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), Quaternion.identity);
             }
         }
     }
-}
+};
