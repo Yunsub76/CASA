@@ -6,6 +6,7 @@ using UnityEngine;
 public class GenerateFallingTrash : MonoBehaviour
 {
     private Vector3 trashPosition;  
+    
     [SerializeField] GameObject fallingTrashPrefab = null;
     private GameObject fallingTrash;
     [SerializeField] GameObject GameArea;

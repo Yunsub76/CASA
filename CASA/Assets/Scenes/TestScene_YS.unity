@@ -866,7 +866,7 @@ Transform:
   m_GameObject: {fileID: 899274882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 90, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 3, y: 0.5, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1336,6 +1336,7 @@ GameObject:
   - component: {fileID: 1385128600}
   - component: {fileID: 1385128601}
   - component: {fileID: 1385128602}
+  - component: {fileID: 1385128603}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1385,6 +1386,19 @@ MonoBehaviour:
   fallingTrashPrefab: {fileID: 1841183576212074, guid: ca3e430322f983d4a8582f4a1eb73287,
     type: 2}
   GameArea: {fileID: 899274882}
+--- !u!114 &1385128603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1385128599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e6e3d26b4ccf645b35d13e207b0c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoodPrefab: {fileID: 1841183576212074, guid: 4d4c2120d9ffa934f8441f95966b9c38, type: 2}
+  goodObjectList: []
 --- !u!1 &1510576165
 GameObject:
   m_ObjectHideFlags: 0
