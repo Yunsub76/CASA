@@ -6,37 +6,81 @@ using UnityEngine;
 public class GenerateFallingTrash : MonoBehaviour
 {
     private Vector3 trashPosition;  
-    public GameObject fallingTrashPrefab = null;
+    [SerializeField] GameObject fallingTrashPrefab = null;
     private GameObject fallingTrash;
-    //public GameObject RestBall;
-    //private ResetGame ResetGame;
+    [SerializeField] GameObject GameArea;
+    private Collider GameAreaCollider = null;
+
+    private float difficultyTime = 3f;
+    private bool isTeam = false;
+
+    void Start()
+    {
+        GameAreaCollider = GameArea.GetComponent<Collider>();
+        StartCoroutine(RePositionWithDelay());
+    }
+
+    void FixedUpdate()
+    {
+        setDifficulty();
+    }
 
     void SetRandomPosition()
     {
-        float x = Random.Range(85.0f, 95.0f);
-        float z = Random.Range(-5.0f, 5.0f);
-        trashPosition = new Vector3(x, 10.0f, z);
+        float x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
+        float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
+        trashPosition = new Vector3(x, 15.0f, z);
         fallingTrash = Instantiate(fallingTrashPrefab, trashPosition, fallingTrashPrefab.transform.rotation);
+    }
+
+    void SetRandomPositionTeam()
+    {
+        if(isTeam == true)
+        {
+            float x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
+            float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
+            trashPosition = new Vector3(x, 15.0f, z);
+            fallingTrash = Instantiate(fallingTrashPrefab, trashPosition, fallingTrashPrefab.transform.rotation);
+            
+            x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
+            z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
+            trashPosition = new Vector3(x, 15.0f, z);
+            fallingTrash = Instantiate(fallingTrashPrefab, trashPosition, fallingTrashPrefab.transform.rotation);
+        }
+    }
+
+    void setDifficulty()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            difficultyTime = 4f; 
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            difficultyTime = 2f;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            isTeam = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            isTeam = true;
+        }
     }
 
     IEnumerator RePositionWithDelay()
     {
         while(true)
         {
-            //RestBall.SetActive(true);
-            yield return new WaitForSecondsRealtime(3);
-            //ResetGame.resetDelay = false;
-            //RestBall.SetActive(false);
-           
+            yield return new WaitForSecondsRealtime(difficultyTime);           
             SetRandomPosition();
-            yield return new WaitForSeconds(0.25f);
+            SetRandomPositionTeam();
         }
     }
 
-    void Start()
-    {   
-        //RestBall.SetActive(false);
-        //ResetGame = GameObject.Find("Character").GetComponent<ResetGame>();
-        StartCoroutine(RePositionWithDelay());
-    }
+    
 }
