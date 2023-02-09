@@ -7,6 +7,7 @@ public class FishMoving : MonoBehaviour {
 	public float speed =0.1f;
 
 	private Vector3 startPos;
+	public GameObject stopObj;
 
 
 	// Use this for initialization
@@ -19,8 +20,16 @@ public class FishMoving : MonoBehaviour {
 		transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
 
 		if(this.gameObject.transform.position == target.position){
-			//this.gameObject.transform.localEulerAngles.y -= 180;   // rotation y 값 -180
-			this.gameObject.transform.position = startPos;   // 타겟위치를 스타트로 바꾸기
+			//this.gameObject.transform.position.x -= 100;
+			//this.gameObject.transform.rotation.y -= 180;   // rotation y 값 -180
+			if(stopObj == null){
+				//this.gameObject.transform.position -= Vector3.up *100;
+				this.gameObject.transform.position = startPos;   // 타겟위치를 스타트로 바꾸기
+			}
+			else{
+				Destroy(this.gameObject);
+			}
+			
 		}
 	}
 }
