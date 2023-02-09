@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\BackGroundMovement.cs" />
      <Compile Include="Assets\Scripts\FishMoving.cs" />
      <Compile Include="Assets\Scripts\GenerateFallingTrash.cs" />
+     <Compile Include="Assets\Scripts\GoodObjectList.cs" />
      <Compile Include="Assets\Scripts\NameInput.cs" />
      <Compile Include="Assets\Scripts\RightPositionDiscriminator.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
