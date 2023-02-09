@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BackGroundMovement : MonoBehaviour {
-
+	public float S;
 
 	// Use this for initialization
 	void Start () {
@@ -14,11 +14,11 @@ public class BackGroundMovement : MonoBehaviour {
 
 		if (transform.position.x >= 750)
 		{
-			transform.position = new Vector3(-750, -49 + 58, 174 - 23.46576f);
+			transform.position = new Vector3(-750, 133 + 58, 6- 23.46576f);
 		}
 		else 
 		{ 
-		transform.position = new Vector3(transform.position.x + 0.1f, -49 + 58, 174 - 23.46576f);
+		transform.position = new Vector3(transform.position.x + S, 133 + 58, 6 - 23.46576f);
 		Debug.Log(transform.position.x);
 		}
 	}

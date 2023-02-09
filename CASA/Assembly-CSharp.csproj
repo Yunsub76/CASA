@@ -53,8 +53,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Saltwater fish\scripts\attack.cs" />
+     <Compile Include="Assets\Saltwater fish\scripts\FlyCamera.cs" />
+     <Compile Include="Assets\Saltwater fish\scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Saltwater fish\scripts\Shoal.cs" />
+     <Compile Include="Assets\Saltwater fish\scripts\ShoalManager.cs" />
      <Compile Include="Assets\Scripts\AreaToCoordinate.cs" />
      <Compile Include="Assets\Scripts\BackGroundMovement.cs" />
+     <Compile Include="Assets\Scripts\FishMoving.cs" />
      <Compile Include="Assets\Scripts\GenerateFallingTrash.cs" />
      <Compile Include="Assets\Scripts\NameInput.cs" />
      <Compile Include="Assets\Scripts\RightPositionDiscriminator.cs" />
@@ -68,6 +74,7 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\Saltwater fish\Readme.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
