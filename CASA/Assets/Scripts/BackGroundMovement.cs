@@ -14,11 +14,11 @@ public class BackGroundMovement : MonoBehaviour {
 
 		if (transform.position.x >= 750)
 		{
-			transform.position = new Vector3(-750, 133 + 58, 6- 23.46576f);
+			transform.position = new Vector3(-750, transform.position.y, transform.position.z);
 		}
 		else 
 		{ 
-		transform.position = new Vector3(transform.position.x + S, 133 + 58, 6 - 23.46576f);
+		transform.position = new Vector3(transform.position.x + S, transform.position.y, transform.position.z);
 		Debug.Log(transform.position.x);
 		}
 	}
