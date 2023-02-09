@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AreaToCoordinate.cs" />
+     <Compile Include="Assets\Scripts\BackGroundMovement.cs" />
      <Compile Include="Assets\Scripts\GenerateFallingTrash.cs" />
      <Compile Include="Assets\Scripts\NameInput.cs" />
      <Compile Include="Assets\Scripts\RightPositionDiscriminator.cs" />
