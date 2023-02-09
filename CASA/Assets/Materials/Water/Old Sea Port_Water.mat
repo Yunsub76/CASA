@@ -8,8 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Old Sea Port_Water
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _DETAIL_MULX2 _DETAIL_TEXTURED _EMISSION
-    _NORMALMAP _WETNESS_NONE
+  m_ShaderKeywords: _ALPHABLEND_ON _DETAIL_MULX2 _DETAIL_TEXTURED _EMISSION _NORMALMAP
+    _WETNESS_NONE
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -34,7 +34,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 0.7, y: 2}
+        m_Scale: {x: 12, y: 12}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -208,7 +208,7 @@ Material:
     - _Metallic2: 1
     - _Midpoint: -0.212
     - _MinPulseBrightness: 0
-    - _Mode: 3
+    - _Mode: 2
     - _Occlusion: 1
     - _OcclusionStrength: 1
     - _OcclusionStrength2: 0
@@ -274,7 +274,7 @@ Material:
     - _Specular: 0
     - _SpecularHighlights: 1
     - _Speed: 0.266
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _Tan2ObjCustomU: 1
     - _Tan2ObjCustomV: 1
     - _Tan2ObjMultU: 1
@@ -321,7 +321,7 @@ Material:
     - maxDist: 10
     - minDist: 1
     m_Colors:
-    - _Color: {r: 0.5226504, g: 0.5822332, b: 0.764151, a: 0.3372549}
+    - _Color: {r: 0.52156866, g: 0.7069958, b: 0.7647059, a: 0.42745098}
     - _Color2: {r: 1, g: 1, b: 1, a: 0}
     - _CurvatureMultOffset: {r: 0, g: 0, b: 0, a: 0}
     - _CutoffEdgeGlow: {r: 0, g: 0, b: 0, a: 0.02}
