@@ -14,23 +14,32 @@ public class TitleMoving : MonoBehaviour {
 	public Transform target;
 	//Vector3 target = new Vector3(0,100,0);
 
-	void Start () {
-		
-	}
-	
-	void Update () {
-		// timer += Time.deltaTime;
-		
-		// if(timer > activeTime){
-		// 	title.gameObject.SetActive(true);
-		// }
-
-		Move();
-
-	
-	}
-
 	void Move(){
 		transform.position = Vector3.SmoothDamp(transform.position, target.position, ref velo, 0.35f);
 	}
+	
+	// IEnumerator titleMove(){
+	// 	while(true){
+	// 		Move();
+	// 		yield return new WaitForSecondsRealtime(0.1f);
+
+	// 		//target.transform.position.y+= 100;
+
+	// 		//Move(target2);
+	// 	}
+
+	// }
+
+	// void Start(){
+	// 	StartCoroutine(titleMove());
+	// }
+
+	void Update(){
+		Move();
+
+		// if (this.gameObject.transform.position == target.transform.position){
+		// 	Debug.Log("Done");
+		// }
+	}
+	
 }
