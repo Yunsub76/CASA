@@ -2731,7 +2731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.20392159, g: 0.48235297, b: 0.3921569, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.14901961}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5251,9 +5251,9 @@ MonoBehaviour:
   lightS: 1
   lightH: 0.5
   positive: 1
-  positiveTargetColor: {r: 0, g: 0.5, b: 1, a: 0}
-  negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.0001
+  positiveTargetColor: {r: 0, g: 1, b: 1, a: 0}
+  negativeTargetColor: {r: 0.46226418, g: 0.3017081, b: 0.22459063, a: 0}
+  colorSpeed: 0.001
 --- !u!1 &1130676213
 GameObject:
   m_ObjectHideFlags: 0
@@ -5877,9 +5877,9 @@ MonoBehaviour:
   lightS: 0.5
   lightH: 0.5
   positive: 1
-  positiveTargetColor: {r: 0, g: 0.5, b: 1, a: 0}
-  negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.0001
+  positiveTargetColor: {r: 1, g: 1, b: 0, a: 0}
+  negativeTargetColor: {r: 0.29701132, g: 0.4716981, b: 0.14462443, a: 0}
+  colorSpeed: 0.001
 --- !u!4 &1259322344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,
@@ -6075,7 +6075,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 59, y: 146.99995}
+  m_AnchoredPosition: {x: 59, y: 159.99998}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274698903
@@ -6090,7 +6090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6462,8 +6462,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 155}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: 0.44225, y: 166}
+  m_SizeDelta: {x: 206.19, y: 25.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1313649511
 MonoBehaviour:
@@ -6677,7 +6677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0.002506733}
+  m_AnchoredPosition: {x: 0, y: 0.002506256}
   m_SizeDelta: {x: 0, y: 0.0050106}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1356706138
@@ -7362,7 +7362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.03137255, g: 0.078431375, b: 0.10588236, a: 0.19607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7580,7 +7580,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.2232111, g: 0.78071576, b: 0.8301887, a: 1}
   m_Intensity: 1
-  m_Range: 1000
+  m_Range: 1500
   m_SpotAngle: 72
   m_CookieSize: 10
   m_Shadows:
@@ -7619,10 +7619,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0
   lightH: 0.5
-  positive: 0
-  positiveTargetColor: {r: 0, g: 0.5, b: 1, a: 1}
+  positive: 1
+  positiveTargetColor: {r: 0, g: 0, b: 1, a: 1}
   negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.0001
+  colorSpeed: 0.001
 --- !u!4 &1520389720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,

@@ -10,11 +10,16 @@ public class SliderTimer : MonoBehaviour {
 	public float gameTime;
 
 	public bool stopTimer;
+	Image fillArea;
+	Color newcolor;
+	
 
 	void Start () {
 		stopTimer = false;
 		timerSlider.maxValue = gameTime;
 		timerSlider.value = gameTime;
+		fillArea = timerSlider.fillRect.GetComponent<Image>();
+		
 	}
 	
 	// Update is called once per frame
@@ -25,7 +30,12 @@ public class SliderTimer : MonoBehaviour {
 
 		string textTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
-		if(time <= 0)
+		if (time <= 10)
+        {
+			fillArea.color = new Color(1, 0, 0, 0.15f);
+
+		}
+		if (time <= 0)
         {
 			stopTimer = true;
         }
@@ -34,5 +44,6 @@ public class SliderTimer : MonoBehaviour {
 			timertext.text = textTime;
 			timerSlider.value = time;
         }
+		
 	}
 }

@@ -26,25 +26,16 @@ public class LightMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Limit the moving range of light
-		if (transform.position.x >= 250 ) 
-		{
-			loc = false;
-		}
-		else if(transform.position.x <= -250)
-		{
-			loc = true;
-		}
+		if (transform.position.x >= 250 ) {loc = false;}
+		else if(transform.position.x <= -250) {loc = true;}
 		
-		if (transform.position.y >= 100)
-		{
-			locH = false;
-		}
-		else if (transform.position.y <=30)
-		{
-			locH = true;
-		}
+		if (transform.position.y >= 100) {locH = false;}
+		else if (transform.position.y <=30) {locH = true;}
+
+		// Light Color Changing 빛의 색을 바꾸는 조건문입니다.
 		if (gm == false) Color();
-		//Light Movement function 
+
+		// Light Movement function 
 		Transform();
 	}
 
