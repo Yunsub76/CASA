@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4354515940991176}
   - component: {fileID: 33100586488404320}
   - component: {fileID: 23017913061795414}
+  - component: {fileID: 64544651604906824}
+  - component: {fileID: 54583254810712208}
   m_Layer: 0
   m_Name: Mussel_prefab
   m_TagString: Untagged
@@ -36,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1275044948922960}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39370078, y: 0.39370078, z: 0.39370078}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,4 +84,33 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1275044948922960}
+  m_Mesh: {fileID: 4300000, guid: 173ac92001546074da63f790a49d22ce, type: 3}
+--- !u!54 &54583254810712208
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275044948922960}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 20
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!64 &64544651604906824
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275044948922960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 173ac92001546074da63f790a49d22ce, type: 3}

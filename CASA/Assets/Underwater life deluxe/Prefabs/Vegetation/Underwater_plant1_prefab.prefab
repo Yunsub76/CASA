@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4520947844661886}
   - component: {fileID: 33666376395564082}
   - component: {fileID: 23745800284067880}
+  - component: {fileID: 64337126114361462}
+  - component: {fileID: 54786779471075792}
   m_Layer: 0
   m_Name: Underwater_plant1_prefab
   m_TagString: Untagged
@@ -36,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1516117533416232}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.14250809, y: 0.14250809, z: 0.14250809}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,4 +84,33 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516117533416232}
+  m_Mesh: {fileID: 4300000, guid: a6aaf8c900e89374fb6c432f9590b950, type: 3}
+--- !u!54 &54786779471075792
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516117533416232}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 20
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!64 &64337126114361462
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516117533416232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: a6aaf8c900e89374fb6c432f9590b950, type: 3}

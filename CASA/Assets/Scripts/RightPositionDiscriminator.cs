@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.IO.Compression;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,7 +65,8 @@ public class RightPositionDiscriminator : MonoBehaviour
                 Vector3 fallingTrashPosition = fallingTrash.transform.position;
                 Destroy(fallingTrash);
 
-                Instantiate(goodPrefab[0], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), Quaternion.identity);
+                int i = Random.Range(0, 7); 
+                Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), Quaternion.identity);
             }
         }
     }
