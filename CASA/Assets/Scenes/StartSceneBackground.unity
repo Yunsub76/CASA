@@ -5250,10 +5250,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 1
   lightH: 0.5
+<<<<<<< Updated upstream
   positive: 1
   positiveTargetColor: {r: 0, g: 0.5, b: 1, a: 0}
   negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
   colorSpeed: 0.0001
+=======
+  mood: 1
+  moodchange: 1
+>>>>>>> Stashed changes
 --- !u!1 &1130676213
 GameObject:
   m_ObjectHideFlags: 0
@@ -5876,10 +5881,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0.5
   lightH: 0.5
+<<<<<<< Updated upstream
   positive: 1
   positiveTargetColor: {r: 0, g: 0.5, b: 1, a: 0}
   negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
   colorSpeed: 0.0001
+=======
+  mood: 1
+  moodchange: 1
+>>>>>>> Stashed changes
 --- !u!4 &1259322344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,
@@ -7619,10 +7629,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0
   lightH: 0.5
+<<<<<<< Updated upstream
   positive: 0
   positiveTargetColor: {r: 0, g: 0.5, b: 1, a: 1}
   negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
   colorSpeed: 0.0001
+=======
+  mood: 1
+  moodchange: 1
+>>>>>>> Stashed changes
 --- !u!4 &1520389720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,
