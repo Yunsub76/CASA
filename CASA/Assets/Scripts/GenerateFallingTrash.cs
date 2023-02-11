@@ -11,10 +11,19 @@ public class GenerateFallingTrash : MonoBehaviour
     [SerializeField] private GameObject[] fallingTrashArray = new GameObject[5];
 
     [SerializeField] GameObject GameArea;
+
+    [SerializeField] GameObject soundManager;
+    private SoundManager soundManagerScript;
+
     private Collider GameAreaCollider = null;
 
     private float difficultyTime = 3f;
     private bool isTeam = false;
+
+    void Awake()
+    {
+        soundManagerScript = soundManager.GetComponent<SoundManager>();
+    }
 
     void Start()
     {
@@ -59,11 +68,15 @@ public class GenerateFallingTrash : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             difficultyTime = 4f; 
+            soundManagerScript.bGMNumber = 1;
+            soundManagerScript.BGMSound();
         }
 
         if (Input.GetKeyDown(KeyCode.N))
         {
             difficultyTime = 2f;
+            soundManagerScript.bGMNumber = 3;
+            soundManagerScript.BGMSound();
         }
 
         if(Input.GetKeyDown(KeyCode.Q))

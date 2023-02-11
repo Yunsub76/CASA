@@ -19,17 +19,19 @@ public class SoundManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(instance);
-            BGMSound(bgmList[bGMNumber]);
+            BGMSound();
         }
         else
         {
             Destroy(gameObject);
         }
     }
+    
     public void BGMVolume(float volume)
     {
         mixer.SetFloat("BGMVolume", Mathf.Log10(volume) * 20);
     }
+
     public void SFXSound(AudioClip clip)
     {
         GameObject soundGM = new GameObject("SFX Sound");
@@ -41,14 +43,13 @@ public class SoundManager : MonoBehaviour
         Destroy(soundGM, clip.length);
     }
 
-    public void BGMSound(AudioClip clip)
+    public void BGMSound()
     {
         bgm.outputAudioMixerGroup = mixer.FindMatchingGroups("BGM")[0];
-        bgm.clip = clip;
+        bgm.clip = bgmList[bGMNumber];
         bgm.loop = true;
-        bgm.volume = 0.1f;
+        bgm.volume = 1f;
         bgm.Play();
-
     }
 
 }
