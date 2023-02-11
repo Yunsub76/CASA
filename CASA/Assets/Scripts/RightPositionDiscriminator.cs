@@ -61,7 +61,7 @@ public class RightPositionDiscriminator : MonoBehaviour
                 justOnce = true;
                 Debug.Log("잘들어갔어요!");
                 
-                GameObject fallingTrash = GameObject.Find("fallingTrash(Clone)");
+                GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
                 Vector3 fallingTrashPosition = fallingTrash.transform.position;
                 Destroy(fallingTrash);
 

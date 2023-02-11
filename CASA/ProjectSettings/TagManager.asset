@@ -8,6 +8,7 @@ TagManager:
   - Paper
   - Can
   - General
+  - fallingTrash
   layers:
   - Default
   - TransparentFX

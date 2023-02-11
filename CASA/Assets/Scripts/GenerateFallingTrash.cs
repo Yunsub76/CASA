@@ -7,8 +7,9 @@ public class GenerateFallingTrash : MonoBehaviour
 {
     private Vector3 trashPosition;  
     
-    [SerializeField] GameObject fallingTrashPrefab = null;
     private GameObject fallingTrash;
+    [SerializeField] private GameObject[] fallingTrashArray = new GameObject[5];
+
     [SerializeField] GameObject GameArea;
     private Collider GameAreaCollider = null;
 
@@ -30,8 +31,9 @@ public class GenerateFallingTrash : MonoBehaviour
     {
         float x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
         float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
-        trashPosition = new Vector3(x, 15.0f, z);
-        fallingTrash = Instantiate(fallingTrashPrefab, trashPosition, fallingTrashPrefab.transform.rotation);
+        int i = Random.Range(0, 5);  
+        trashPosition = new Vector3(x, 140.0f, z);
+        fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
     }
 
     void SetRandomPositionTeam()
@@ -40,13 +42,15 @@ public class GenerateFallingTrash : MonoBehaviour
         {
             float x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
             float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
-            trashPosition = new Vector3(x, 15.0f, z);
-            fallingTrash = Instantiate(fallingTrashPrefab, trashPosition, fallingTrashPrefab.transform.rotation);
+            int i = Random.Range(0, 5); 
+            trashPosition = new Vector3(x, 140.0f, z);
+            fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
             
             x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
             z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
-            trashPosition = new Vector3(x, 15.0f, z);
-            fallingTrash = Instantiate(fallingTrashPrefab, trashPosition, fallingTrashPrefab.transform.rotation);
+            i = Random.Range(0, 5); 
+            trashPosition = new Vector3(x, 140.0f, z);
+            fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
         }
     }
 
