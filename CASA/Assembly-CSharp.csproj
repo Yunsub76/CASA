@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\LightMovement.cs" />
      <Compile Include="Assets\Scripts\NameInput.cs" />
      <Compile Include="Assets\Scripts\RightPositionDiscriminator.cs" />
+     <Compile Include="Assets\Scripts\SliderTimer.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\TitleMoving.cs" />
