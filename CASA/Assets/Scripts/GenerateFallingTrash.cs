@@ -19,6 +19,7 @@ public class GenerateFallingTrash : MonoBehaviour
 
     private float difficultyTime = 3f;
     private bool isTeam = false;
+    public bool positive = true;
 
     void Awake()
     {
@@ -43,6 +44,7 @@ public class GenerateFallingTrash : MonoBehaviour
         int i = Random.Range(0, 5);  
         trashPosition = new Vector3(x, 140.0f, z);
         fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
     }
 
     void SetRandomPositionTeam()
@@ -54,12 +56,14 @@ public class GenerateFallingTrash : MonoBehaviour
             int i = Random.Range(0, 5); 
             trashPosition = new Vector3(x, 140.0f, z);
             fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
-            
+            soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
+
             x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
             z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
             i = Random.Range(0, 5); 
             trashPosition = new Vector3(x, 140.0f, z);
             fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
+            soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
         }
     }
 
@@ -70,6 +74,8 @@ public class GenerateFallingTrash : MonoBehaviour
             difficultyTime = 4f; 
             soundManagerScript.bGMNumber = 1;
             soundManagerScript.BGMSound();
+            positive = true;
+            Debug.Log(positive);
         }
 
         if (Input.GetKeyDown(KeyCode.N))
@@ -77,6 +83,8 @@ public class GenerateFallingTrash : MonoBehaviour
             difficultyTime = 2f;
             soundManagerScript.bGMNumber = 3;
             soundManagerScript.BGMSound();
+            positive = false;
+            Debug.Log(positive);
         }
 
         if(Input.GetKeyDown(KeyCode.Q))

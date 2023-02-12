@@ -15,11 +15,14 @@ public class RightPositionDiscriminator : MonoBehaviour
     private int Point = 0;
     private bool justOnce = false;
 
+    private SoundManager soundManagerScript;
+
     void Awake()
     {
         goodPrefab = GameObject.Find("GameManager").GetComponent<GoodObjectList>().goodObjectList;
         areaToCoordinate = GameObject.Find("GameManager").GetComponent<AreaToCoordinate>();
         wasteCoordinateList = areaToCoordinate.wasteCoordinateList;
+        soundManagerScript = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     void Start()
@@ -64,6 +67,7 @@ public class RightPositionDiscriminator : MonoBehaviour
                 GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
                 Vector3 fallingTrashPosition = fallingTrash.transform.position;
                 Destroy(fallingTrash);
+                soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
 
                 int i = Random.Range(0, 14); 
                 Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), goodPrefab[i].transform.rotation);

@@ -7,17 +7,22 @@ public class LightMovement : MonoBehaviour {
 	public float lightH;
 	bool loc = true;
 	bool locH = true;
-	public bool positive = true;
+	private bool positive;
 	Light lightColor;
 	Color color;
 	public Color positiveTargetColor;
 	public Color negativeTargetColor;
 	public float colorSpeed;
-	bool gm; 
+	bool gm;
+	GameObject gameManager;
 
-
+	void Awake()
+    {
+		gameManager = GameObject.Find("GameManager");
+		gm = gameManager.GetComponent<SliderTimer>().stopTimer;
+	}
 	void Start () {
-		gm = GameObject.Find("GameManager").GetComponent<SliderTimer>().stopTimer;
+		
 		lightColor = GetComponent<Light>();
 		lightColor.color = new Color(0.1960784f, 0.7843137f, 0.7843137f, 1f); // Basic Color
 		
@@ -33,7 +38,8 @@ public class LightMovement : MonoBehaviour {
 		else if (transform.position.y <=30) {locH = true;}
 
 		// Light Color Changing 빛의 색을 바꾸는 조건문입니다.
-		if (gm == false) Color();
+		Color();
+		//Debug.Log(gameManager.GetComponent<GenerateFallingTrash>().positive + "light");
 
 		// Light Movement function 
 		Transform();
@@ -51,7 +57,7 @@ public class LightMovement : MonoBehaviour {
 	void Color()
     {
 
-		if (positive == true) // positiveTargetColor색으로 변경
+		if (gameManager.GetComponent<GenerateFallingTrash>().positive == true) // positiveTargetColor색으로 변경
 		{
 			if (lightColor.color.r <= positiveTargetColor.r) lightColor.color = new Color(lightColor.color.r + colorSpeed, lightColor.color.g, lightColor.color.b);
 			else lightColor.color = new Color(lightColor.color.r - colorSpeed, lightColor.color.g, lightColor.color.b);
@@ -60,7 +66,7 @@ public class LightMovement : MonoBehaviour {
 			if (lightColor.color.b <= positiveTargetColor.b) lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b + colorSpeed);
 			else lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b - colorSpeed);
 		}
-		else if (positive == false)  // negativeTargetColor색으로 변경
+		else if (gameManager.GetComponent<GenerateFallingTrash>().positive == false)  // negativeTargetColor색으로 변경
 		{
 			if (lightColor.color.r <= negativeTargetColor.r) lightColor.color = new Color(lightColor.color.r + colorSpeed, lightColor.color.g, lightColor.color.b);
 			else lightColor.color = new Color(lightColor.color.r - colorSpeed, lightColor.color.g, lightColor.color.b);
