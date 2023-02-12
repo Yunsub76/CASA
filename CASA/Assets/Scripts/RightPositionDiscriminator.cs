@@ -65,7 +65,7 @@ public class RightPositionDiscriminator : MonoBehaviour
                 Vector3 fallingTrashPosition = fallingTrash.transform.position;
                 Destroy(fallingTrash);
 
-                int i = Random.Range(0, 7); 
+                int i = Random.Range(0, 14); 
                 Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), goodPrefab[i].transform.rotation);
             }
         }
