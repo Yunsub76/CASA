@@ -3946,6 +3946,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114120445509965884, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: sFXList.Array.size
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4693327590132568, guid: 8a5bc0903dfbf7741a372043548dbc26, type: 2}
       propertyPath: m_LocalPosition.x
       value: 16.882221
@@ -4031,6 +4036,31 @@ Prefab:
     - target: {fileID: 114120445509965884, guid: 8a5bc0903dfbf7741a372043548dbc26,
         type: 2}
       propertyPath: sFXList.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: a0b593e7a53a8504dafba31d14000ab9, type: 3}
+    - target: {fileID: 114120445509965884, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: sFXList.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6635f9609d0cd045aa33e0224d3d098, type: 3}
+    - target: {fileID: 114120445509965884, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: sFXList.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e84cf1605911b74a9d9449e0ca50f3b, type: 3}
+    - target: {fileID: 114120445509965884, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: sFXList.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: 988726bb4a7f2064aa37134dd062f71b, type: 3}
+    - target: {fileID: 114120445509965884, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: sFXList.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f5b1f76d0c380549a767231ee0f7db6, type: 3}
+    - target: {fileID: 114120445509965884, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: sFXList.Array.data[14]
       value: 
       objectReference: {fileID: 8300000, guid: a0b593e7a53a8504dafba31d14000ab9, type: 3}
     m_RemovedComponents: []
@@ -5688,7 +5718,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 1
   lightH: 0.5
-  positive: 1
   positiveTargetColor: {r: 0, g: 1, b: 1, a: 0}
   negativeTargetColor: {r: 0.46226418, g: 0.3017081, b: 0.22459063, a: 0}
   colorSpeed: 0.001
@@ -6314,7 +6343,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0.5
   lightH: 0.5
-  positive: 1
   positiveTargetColor: {r: 1, g: 1, b: 0, a: 0}
   negativeTargetColor: {r: 0.29701132, g: 0.4716981, b: 0.14462443, a: 0}
   colorSpeed: 0.001
@@ -8263,7 +8291,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0
   lightH: 0.5
-  positive: 1
   positiveTargetColor: {r: 0, g: 0, b: 1, a: 1}
   negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
   colorSpeed: 0.001
