@@ -9,6 +9,7 @@ TagManager:
   - Can
   - General
   - fallingTrash
+  - Ground
   layers:
   - Default
   - TransparentFX
