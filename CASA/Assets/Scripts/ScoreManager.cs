@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour {
 
     public int score = 0;
-    public int changeLightNum = 0;
+    public bool changeLightNum = false;
     [SerializeField] Text ScoreTextUI;
 
    void Update()
