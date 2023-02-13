@@ -74,6 +74,11 @@
      <Compile Include="Assets\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\TitleMoving.cs" />
+     <Compile Include="Assets\Scripts\titleUp.cs" />
+     <Compile Include="Assets\Scripts\UI_ActiveScript.cs" />
+     <Compile Include="Assets\Scripts\UI_MouseEvent.cs" />
+     <Compile Include="Assets\Scripts\UI_rankMoving.cs" />
+     <Compile Include="Assets\Scripts\UI_TypingEff.cs" />
      <Compile Include="Assets\Underwater life deluxe\Scripts\GhostFreeRoamCamera\Scripts\GhostFreeRoamCamera.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
