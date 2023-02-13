@@ -7,9 +7,24 @@ public class LoadManager : MonoBehaviour
 {
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.F5))
 		{
-			SceneManager.LoadSceneAsync("StartSceneBackground");
+			restart();
 		}
+
+		if (Input.GetKeyDown(KeyCode.RightArrow))
+		{
+			restart();
+		}
+	}
+
+	void restart()
+    {
+		SceneManager.LoadSceneAsync("StartSceneBackground");
+	}
+
+	void loadInGameScene()
+    {
+		SceneManager.LoadSceneAsync("StartSceneBackground");
 	}
 }
