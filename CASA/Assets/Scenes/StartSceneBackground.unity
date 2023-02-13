@@ -2151,7 +2151,7 @@ Prefab:
         type: 2}
       propertyPath: fallingTrashArray.Array.data[1]
       value: 
-      objectReference: {fileID: 1829877317461458, guid: 99429e41f5d302b4c884d2f8f58d0f71,
+      objectReference: {fileID: 1298573617301450, guid: 60a98c5288444a847a8c6979874633a9,
         type: 2}
     - target: {fileID: 114093895978835220, guid: 1f33040a307852c4bb589c5b90bece73,
         type: 2}
@@ -8549,7 +8549,7 @@ RectTransform:
   m_GameObject: {fileID: 1313649509}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.8831, y: 1.9474, z: 1}
+  m_LocalScale: {x: 3.481005, y: 1.9474, z: 1}
   m_Children:
   - {fileID: 1472939006}
   - {fileID: 1345072035}
@@ -8559,8 +8559,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -18, y: -3}
-  m_SizeDelta: {x: 97.8, y: 25}
+  m_AnchoredPosition: {x: -17.1, y: -10.51}
+  m_SizeDelta: {x: 113.6, y: 25}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1313649511
 MonoBehaviour:
@@ -10284,8 +10284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 1313649511}
-  timertext: {fileID: 1274698903}
-  gameTime: 90
+  gameTime: 91
   stopTimer: 0
 --- !u!114 &1526821699
 MonoBehaviour:
@@ -10768,8 +10767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444092, y: -0.000061035156}
-  m_SizeDelta: {x: 97.8, y: 25}
+  m_AnchoredPosition: {x: 1.1899986, y: -0.27999973}
+  m_SizeDelta: {x: 115.35, y: 25.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656570820
 MonoBehaviour:
@@ -10916,13 +10915,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1669815196}
-  m_LocalRotation: {x: 0.021361593, y: -0, z: -0, w: 0.99977183}
-  m_LocalPosition: {x: 0, y: 53.61743, z: -52.03}
+  m_LocalRotation: {x: -0.010166259, y: -0, z: -0, w: 0.9999484}
+  m_LocalPosition: {x: 0, y: 53.61743, z: -74.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 2.4480002, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.1650001, y: 0, z: 0}
 --- !u!45 &1669815200
 Skybox:
   m_ObjectHideFlags: 0

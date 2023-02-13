@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class SliderTimer : MonoBehaviour 
 {
 	public Slider timerSlider;
-	public Text timertext;
 	public float gameTime;
 
 	public bool stopTimer;
@@ -26,10 +25,9 @@ public class SliderTimer : MonoBehaviour
 		if(gameTime > 0)
 		{ 
 			gameTime = gameTime - Time.deltaTime;
+			Debug.Log(gameTime);
 			int minutes = Mathf.FloorToInt(gameTime / 60);
 			int seconds = Mathf.FloorToInt(gameTime - minutes * 60f);
-
-			string textTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
 			if (gameTime <= 10)
 			{
@@ -42,7 +40,6 @@ public class SliderTimer : MonoBehaviour
 			}
 			if (stopTimer == false)
 			{
-				timertext.text = textTime;
 				timerSlider.value = gameTime;
 			}
 		}

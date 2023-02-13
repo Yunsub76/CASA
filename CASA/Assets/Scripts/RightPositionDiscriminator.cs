@@ -16,6 +16,7 @@ public class RightPositionDiscriminator : MonoBehaviour
     private int type = 0;
     private int score;
     private bool justOnce = false;
+    private bool IsSingle;
 
     private SoundManager soundManagerScript;
 
@@ -25,6 +26,8 @@ public class RightPositionDiscriminator : MonoBehaviour
         goodPrefab = gameManager.GetComponent<GoodObjectList>().goodObjectList;
         areaToCoordinate = gameManager.GetComponent<AreaToCoordinate>();
         score = gameManager.GetComponent<ScoreManager>().score;
+        IsSingle = gameManager.GetComponent<GenerateFallingTrash>().isSingle;
+
         wasteCoordinateList = areaToCoordinate.wasteCoordinateList;
         soundManagerScript = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
@@ -68,6 +71,7 @@ public class RightPositionDiscriminator : MonoBehaviour
                 gameManager.GetComponent<ScoreManager>().changeLightNum += 5;
                 justOnce = true;
                 changingTrash();
+                
             }
         }
     }
@@ -83,6 +87,15 @@ public class RightPositionDiscriminator : MonoBehaviour
 
             int i = Random.Range(0, 14);
             Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), goodPrefab[i].transform.rotation);
+            if(IsSingle == true)
+            {
+                int Ra = Random.Range(20, 35);
+                int Rb = Random.Range(20, 35);
+                int Rc = Random.Range(-15, 0);
+                Debug.Log(IsSingle);
+                Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x + Ra + Rc, fallingTrashPosition.y, fallingTrashPosition.z + Rb), goodPrefab[i].transform.rotation);
+                Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x + Rb + Rc, fallingTrashPosition.y, fallingTrashPosition.z + Ra), goodPrefab[i].transform.rotation);
+            }
         }    
     }
 };

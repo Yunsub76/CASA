@@ -20,6 +20,7 @@ public class GenerateFallingTrash : MonoBehaviour
 
     private float difficultyTime = 3f;
     private bool isTeam = false;
+    public bool isSingle = true;
     public bool positive = true;
 
     void Awake()
@@ -92,23 +93,23 @@ public class GenerateFallingTrash : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q))
         {
             isTeam = false;
+            isSingle = true;
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
             isTeam = true;
+            isSingle = false;
         }
     }
 
     IEnumerator RePositionWithDelay()
     {
-        while(sliderTimer.gameTime > 0)
+        while(sliderTimer.gameTime > 1)
         {
             yield return new WaitForSecondsRealtime(difficultyTime);           
             SetRandomPosition();
             SetRandomPositionTeam();
         }
     }
-
-    
 }
