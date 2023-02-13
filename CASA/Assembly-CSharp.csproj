@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\GenerateFallingTrash.cs" />
      <Compile Include="Assets\Scripts\GoodObjectList.cs" />
      <Compile Include="Assets\Scripts\IsGroundedStop.cs" />
+     <Compile Include="Assets\Scripts\LightManager.cs" />
      <Compile Include="Assets\Scripts\LightMovement.cs" />
      <Compile Include="Assets\Scripts\LoadManager.cs" />
      <Compile Include="Assets\Scripts\NameInput.cs" />
