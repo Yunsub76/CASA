@@ -24,7 +24,7 @@ public class SliderTimer : MonoBehaviour
 		if(gameTime2 < 91)
 		{ 
 			gameTime2 = gameTime2 + Time.deltaTime;
-			Debug.Log(gameTime2);
+			//Debug.Log(gameTime2);
 			int minutes = Mathf.FloorToInt(gameTime / 60);
 			int seconds = Mathf.FloorToInt(gameTime - minutes * 60f);
 
