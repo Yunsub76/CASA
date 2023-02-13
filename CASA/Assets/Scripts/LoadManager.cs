@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class LoadManager : MonoBehaviour
 {
+	public bool pause = false;
+
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.F5))
@@ -14,7 +17,19 @@ public class LoadManager : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.RightArrow))
 		{
-			restart();
+			loadInGameScene();
+		}
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+			if(pause == false)
+            {
+				pauseGame();
+			}
+            else
+            {
+				resumeGame();
+			}
 		}
 	}
 
@@ -26,5 +41,17 @@ public class LoadManager : MonoBehaviour
 	void loadInGameScene()
     {
 		SceneManager.LoadSceneAsync("StartSceneBackground");
+	}
+
+	void pauseGame()
+    {
+		Time.timeScale = 0f;
+		pause = true;
+	}
+
+	void resumeGame()
+    {
+		Time.timeScale = 1.0f;
+		pause = false;
 	}
 }
