@@ -148,7 +148,7 @@ Transform:
   - {fileID: 2029551548}
   - {fileID: 1681723068}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &9529982 stripped
 Transform:
@@ -326,7 +326,7 @@ Transform:
   - {fileID: 160336962}
   - {fileID: 742309270}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &72557856 stripped
 Transform:
@@ -505,7 +505,7 @@ Transform:
   m_LocalScale: {x: 500, y: 1, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &116381287
 Prefab:
@@ -768,7 +768,7 @@ Transform:
   m_LocalScale: {x: 220, y: 10, z: 150}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &149417989
 GameObject:
@@ -2612,7 +2612,7 @@ Transform:
   - {fileID: 1137010284}
   - {fileID: 889023805}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &406257801
 Prefab:
@@ -4035,6 +4035,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,
     type: 3}
   m_PrefabInternal: {fileID: 1430295826}
+--- !u!1 &652536793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652536795}
+  - component: {fileID: 652536794}
+  m_Layer: 0
+  m_Name: LightManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &652536794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 652536793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd451e9e754d22d47a53df0e253a72fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 1518405491}
+  - {fileID: 1258404396}
+  - {fileID: 1108840606}
+  - {fileID: 1137010286}
+  - {fileID: 889023807}
+  positiveTargetColor:
+  - {r: 0, g: 0.7994144, b: 1, a: 0}
+  - {r: 0, g: 0.8867924, b: 0.8330976, a: 0}
+  - {r: 1, g: 0.97835296, b: 0.3066038, a: 0}
+  - {r: 0.75, g: 0.9876416, b: 1, a: 0}
+  - {r: 0.2971698, g: 0.90330535, b: 1, a: 0}
+  positiveChangeSpeed: 0.05
+  negativeTargetColor:
+  - {r: 0, g: 0.6698113, b: 0.03082809, a: 0}
+  - {r: 0, g: 0.6981132, b: 0.07027979, a: 0}
+  - {r: 0.546878, g: 0.6981132, b: 0.3457636, a: 0}
+  - {r: 0.6415094, g: 0.46454316, b: 0.2208971, a: 0}
+  - {r: 0.09656461, g: 0.6603774, b: 0.50196123, a: 0}
+  negativeChangeSpeed: 0.0005
+--- !u!4 &652536795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 652536793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -110.314606, y: 329.1668, z: 341.6509}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &662421149
 Prefab:
   m_ObjectHideFlags: 0
@@ -4438,7 +4498,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4693327590132568, guid: 8a5bc0903dfbf7741a372043548dbc26, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114120445509965884, guid: 8a5bc0903dfbf7741a372043548dbc26,
         type: 2}
@@ -4672,7 +4732,7 @@ Transform:
   m_LocalScale: {x: 2000, y: 1, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!4 &731241896 stripped
 Transform:
@@ -5666,9 +5726,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0
   lightH: 0.2
-  positiveTargetColor: {r: 0, g: 0, b: 1, a: 1}
-  negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.0002
 --- !u!108 &889023807
 Light:
   m_ObjectHideFlags: 0
@@ -6793,9 +6850,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 1
   lightH: 0.5
-  positiveTargetColor: {r: 0, g: 1, b: 1, a: 0}
-  negativeTargetColor: {r: 0.46226418, g: 0.3017081, b: 0.22459063, a: 0}
-  colorSpeed: 0.0002
 --- !u!4 &1122384692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4844151859411952, guid: a5bdd0d59ba09e74ea2e3d22d5f0895b,
@@ -6945,9 +6999,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0
   lightH: 0.1
-  positiveTargetColor: {r: 0, g: 0, b: 1, a: 1}
-  negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.0002
 --- !u!108 &1137010286
 Light:
   m_ObjectHideFlags: 0
@@ -7818,9 +7869,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0.5
   lightH: 0.5
-  positiveTargetColor: {r: 1, g: 1, b: 0, a: 0}
-  negativeTargetColor: {r: 0.29701132, g: 0.4716981, b: 0.14462443, a: 0}
-  colorSpeed: 0.0002
 --- !u!4 &1259322344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,
@@ -8052,7 +8100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1274698901
 GameObject:
@@ -8523,7 +8571,7 @@ Transform:
   - {fileID: 523510995}
   - {fileID: 790394409}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1313649509
 GameObject:
@@ -10126,9 +10174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0
   lightH: 0.5
-  positiveTargetColor: {r: 0, g: 0, b: 1, a: 1}
-  negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.0002
 --- !u!4 &1520389720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,
@@ -10920,7 +10965,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -1.1650001, y: 0, z: 0}
 --- !u!45 &1669815200
 Skybox:
