@@ -9,10 +9,17 @@ public class NameInput : MonoBehaviour {
 	public GameObject timerUI;
 	
 	public InputField playerNameInput;
-	private string playerName = null;
+	private string playerName = null;	
+
+	public GameObject rankTitle;
+	public GameObject rankGroup;
+	public GameObject title;
+
+
 
 	private void Awake(){
 		playerName = playerNameInput.GetComponent<InputField>().text;
+
 	}
 
 	// Use this for initialization
@@ -23,11 +30,16 @@ public class NameInput : MonoBehaviour {
 	// Update is called once per frame
 	private void Update () {
 		if(Input.GetKeyDown(KeyCode.Return)){
-			gameObject.SetActive(false);
+			this.gameObject.SetActive(false);
+			Destroy(rankTitle);
+			Destroy(rankGroup);
+			Destroy(this.gameObject);
+			Destroy(title);
+
 			startUI.gameObject.SetActive(true);
 			playerName = playerNameInput.text;
-			Name.text = playerName + ",";
-			timerUI.gameObject.SetActive(true);
+			Name.text = playerName + "!";
+			//timerUI.gameObject.SetActive(true);
 
 		}
 	}
