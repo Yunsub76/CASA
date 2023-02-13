@@ -39,7 +39,7 @@ public class NameInput : MonoBehaviour {
 			startUI.gameObject.SetActive(true);
 			playerName = playerNameInput.text;
 			Name.text = playerName + "!";
-			timerUI.gameObject.SetActive(true);
+			//timerUI.gameObject.SetActive(true);
 
 		}
 	}
