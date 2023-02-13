@@ -90,9 +90,9 @@ public class RightPositionDiscriminator : MonoBehaviour
             if(IsSingle == true)
             {
                 int Ra = Random.Range(20, 35);
-                int Rb = Random.Range(20, 35);
-                int Rc = Random.Range(-15, 0);
-                Debug.Log(IsSingle);
+                int Rb = Random.Range(15, 40);
+                int Rc = Random.Range(-10, 0);
+     
                 Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x + Ra + Rc, fallingTrashPosition.y, fallingTrashPosition.z + Rb), goodPrefab[i].transform.rotation);
                 Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x + Rb + Rc, fallingTrashPosition.y, fallingTrashPosition.z + Ra), goodPrefab[i].transform.rotation);
             }

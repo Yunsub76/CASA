@@ -6,7 +6,7 @@ public class SliderTimer : MonoBehaviour
 {
 	public Slider timerSlider;
 	public float gameTime;
-	float gameTime2;
+	public float gameTime2;
 	public bool stopTimer;
 	Image fillArea;
 	Color newcolor;
