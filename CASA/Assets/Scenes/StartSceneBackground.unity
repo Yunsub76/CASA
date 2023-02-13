@@ -10072,7 +10072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 1680588231}
-  gameTime: 15
+  gameTime: 91
   gameTime2: 0
   stopTimer: 0
 --- !u!114 &1526821699
@@ -10086,6 +10086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f1371b27576574dbe77c61e344d3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pause: 0
 --- !u!114 &1526821700
 MonoBehaviour:
   m_ObjectHideFlags: 0
