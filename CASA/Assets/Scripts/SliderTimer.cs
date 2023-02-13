@@ -6,41 +6,35 @@ public class SliderTimer : MonoBehaviour
 {
 	public Slider timerSlider;
 	public float gameTime;
-
+	float gameTime2;
 	public bool stopTimer;
 	Image fillArea;
 	Color newcolor;
 	
 
 	void Awake() {
-		gameTime = 91;
 		stopTimer = false;
 		timerSlider.maxValue = gameTime;
-		timerSlider.value = gameTime;
+		timerSlider.value = gameTime2;
 		fillArea = timerSlider.fillRect.GetComponent<Image>();
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if(gameTime > 0)
+		if(gameTime2 < 91)
 		{ 
-			gameTime = gameTime - Time.deltaTime;
-			Debug.Log(gameTime);
+			gameTime2 = gameTime2 + Time.deltaTime;
+			Debug.Log(gameTime2);
 			int minutes = Mathf.FloorToInt(gameTime / 60);
 			int seconds = Mathf.FloorToInt(gameTime - minutes * 60f);
 
-			if (gameTime <= 10)
-			{
-				fillArea.color = new Color(1, 0, 0, 0.15f);
-
-			}
-			if (gameTime <= 0)
+			if (gameTime2 >= gameTime)
 			{
 				stopTimer = true;
 			}
 			if (stopTimer == false)
 			{
-				timerSlider.value = gameTime;
+				timerSlider.value = gameTime2;
 			}
 		}
 	}
