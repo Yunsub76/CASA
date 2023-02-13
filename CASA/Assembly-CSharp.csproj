@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\LoadManager.cs" />
      <Compile Include="Assets\Scripts\NameInput.cs" />
      <Compile Include="Assets\Scripts\RightPositionDiscriminator.cs" />
+     <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\SliderTimer.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />

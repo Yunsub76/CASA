@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RightPositionDiscriminator : MonoBehaviour
 {
+    private GameObject gameManager;
+
     private int wasteTypeIndex;
     private List<GameObject> goodPrefab;
 
@@ -12,15 +14,17 @@ public class RightPositionDiscriminator : MonoBehaviour
     private List<float[]> wasteCoordinateList;
     
     private int type = 0;
-    private int Point = 0;
+    private int score;
     private bool justOnce = false;
 
     private SoundManager soundManagerScript;
 
     void Awake()
     {
-        goodPrefab = GameObject.Find("GameManager").GetComponent<GoodObjectList>().goodObjectList;
-        areaToCoordinate = GameObject.Find("GameManager").GetComponent<AreaToCoordinate>();
+        gameManager = GameObject.Find("GameManager");
+        goodPrefab = gameManager.GetComponent<GoodObjectList>().goodObjectList;
+        areaToCoordinate = gameManager.GetComponent<AreaToCoordinate>();
+        score = gameManager.GetComponent<ScoreManager>().score;
         wasteCoordinateList = areaToCoordinate.wasteCoordinateList;
         soundManagerScript = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
@@ -59,8 +63,8 @@ public class RightPositionDiscriminator : MonoBehaviour
                 this.gameObject.transform.position.z > wasteCoordinateList[wasteTypeIndex][2] &&
                 this.gameObject.transform.position.z < wasteCoordinateList[wasteTypeIndex][3] &&
                 this.gameObject.transform.position.y < wasteCoordinateList[wasteTypeIndex][4])
-            {   
-                Point += 100;
+            {
+                score += 100;
                 justOnce = true;
                 changingTrash();
             }
