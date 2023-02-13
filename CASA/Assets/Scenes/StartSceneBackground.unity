@@ -148,7 +148,7 @@ Transform:
   - {fileID: 2029551548}
   - {fileID: 1681723068}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &9529982 stripped
 Transform:
@@ -326,7 +326,7 @@ Transform:
   - {fileID: 160336962}
   - {fileID: 742309270}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &72557856 stripped
 Transform:
@@ -505,7 +505,7 @@ Transform:
   m_LocalScale: {x: 500, y: 1, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &116381287
 Prefab:
@@ -768,7 +768,7 @@ Transform:
   m_LocalScale: {x: 220, y: 10, z: 150}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &149417989
 GameObject:
@@ -1093,7 +1093,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &183693486
 MonoBehaviour:
@@ -1107,24 +1107,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lights:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1518405491}
+  - {fileID: 1258404396}
+  - {fileID: 1108840606}
+  - {fileID: 1137010286}
+  - {fileID: 889023807}
   positiveTargetColor:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  NegativeTargetColor:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  lightIntensity: 0
+  - {r: 0.6933962, g: 0.7732882, b: 1, a: 0}
+  - {r: 0.25, g: 0.43489558, b: 1, a: 0}
+  - {r: 1, g: 0.9241804, b: 0.3915094, a: 0}
+  - {r: 0.25943398, g: 0.78409636, b: 1, a: 0}
+  - {r: 0.7311321, g: 0.8756103, b: 1, a: 0}
+  positiveChangeSpeed: 0.05
+  negativeTargetColor:
+  - {r: 0, g: 0.6132076, b: 0.038556762, a: 0}
+  - {r: 0.37134308, g: 0.6037736, b: 0, a: 0}
+  - {r: 0.7735849, g: 0.59912604, b: 0, a: 0}
+  - {r: 0.05420078, g: 0.5471698, b: 0.5185302, a: 0}
+  - {r: 0.18532813, g: 0.41509432, b: 0.13510145, a: 0}
+  negativeChangeSpeed: 0.001
 --- !u!114 &183693487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,9 +1139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0
   lightH: 0
-  positiveTargetColor: {r: 0, g: 0, b: 0, a: 0}
-  negativeTargetColor: {r: 0, g: 0, b: 0, a: 0}
-  colorSpeed: 0
 --- !u!1001 &188659724
 Prefab:
   m_ObjectHideFlags: 0
@@ -2726,7 +2724,7 @@ Transform:
   - {fileID: 1137010284}
   - {fileID: 889023805}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &406257801
 Prefab:
@@ -4786,7 +4784,7 @@ Transform:
   m_LocalScale: {x: 2000, y: 1, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!4 &731241896 stripped
 Transform:
@@ -5704,9 +5702,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0
   lightH: 0.2
-  positiveTargetColor: {r: 0, g: 0, b: 1, a: 1}
-  negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.0002
 --- !u!108 &889023807
 Light:
   m_ObjectHideFlags: 0
@@ -6831,9 +6826,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 1
   lightH: 0.5
-  positiveTargetColor: {r: 0, g: 1, b: 1, a: 0}
-  negativeTargetColor: {r: 0.46226418, g: 0.3017081, b: 0.22459063, a: 0}
-  colorSpeed: 0.0002
 --- !u!4 &1122384692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4844151859411952, guid: a5bdd0d59ba09e74ea2e3d22d5f0895b,
@@ -6983,9 +6975,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0
   lightH: 0.1
-  positiveTargetColor: {r: 0.5518868, g: 1, b: 1, a: 1}
-  negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.0002
 --- !u!108 &1137010286
 Light:
   m_ObjectHideFlags: 0
@@ -7856,9 +7845,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0.5
   lightH: 0.5
-  positiveTargetColor: {r: 1, g: 1, b: 0, a: 0}
-  negativeTargetColor: {r: 0.29701132, g: 0.4716981, b: 0.14462443, a: 0}
-  colorSpeed: 0.0002
 --- !u!4 &1259322344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,
@@ -8090,7 +8076,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1274698901
 GameObject:
@@ -8561,7 +8547,7 @@ Transform:
   - {fileID: 523510995}
   - {fileID: 790394409}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1313649509
 GameObject:
@@ -10164,9 +10150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightS: 0
   lightH: 0.5
-  positiveTargetColor: {r: 0, g: 0, b: 1, a: 1}
-  negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.0002
 --- !u!4 &1520389720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,
@@ -10349,6 +10332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   changeLightNum: 0
+  ScoreTextUI: {fileID: 1274698903}
 --- !u!1 &1534982488
 GameObject:
   m_ObjectHideFlags: 0
@@ -10958,7 +10942,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 2.4480002, y: 0, z: 0}
 --- !u!45 &1669815200
 Skybox:
