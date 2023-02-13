@@ -23,6 +23,8 @@ public class GenerateFallingTrash : MonoBehaviour
     public bool isSingle = true;
     public bool positive = true;
 
+    private LoadManager loadManager;
+
     [SerializeField] private GameObject PositiveEnding;
     [SerializeField] private GameObject NegativeEnding;
     [SerializeField] private GameObject NPCs;
@@ -31,6 +33,8 @@ public class GenerateFallingTrash : MonoBehaviour
     {
         soundManagerScript = soundManager.GetComponent<SoundManager>();
         sliderTimer = this.GetComponent<SliderTimer>();
+
+        loadManager = this.GetComponent<LoadManager>();
     }
 
     void Start()
@@ -61,14 +65,14 @@ public class GenerateFallingTrash : MonoBehaviour
             float x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
             float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
             int i = Random.Range(0, 5); 
-            trashPosition = new Vector3(x, 140.0f, z);
+            trashPosition = new Vector3(x, 130.0f, z);
             fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
             soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
 
             x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
             z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
             i = Random.Range(0, 5); 
-            trashPosition = new Vector3(x, 140.0f, z);
+            trashPosition = new Vector3(x, 130.0f, z);
             fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
             soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
         }
@@ -111,37 +115,48 @@ public class GenerateFallingTrash : MonoBehaviour
     {
         while (true)
         {
-            if (sliderTimer.gameTime2 < 89)
+            if (!loadManager.pause)
             {
+                if (sliderTimer.gameTime2 < 89)
+                {
 
-                yield return new WaitForSecondsRealtime(difficultyTime);
-                SetRandomPosition();
-                SetRandomPositionTeam();
+                    yield return new WaitForSecondsRealtime(difficultyTime);
+                    SetRandomPosition();
+                    SetRandomPositionTeam();
+                }
+                else
+                {
+                    yield return new WaitForSecondsRealtime(3);
 
+                    endingSystem();
+
+                    break;
+                }
             }
             else
             {
-                yield return new WaitForSecondsRealtime(3);
-                if (positive == true)
-                {
-                    GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
-                    if (fallingTrash != null)
-                    {
-                        Vector3 fallingTrashPosition = fallingTrash.transform.position;
-                        Destroy(fallingTrash);
-                    }
-                    ForPositiveEnding();
-                }
-                else if (positive == false)
-                {
-                    ForNegativeEnding();
-                }
-
-                break;
+                yield return new WaitForSecondsRealtime(1);
             }
         }
     }
 
+    void endingSystem()
+    {
+        if (positive == true)
+        {
+            GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
+            if (fallingTrash != null)
+            {
+                Vector3 fallingTrashPosition = fallingTrash.transform.position;
+                Destroy(fallingTrash);
+            }
+            ForPositiveEnding();
+        }
+        else if (positive == false)
+        {
+            ForNegativeEnding();
+        }
+    }
     void ForPositiveEnding()
     {
         PositiveEnding.SetActive(true);
@@ -150,7 +165,6 @@ public class GenerateFallingTrash : MonoBehaviour
     void ForNegativeEnding()
     {
         NegativeEnding.SetActive(true);
-        Debug.Log("ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ");
         NPCs.SetActive(false);
     }
 }
