@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
     public int score = 0;
     public int changeLightNum = 0;
+    [SerializeField] Text ScoreTextUI;
 
    void Update()
     {
-        //Debug.Log(getScore);
+        ScoreTextUI.text = string.Format("{0:0}", score);
     }
 }
