@@ -23,6 +23,9 @@ public class GenerateFallingTrash : MonoBehaviour
     public bool isSingle = true;
     public bool positive = true;
 
+    [SerializeField] private GameObject PositiveEnding;
+    [SerializeField] private GameObject NegativeEnding;
+
     void Awake()
     {
         soundManagerScript = soundManager.GetComponent<SoundManager>();
@@ -105,11 +108,42 @@ public class GenerateFallingTrash : MonoBehaviour
 
     IEnumerator RePositionWithDelay()
     {
-        while(sliderTimer.gameTime > 1)
+        if (sliderTimer.gameTime > 1)
         {
-            yield return new WaitForSecondsRealtime(difficultyTime);           
-            SetRandomPosition();
-            SetRandomPositionTeam();
+            while (true)
+            {
+                yield return new WaitForSecondsRealtime(difficultyTime);
+                SetRandomPosition();
+                SetRandomPositionTeam();
+            }
         }
+        else
+        {
+            if (positive == true)
+            {
+                GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
+                if (fallingTrash != null)
+                {
+                    Vector3 fallingTrashPosition = fallingTrash.transform.position;
+                    Destroy(fallingTrash);
+                }
+
+            }
+            else if (positive == false)
+            {
+                
+
+            }
+        }
+    }
+
+    void ForPositiveEnding()
+    {
+        PositiveEnding.SetActive(true);
+    }
+
+    void ForNegativeEnding()
+    {
+        NegativeEnding.SetActive(true);
     }
 }
