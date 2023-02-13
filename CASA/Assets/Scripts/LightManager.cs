@@ -61,6 +61,9 @@ public class LightManager : MonoBehaviour
 		else
 			lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b - positiveChangeSpeed);
 
+		if (lightColor.intensity <2 )
+			lightColor.intensity += 0.05f;
+
 		
 
 
