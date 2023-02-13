@@ -3988,12 +3988,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4121922814437024, guid: cdd3993639749c345a9284a2673a9713,
     type: 2}
   m_PrefabInternal: {fileID: 1691174947}
---- !u!114 &588055909 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114719189016565600, guid: abc7aa4c8eb5d984aa5161a2a025077d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1742740345}
-  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &593106621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4929514199194554, guid: d7fa69545ed2cae4fa6010ac2671f3af,
@@ -5905,7 +5899,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1534982489}
-  - {fileID: 1742740346}
+  - {fileID: 1773557039}
   - {fileID: 1274698902}
   - {fileID: 800277350}
   m_Father: {fileID: 0}
@@ -11513,7 +11507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: decbd21f0655e9249b87d90e9a13c755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerSlider: {fileID: 588055909}
+  timerSlider: {fileID: 1773557040}
   gameTime: 91
   gameTime2: 0
   stopTimer: 0
@@ -12640,14 +12634,14 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -0.0000038146973
       objectReference: {fileID: 0}
+    - target: {fileID: 224896428347791840, guid: abc7aa4c8eb5d984aa5161a2a025077d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc7aa4c8eb5d984aa5161a2a025077d, type: 2}
   m_IsPrefabAsset: 0
---- !u!224 &1742740346 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224401922996690318, guid: abc7aa4c8eb5d984aa5161a2a025077d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1742740345}
 --- !u!1 &1750830488
 GameObject:
   m_ObjectHideFlags: 0
@@ -12681,6 +12675,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4429308697821900, guid: d555ba60d7a35194db8a140d8f15de04,
     type: 2}
   m_PrefabInternal: {fileID: 2100135467}
+--- !u!224 &1773557039 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224896428347791840, guid: abc7aa4c8eb5d984aa5161a2a025077d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1742740345}
+--- !u!114 &1773557040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114534367025167280, guid: abc7aa4c8eb5d984aa5161a2a025077d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1742740345}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &1783598977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4007169571884494, guid: 3443bc67ace56ef4bab3f7eb1fe1837c,
