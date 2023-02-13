@@ -9,7 +9,6 @@ public class LoadManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			Debug.Log("리스타트!!");
 			SceneManager.LoadSceneAsync("StartSceneBackground");
 		}
 	}
