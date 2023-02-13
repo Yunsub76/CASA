@@ -13,13 +13,13 @@ public class LightMovement : MonoBehaviour {
 	public Color positiveTargetColor;
 	public Color negativeTargetColor;
 	public float colorSpeed;
-	bool gm;
+	RightPositionDiscriminator rightPositionDiscriminator;
 	GameObject gameManager;
 
 	void Awake()
     {
 		gameManager = GameObject.Find("GameManager");
-		gm = gameManager.GetComponent<SliderTimer>().stopTimer;
+		//rightPositionDiscriminator = gameManager.GetComponent<RightPositionDiscriminator>();
 	}
 	void Start () {
 		
@@ -31,6 +31,8 @@ public class LightMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Limit the moving range of light
+		//int point = rightPositionDiscriminator.Point;
+		//Debug.Log(point);
 		if (transform.position.x >= 250 ) {loc = false;}
 		else if(transform.position.x <= -250) {loc = true;}
 		

@@ -12,7 +12,7 @@ public class RightPositionDiscriminator : MonoBehaviour
     private List<float[]> wasteCoordinateList;
     
     private int type = 0;
-    private int Point = 0;
+    public int Point = 0;
     private bool justOnce = false;
 
     private SoundManager soundManagerScript;
