@@ -9,30 +9,28 @@ public class LightMovement : MonoBehaviour {
 	bool locH = true;
 	private bool positive;
 	Light lightColor;
-	Color color;
+	bool colorChange = false; //색 변환이 일어났는지 true/false
 	public Color positiveTargetColor;
 	public Color negativeTargetColor;
 	public float colorSpeed;
-	RightPositionDiscriminator rightPositionDiscriminator;
+	int score;
 	GameObject gameManager;
+	float positiveChangeSpeed = 0;
 
 	void Awake()
     {
 		gameManager = GameObject.Find("GameManager");
-		//rightPositionDiscriminator = gameManager.GetComponent<RightPositionDiscriminator>();
+		score = gameManager.GetComponent<ScoreManager>().score;
 	}
 	void Start () {
 		
 		lightColor = GetComponent<Light>();
-		lightColor.color = new Color(0.1960784f, 0.7843137f, 0.7843137f, 1f); // Basic Color
-		
+		positiveChangeSpeed = 0.05f; //포인트를 얻을때마다 조명 색이 변하는 속도
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//Limit the moving range of light
-		//int point = rightPositionDiscriminator.Point;
-		//Debug.Log(point);
 		if (transform.position.x >= 250 ) {loc = false;}
 		else if(transform.position.x <= -250) {loc = true;}
 		
@@ -40,8 +38,18 @@ public class LightMovement : MonoBehaviour {
 		else if (transform.position.y <=30) {locH = true;}
 
 		// Light Color Changing 빛의 색을 바꾸는 조건문입니다.
-		Color();
-		//Debug.Log(gameManager.GetComponent<GenerateFallingTrash>().positive + "light");
+		if (gameManager.GetComponent<GenerateFallingTrash>().positive == true)
+		{
+			if (gameManager.GetComponent<ScoreManager>().changeLightNum > 0)
+			{
+				if (colorChange == false) 
+					PositiveColor();
+			}
+			else if (gameManager.GetComponent<ScoreManager>().changeLightNum == 0)
+				colorChange = false;
+		}
+		else if (gameManager.GetComponent<GenerateFallingTrash>().positive == false) 
+			NegativeColor();
 
 		// Light Movement function 
 		Transform();
@@ -56,26 +64,42 @@ public class LightMovement : MonoBehaviour {
 		else if (locH == false)transform.position = new Vector3(transform.position.x, transform.position.y - lightH, transform.position.z);
 		
 	}
-	void Color()
-    {
+	void PositiveColor()
+	{
+		if (lightColor.color.r <= positiveTargetColor.r) 
+			lightColor.color = new Color(lightColor.color.r + positiveChangeSpeed, lightColor.color.g, lightColor.color.b);
+		else 
+			lightColor.color = new Color(lightColor.color.r - positiveChangeSpeed, lightColor.color.g, lightColor.color.b);
+		if (lightColor.color.g <= positiveTargetColor.g) 
+			lightColor.color = new Color(lightColor.color.r, lightColor.color.g + positiveChangeSpeed, lightColor.color.b);
+		else 
+			lightColor.color = new Color(lightColor.color.r, lightColor.color.g - positiveChangeSpeed, lightColor.color.b);
+		if (lightColor.color.b <= positiveTargetColor.b) 
+			lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b + positiveChangeSpeed);
+		else 
+			lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b - positiveChangeSpeed);
 
-		if (gameManager.GetComponent<GenerateFallingTrash>().positive == true) // positiveTargetColor색으로 변경
-		{
-			if (lightColor.color.r <= positiveTargetColor.r) lightColor.color = new Color(lightColor.color.r + colorSpeed, lightColor.color.g, lightColor.color.b);
-			else lightColor.color = new Color(lightColor.color.r - colorSpeed, lightColor.color.g, lightColor.color.b);
-			if (lightColor.color.g <= positiveTargetColor.g) lightColor.color = new Color(lightColor.color.r, lightColor.color.g + colorSpeed, lightColor.color.b);
-			else lightColor.color = new Color(lightColor.color.r, lightColor.color.g - colorSpeed, lightColor.color.b);
-			if (lightColor.color.b <= positiveTargetColor.b) lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b + colorSpeed);
-			else lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b - colorSpeed);
-		}
-		else if (gameManager.GetComponent<GenerateFallingTrash>().positive == false)  // negativeTargetColor색으로 변경
-		{
-			if (lightColor.color.r <= negativeTargetColor.r) lightColor.color = new Color(lightColor.color.r + colorSpeed, lightColor.color.g, lightColor.color.b);
-			else lightColor.color = new Color(lightColor.color.r - colorSpeed, lightColor.color.g, lightColor.color.b);
-			if (lightColor.color.g <= negativeTargetColor.g) lightColor.color = new Color(lightColor.color.r, lightColor.color.g + colorSpeed, lightColor.color.b);
-			else lightColor.color = new Color(lightColor.color.r, lightColor.color.g - colorSpeed, lightColor.color.b);
-			if (lightColor.color.b <= negativeTargetColor.b) lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b + colorSpeed);
-			else lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b - colorSpeed);
-		}
+		gameManager.GetComponent<ScoreManager>().changeLightNum -= 1;
+		colorChange = true;
+		//Debug.Log(name + "변환");
+
+
+
 	}
+	void NegativeColor()
+    {
+		if (lightColor.color.r <= negativeTargetColor.r) 
+			lightColor.color = new Color(lightColor.color.r + colorSpeed, lightColor.color.g, lightColor.color.b);
+		else 
+			lightColor.color = new Color(lightColor.color.r - colorSpeed, lightColor.color.g, lightColor.color.b);
+		if (lightColor.color.g <= negativeTargetColor.g)
+			lightColor.color = new Color(lightColor.color.r, lightColor.color.g + colorSpeed, lightColor.color.b);
+		else
+			lightColor.color = new Color(lightColor.color.r, lightColor.color.g - colorSpeed, lightColor.color.b);
+		if (lightColor.color.b <= negativeTargetColor.b)
+			lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b + colorSpeed);
+		else
+			lightColor.color = new Color(lightColor.color.r, lightColor.color.g, lightColor.color.b - colorSpeed);
+	}
+	
 }

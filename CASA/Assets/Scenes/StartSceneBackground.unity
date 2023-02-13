@@ -2524,7 +2524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc195b76228f6246b3c8c6a02299be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: 0
 --- !u!135 &400728617
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5070,7 +5069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc195b76228f6246b3c8c6a02299be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: 0
 --- !u!135 &793261009
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5594,7 +5592,7 @@ MonoBehaviour:
   lightH: 0.2
   positiveTargetColor: {r: 0, g: 0, b: 1, a: 1}
   negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.001
+  colorSpeed: 0.0002
 --- !u!108 &889023807
 Light:
   m_ObjectHideFlags: 0
@@ -5604,7 +5602,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0, g: 0.9161291, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.78431374, b: 0.78431374, a: 1}
   m_Intensity: 1
   m_Range: 1000
   m_SpotAngle: 72
@@ -5775,7 +5773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc195b76228f6246b3c8c6a02299be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: 0
 --- !u!135 &925845269
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6666,7 +6663,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.2232111, g: 0.78071576, b: 0.8301887, a: 1}
+  m_Color: {r: 0.19607843, g: 0.78431374, b: 0.78431374, a: 1}
   m_Intensity: 1
   m_Range: 500
   m_SpotAngle: 30
@@ -6722,7 +6719,7 @@ MonoBehaviour:
   lightH: 0.5
   positiveTargetColor: {r: 0, g: 1, b: 1, a: 0}
   negativeTargetColor: {r: 0.46226418, g: 0.3017081, b: 0.22459063, a: 0}
-  colorSpeed: 0.001
+  colorSpeed: 0.0002
 --- !u!4 &1122384692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4844151859411952, guid: a5bdd0d59ba09e74ea2e3d22d5f0895b,
@@ -6874,7 +6871,7 @@ MonoBehaviour:
   lightH: 0.1
   positiveTargetColor: {r: 0, g: 0, b: 1, a: 1}
   negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.001
+  colorSpeed: 0.0002
 --- !u!108 &1137010286
 Light:
   m_ObjectHideFlags: 0
@@ -6884,7 +6881,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0, g: 0.9161291, b: 1, a: 1}
+  m_Color: {r: 0.39215687, g: 0.78431374, b: 0.78431374, a: 1}
   m_Intensity: 1
   m_Range: 500
   m_SpotAngle: 72
@@ -7691,7 +7688,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.2232111, g: 0.78071576, b: 0.8301887, a: 1}
+  m_Color: {r: 0.19607843, g: 0.78431374, b: 0.78431374, a: 1}
   m_Intensity: 1
   m_Range: 600
   m_SpotAngle: 30
@@ -7747,7 +7744,7 @@ MonoBehaviour:
   lightH: 0.5
   positiveTargetColor: {r: 1, g: 1, b: 0, a: 0}
   negativeTargetColor: {r: 0.29701132, g: 0.4716981, b: 0.14462443, a: 0}
-  colorSpeed: 0.001
+  colorSpeed: 0.0002
 --- !u!4 &1259322344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,
@@ -8486,7 +8483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -16.3, y: 12.600006}
+  m_AnchoredPosition: {x: -16.299988, y: 12.599976}
   m_SizeDelta: {x: 97.8, y: 25}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1313649511
@@ -8830,7 +8827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc195b76228f6246b3c8c6a02299be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: 0
 --- !u!135 &1362245004
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9227,7 +9223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc195b76228f6246b3c8c6a02299be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: 0
 --- !u!135 &1396923992
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9732,7 +9727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10014,7 +10009,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.2232111, g: 0.78071576, b: 0.8301887, a: 1}
+  m_Color: {r: 0.19607843, g: 0.78431374, b: 0.78431374, a: 1}
   m_Intensity: 1
   m_Range: 1500
   m_SpotAngle: 72
@@ -10057,7 +10052,7 @@ MonoBehaviour:
   lightH: 0.5
   positiveTargetColor: {r: 0, g: 0, b: 1, a: 1}
   negativeTargetColor: {r: 0, g: 0.5, b: 0, a: 0}
-  colorSpeed: 0.001
+  colorSpeed: 0.0002
 --- !u!4 &1520389720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: 3e72af671f4b7704da60467f52650ded,
@@ -10109,7 +10104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc195b76228f6246b3c8c6a02299be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: 0
 --- !u!135 &1522036770
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10240,6 +10234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  getScore: 0
 --- !u!1 &1534982488
 GameObject:
   m_ObjectHideFlags: 0
@@ -11172,7 +11167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc195b76228f6246b3c8c6a02299be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: 0
 --- !u!135 &1823062190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12139,7 +12133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc195b76228f6246b3c8c6a02299be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: 0
 --- !u!135 &1937556296
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12661,7 +12654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc195b76228f6246b3c8c6a02299be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: 0
 --- !u!135 &2044344467
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12973,7 +12965,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc195b76228f6246b3c8c6a02299be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: 0
 --- !u!135 &2079713030
 SphereCollider:
   m_ObjectHideFlags: 0

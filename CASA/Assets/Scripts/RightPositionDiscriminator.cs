@@ -64,7 +64,8 @@ public class RightPositionDiscriminator : MonoBehaviour
                 this.gameObject.transform.position.z < wasteCoordinateList[wasteTypeIndex][3] &&
                 this.gameObject.transform.position.y < wasteCoordinateList[wasteTypeIndex][4])
             {
-                score += 100;
+                gameManager.GetComponent<ScoreManager>().score += 100;
+                gameManager.GetComponent<ScoreManager>().changeLightNum += 5;
                 justOnce = true;
                 changingTrash();
             }
