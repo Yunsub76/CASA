@@ -14,6 +14,7 @@ public class GenerateFallingTrash : MonoBehaviour
 
     [SerializeField] GameObject soundManager;
     private SoundManager soundManagerScript;
+    private SliderTimer sliderTimer;
 
     private Collider GameAreaCollider = null;
 
@@ -24,6 +25,7 @@ public class GenerateFallingTrash : MonoBehaviour
     void Awake()
     {
         soundManagerScript = soundManager.GetComponent<SoundManager>();
+        sliderTimer = this.GetComponent<SliderTimer>();
     }
 
     void Start()
@@ -81,7 +83,7 @@ public class GenerateFallingTrash : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
         {
             difficultyTime = 2f;
-            soundManagerScript.bGMNumber = 3;
+            soundManagerScript.bGMNumber = 3; 
             soundManagerScript.BGMSound();
             positive = false;
             Debug.Log(positive);
@@ -100,7 +102,7 @@ public class GenerateFallingTrash : MonoBehaviour
 
     IEnumerator RePositionWithDelay()
     {
-        while(true)
+        while(sliderTimer.gameTime > 0)
         {
             yield return new WaitForSecondsRealtime(difficultyTime);           
             SetRandomPosition();

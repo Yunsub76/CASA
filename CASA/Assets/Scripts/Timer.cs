@@ -14,20 +14,20 @@ public class Timer : MonoBehaviour {
 	public GameObject message;
 
 	// Use this for initialization
-	void Start () {
+	void Awake() 
+	{
 		countTime = 0;		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(countTime ==0){
+		if(countTime == 0){
 			Time.timeScale = 0.0f;
 		}
 
 		if(countTime <= 920){
 			countTime++;
 		}
-
 
 		if(countTime>120){
 			Num_A.SetActive(true);

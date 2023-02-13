@@ -62,16 +62,22 @@ public class RightPositionDiscriminator : MonoBehaviour
             {   
                 Point += 100;
                 justOnce = true;
-                Debug.Log("잘들어갔어요!");
-                
-                GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
-                Vector3 fallingTrashPosition = fallingTrash.transform.position;
-                Destroy(fallingTrash);
-                soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
-
-                int i = Random.Range(0, 14); 
-                Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), goodPrefab[i].transform.rotation);
+                changingTrash();
             }
         }
+    }
+
+    private void changingTrash()
+    {
+        GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
+        if(fallingTrash != null)
+        { 
+            Vector3 fallingTrashPosition = fallingTrash.transform.position;
+            Destroy(fallingTrash);
+            soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
+
+            int i = Random.Range(0, 14);
+            Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), goodPrefab[i].transform.rotation);
+        }    
     }
 };
