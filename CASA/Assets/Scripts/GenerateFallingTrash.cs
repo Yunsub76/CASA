@@ -1,4 +1,4 @@
-﻿using System.IO.Compression;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +25,7 @@ public class GenerateFallingTrash : MonoBehaviour
 
     [SerializeField] private GameObject PositiveEnding;
     [SerializeField] private GameObject NegativeEnding;
+    [SerializeField] private GameObject NPCs;
 
     void Awake()
     {
@@ -108,31 +109,35 @@ public class GenerateFallingTrash : MonoBehaviour
 
     IEnumerator RePositionWithDelay()
     {
-        if (sliderTimer.gameTime > 1)
+        while (true)
         {
-            while (true)
+            if (sliderTimer.gameTime2 < 89)
             {
+
                 yield return new WaitForSecondsRealtime(difficultyTime);
                 SetRandomPosition();
                 SetRandomPositionTeam();
+
             }
-        }
-        else
-        {
-            if (positive == true)
+            else
             {
-                GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
-                if (fallingTrash != null)
+                yield return new WaitForSecondsRealtime(3);
+                if (positive == true)
                 {
-                    Vector3 fallingTrashPosition = fallingTrash.transform.position;
-                    Destroy(fallingTrash);
+                    GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
+                    if (fallingTrash != null)
+                    {
+                        Vector3 fallingTrashPosition = fallingTrash.transform.position;
+                        Destroy(fallingTrash);
+                    }
+                    ForPositiveEnding();
+                }
+                else if (positive == false)
+                {
+                    ForNegativeEnding();
                 }
 
-            }
-            else if (positive == false)
-            {
-                
-
+                break;
             }
         }
     }
@@ -145,5 +150,7 @@ public class GenerateFallingTrash : MonoBehaviour
     void ForNegativeEnding()
     {
         NegativeEnding.SetActive(true);
+        Debug.Log("ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ");
+        NPCs.SetActive(false);
     }
 }
