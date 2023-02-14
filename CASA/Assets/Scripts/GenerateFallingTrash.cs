@@ -113,6 +113,7 @@ public class GenerateFallingTrash : MonoBehaviour
 
     IEnumerator RePositionWithDelay()
     {
+        yield return new WaitForSecondsRealtime(6);
         while (true)
         {
             if (!loadManager.pause)

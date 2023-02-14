@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\AreaToCoordinate.cs" />
      <Compile Include="Assets\Scripts\BackGroundMovement.cs" />
      <Compile Include="Assets\Scripts\FishMoving.cs" />
+     <Compile Include="Assets\Scripts\FrameActivate.cs" />
      <Compile Include="Assets\Scripts\GenerateFallingTrash.cs" />
      <Compile Include="Assets\Scripts\GoodObjectList.cs" />
      <Compile Include="Assets\Scripts\IsGroundedStop.cs" />
@@ -77,7 +78,10 @@
      <Compile Include="Assets\Scripts\TitleMoving.cs" />
      <Compile Include="Assets\Scripts\titleUp.cs" />
      <Compile Include="Assets\Scripts\UI_ActiveScript.cs" />
+     <Compile Include="Assets\Scripts\UI_ItemMoving.cs" />
+     <Compile Include="Assets\Scripts\UI_itemRotation.cs" />
      <Compile Include="Assets\Scripts\UI_MouseEvent.cs" />
+     <Compile Include="Assets\Scripts\UI_pressEnter.cs" />
      <Compile Include="Assets\Scripts\UI_rankMoving.cs" />
      <Compile Include="Assets\Scripts\UI_TypingEff.cs" />
      <Compile Include="Assets\Underwater life deluxe\Scripts\GhostFreeRoamCamera\Scripts\GhostFreeRoamCamera.cs" />
