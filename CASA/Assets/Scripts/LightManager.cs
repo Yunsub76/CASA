@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class LightManager : MonoBehaviour
 {
+	[SerializeField] public float brightness;
 	public static LightManager instance;
+
 	public List<Light> lights;
 	public List<Color> positiveTargetColor;
 	public float positiveChangeSpeed = 0;
 	public List<Color> negativeTargetColor;
 	public float negativeChangeSpeed = 0;
-
 
 	GameObject gameManager;
 	int score;
@@ -22,10 +23,15 @@ public class LightManager : MonoBehaviour
 	}
 	void Start()
 	{
-
+		
 	}
 	void Update()
 	{
+		for (int lightnum = 0; lightnum < 5; ++lightnum)
+		{
+			lights[lightnum].intensity = brightness;
+
+		}
 		if (gameManager.GetComponent<GenerateFallingTrash>().positive == true)
 		{
 			if (gameManager.GetComponent<ScoreManager>().changeLightNum == true)
@@ -63,10 +69,6 @@ public class LightManager : MonoBehaviour
 
 		if (lightColor.intensity <2 )
 			lightColor.intensity += 0.05f;
-
-		
-
-
 
 	}
 	void NegativeColor(Light lightColor, Color negativeTargetColor)

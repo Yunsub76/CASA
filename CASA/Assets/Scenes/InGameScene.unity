@@ -4443,6 +4443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd451e9e754d22d47a53df0e253a72fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brightness: 1
   lights:
   - {fileID: 1518405491}
   - {fileID: 1258404396}
@@ -4450,11 +4451,11 @@ MonoBehaviour:
   - {fileID: 1137010286}
   - {fileID: 889023807}
   positiveTargetColor:
-  - {r: 0, g: 0.7994144, b: 1, a: 0}
-  - {r: 0, g: 0.8867924, b: 0.8330976, a: 0}
+  - {r: 0.9009434, g: 0.97990155, b: 1, a: 0}
+  - {r: 0.2971698, g: 0.80667067, b: 1, a: 0}
   - {r: 1, g: 0.97835296, b: 0.3066038, a: 0}
   - {r: 0.75, g: 0.9876416, b: 1, a: 0}
-  - {r: 0.2971698, g: 0.90330535, b: 1, a: 0}
+  - {r: 0.5518868, g: 0.9773803, b: 1, a: 0}
   positiveChangeSpeed: 0.05
   negativeTargetColor:
   - {r: 0, g: 0.6698113, b: 0.03082809, a: 0}
