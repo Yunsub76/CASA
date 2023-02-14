@@ -10,8 +10,8 @@ public class Timer : MonoBehaviour {
 	public GameObject Num_D;
 	public GameObject Num_E;
 	public GameObject Num_Start;
-	public GameObject nameObj;
-	public GameObject message;
+	//public GameObject nameObj;
+	//public GameObject message;
 
 	// Use this for initialization
 	void Awake() 
@@ -54,8 +54,8 @@ public class Timer : MonoBehaviour {
 		}
 
 		if(countTime>=920){
-			nameObj.SetActive(false);
-			message.SetActive(false);
+			//nameObj.SetActive(false);
+			//message.SetActive(false);
 			Num_E.SetActive(false);
 			Num_Start.SetActive(true);
 		}

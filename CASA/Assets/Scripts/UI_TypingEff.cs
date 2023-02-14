@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UI_TypingEff : MonoBehaviour {
 	public Text welcomeText;
+	
 
 
 	// Use this for initialization
