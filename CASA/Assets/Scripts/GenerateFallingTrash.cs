@@ -65,14 +65,14 @@ public class GenerateFallingTrash : MonoBehaviour
             float x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
             float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
             int i = Random.Range(0, 5); 
-            trashPosition = new Vector3(x, 130.0f, z);
+            trashPosition = new Vector3(x, 150.0f, z);
             fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
             soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
 
             x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
             z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
             i = Random.Range(0, 5); 
-            trashPosition = new Vector3(x, 130.0f, z);
+            trashPosition = new Vector3(x, 150.0f, z);
             fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
             soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
         }
