@@ -46,6 +46,12 @@ public class SliderTimer : MonoBehaviour
 	void DisableUI()
     {
 		gameManager.GetComponent<ActivateUI>().UIDisabled();
+		Invoke("PlayTransition", 1);
+		
+	}
 
+	void PlayTransition()
+    {
+		gameManager.GetComponent<ActivateUI>().PlayTransition();
 	}
 }

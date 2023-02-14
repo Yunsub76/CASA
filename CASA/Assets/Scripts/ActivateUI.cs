@@ -16,6 +16,11 @@ public class ActivateUI : MonoBehaviour {
     [SerializeField] GameObject finalScore;
     [SerializeField] GameObject frame;
     [SerializeField] GameObject pressEnter;
+    [SerializeField] GameObject transition;
+
+    [SerializeField] int resetTime;
+
+
     bool endScoreText = false;
 
     void Update()
@@ -46,7 +51,7 @@ public class ActivateUI : MonoBehaviour {
         image.SetActive(true);
         slider.SetActive(true);
         scoreText.SetActive(true);
-        GetComponent<SliderTimer>().gameTime2 = 0;
+        GetComponent<SliderTimer>().gameTime2 = resetTime;
     }
 
 
@@ -86,5 +91,16 @@ public class ActivateUI : MonoBehaviour {
         totalScore.SetActive(false);
         finalScore.SetActive(false);
         pressEnter.SetActive(false);
+    }
+
+    public void PlayTransition()
+    {
+        transition.SetActive(true);
+        Invoke("TurnOffTransition", 5);
+    }
+
+    void TurnOffTransition()
+    {
+        transition.SetActive(false);
     }
 }
