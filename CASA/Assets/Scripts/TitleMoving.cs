@@ -15,7 +15,7 @@ public class TitleMoving : MonoBehaviour {
 	}
 
 	void Update(){
-		Move();
+		//Move();
 
 
 	}
