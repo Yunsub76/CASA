@@ -10,6 +10,7 @@ public class SliderTimer : MonoBehaviour
 	public bool stopTimer;
 	Image fillArea;
 	Color newcolor;
+	GameObject gameManager;
 	
 
 	void Awake() {
@@ -17,6 +18,7 @@ public class SliderTimer : MonoBehaviour
 		timerSlider.maxValue = gameTime;
 		timerSlider.value = gameTime2;
 		fillArea = timerSlider.fillRect.GetComponent<Image>();
+		gameManager = GameObject.Find("GameManager");
 	}
 
 	// Update is called once per frame
@@ -24,18 +26,26 @@ public class SliderTimer : MonoBehaviour
 		if(gameTime2 < 91)
 		{ 
 			gameTime2 = gameTime2 + Time.deltaTime;
-			//Debug.Log(gameTime2);
-			int minutes = Mathf.FloorToInt(gameTime / 60);
-			int seconds = Mathf.FloorToInt(gameTime - minutes * 60f);
 
 			if (gameTime2 >= gameTime)
 			{
 				stopTimer = true;
+				EndGame();
+				
 			}
 			if (stopTimer == false)
 			{
 				timerSlider.value = gameTime2;
 			}
 		}
+	}
+	void EndGame()
+    {
+		Invoke("DisableUI", 1);
+    }
+	void DisableUI()
+    {
+		gameManager.GetComponent<ActivateUI>().UIDisabled();
+
 	}
 }

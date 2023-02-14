@@ -1,31 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActivateUI : MonoBehaviour {
 
-	public bool activateUI = false;
+	//public bool activateUI = false;
     Vector3 velo = Vector3.zero;
     Vector3 velo2 = Vector3.zero;
-    GameObject image;
-    GameObject slider;
-    GameObject scoreText;
-    GameObject totalScore;
-    GameObject finalScore;
-    GameObject totalScoretarget;
-    GameObject finalScoretarget;
-    GameObject sliderTime;
+    [SerializeField] GameObject image;
+    [SerializeField] GameObject slider;
+    [SerializeField] GameObject scoreText;
+
+    [SerializeField] GameObject totalScore;
+    [SerializeField] GameObject finalScore;
+    [SerializeField] GameObject frame;
 
     void Awake()
     {
-        image = GameObject.Find("Image");
-        slider = GameObject.Find("Slider");
-        scoreText = GameObject.Find("ScoreText");
-        totalScore = GameObject.Find("TotalScore");
-        finalScore = GameObject.Find("FinalScore");
-        totalScoretarget = GameObject.Find("TotalScoreTarget");
-        finalScoretarget = GameObject.Find("FinalScoreTarget");
-        sliderTime = GameObject.Find("GameManager");
         
     }
 
@@ -36,6 +28,10 @@ public class ActivateUI : MonoBehaviour {
         image.SetActive(false);
         slider.SetActive(false);
         scoreText.SetActive(false);
+        if (GetComponent<SliderTimer>().stopTimer == true)
+        {
+            FrameActivate();
+        }
     }    
 
     public void UIActivate()
@@ -43,20 +39,31 @@ public class ActivateUI : MonoBehaviour {
         image.SetActive(true);
         slider.SetActive(true);
         scoreText.SetActive(true);
-        sliderTime.GetComponent<SliderTimer>().gameTime2 = 0;
+        GetComponent<SliderTimer>().gameTime2 = 0;
     }
 
-    void TotalScoreMove()
-    {
-        totalScore.transform.position = Vector3.SmoothDamp(totalScore.transform.position, totalScoretarget.transform.position, ref velo, 0.35f);
-    }
-    void FinalScoreMove()
-    {
-        finalScore.transform.position = Vector3.SmoothDamp(finalScore.transform.position, finalScoretarget.transform.position, ref velo2, 0.35f);
-    }
+
     public void GetFinalScore()
     {
-        Invoke("TotalScoreMove", 1);
+        Debug.Log("GetFinalScore()");
+;       Invoke("TotalScoreMove", 1);
         Invoke("FinalScoreMove", 2);  
+    }
+
+    void FrameActivate()
+    {
+        frame.SetActive(true);
+        Invoke("TotalActivate", 0.5f);
+;
+    }
+    void TotalActivate()
+    {
+        totalScore.SetActive(true);
+        Invoke("ScoreActivate", 1.8f);
+    }
+    void ScoreActivate()
+    {
+        finalScore.GetComponent<Text>().text = string.Format("{0:0}", GetComponent<ScoreManager>().score);
+        finalScore.SetActive(true);
     }
 }
