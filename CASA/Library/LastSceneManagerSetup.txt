@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/InGameScene.unity
-=======
-- path: Assets/Scenes/UIScene.unity
->>>>>>> UI_HJ
   isLoaded: 1
   isActive: 1

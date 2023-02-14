@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\TitleMoving.cs" />
      <Compile Include="Assets\Scripts\titleUp.cs" />
      <Compile Include="Assets\Scripts\UI_ActiveScript.cs" />
+     <Compile Include="Assets\Scripts\UI_blinkText.cs" />
      <Compile Include="Assets\Scripts\UI_ItemMoving.cs" />
      <Compile Include="Assets\Scripts\UI_itemRotation.cs" />
      <Compile Include="Assets\Scripts\UI_MouseEvent.cs" />
