@@ -19,6 +19,7 @@ public class RightPositionDiscriminator : MonoBehaviour
     private bool IsSingle;
 
     private SoundManager soundManagerScript;
+    GenerateFallingTrash generateFallingTrash;
 
     void Awake()
     {
@@ -27,6 +28,7 @@ public class RightPositionDiscriminator : MonoBehaviour
         areaToCoordinate = gameManager.GetComponent<AreaToCoordinate>();
         score = gameManager.GetComponent<ScoreManager>().score;
         IsSingle = gameManager.GetComponent<GenerateFallingTrash>().isSingle;
+        generateFallingTrash = gameManager.GetComponent<GenerateFallingTrash>();
 
         wasteCoordinateList = areaToCoordinate.wasteCoordinateList;
         soundManagerScript = GameObject.Find("SoundManager").GetComponent<SoundManager>();
@@ -71,7 +73,7 @@ public class RightPositionDiscriminator : MonoBehaviour
                 gameManager.GetComponent<ScoreManager>().changeLightNum = true;
                 justOnce = true;
                 changingTrash();
-                
+                soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
             }
         }
     }
@@ -79,11 +81,11 @@ public class RightPositionDiscriminator : MonoBehaviour
     private void changingTrash()
     {
         GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
-        if(fallingTrash != null)
-        { 
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
+        if (fallingTrash != null && generateFallingTrash.positive == true)
+        {
             Vector3 fallingTrashPosition = fallingTrash.transform.position;
             Destroy(fallingTrash);
-            soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
 
             int i = Random.Range(0, 14);
             Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), goodPrefab[i].transform.rotation);
