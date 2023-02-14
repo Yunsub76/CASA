@@ -15,12 +15,19 @@ public class ActivateUI : MonoBehaviour {
     [SerializeField] GameObject totalScore;
     [SerializeField] GameObject finalScore;
     [SerializeField] GameObject frame;
+    [SerializeField] GameObject pressEnter;
+    bool endScoreText = false;
 
-    void Awake()
+    void Update()
     {
-        
+        if (endScoreText == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                EndScoreDisabled();
+            }
+        }
     }
-
 
     public void UIDisabled()
     {
@@ -30,7 +37,7 @@ public class ActivateUI : MonoBehaviour {
         scoreText.SetActive(false);
         if (GetComponent<SliderTimer>().stopTimer == true)
         {
-            FrameActivate();
+            Invoke("FrameActivate",5);
         }
     }    
 
@@ -65,5 +72,19 @@ public class ActivateUI : MonoBehaviour {
     {
         finalScore.GetComponent<Text>().text = string.Format("{0:0}", GetComponent<ScoreManager>().score);
         finalScore.SetActive(true);
+        endScoreText = true;
+        Invoke("PressEnterActive", 1);
+    }
+    void PressEnterActive()
+    {
+        pressEnter.SetActive(true);
+    }
+
+    void EndScoreDisabled()
+    {
+        frame.SetActive(false);
+        totalScore.SetActive(false);
+        finalScore.SetActive(false);
+        pressEnter.SetActive(false);
     }
 }
