@@ -9167,7 +9167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1750830489}
-  speed: 0.4
+  speed: 2
   stopObj: {fileID: 1462761279}
 --- !u!1001 &1248011691
 Prefab:
@@ -10955,7 +10955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1153206114}
-  speed: 0.3
+  speed: 0.6
   stopObj: {fileID: 0}
 --- !u!1001 &1420741202
 Prefab:
@@ -11974,7 +11974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 1773557040}
   gameTime: 91
-  gameTime2: 0
+  gameTime2: 80
   stopTimer: 0
 --- !u!114 &1526821699
 MonoBehaviour:
@@ -12013,7 +12013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec82ca39318336e4188f2607ea0b6c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateUI: 0
+  activateUI: 1
 --- !u!114 &1526821702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12027,7 +12027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goodObjectList:
-  - {fileID: 1802247704989478, guid: a11c234681c75674f855b9c3e8612fdb, type: 2}
+  - {fileID: 1696158550041056, guid: eeb79856943e5704e8bb5d10166b8367, type: 2}
   - {fileID: 1817237297476426, guid: a5bdd0d59ba09e74ea2e3d22d5f0895b, type: 2}
   - {fileID: 1516117533416232, guid: 979d5793be1d764468209edd5f010027, type: 2}
   - {fileID: 1575996735089252, guid: 5a7826dbd9fdd5541933e1d412843be0, type: 2}
@@ -13235,7 +13235,7 @@ Prefab:
     - target: {fileID: 224896428347791840, guid: abc7aa4c8eb5d984aa5161a2a025077d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 44
+      value: 21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc7aa4c8eb5d984aa5161a2a025077d, type: 2}
@@ -13909,7 +13909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1864470514
 Transform:
   m_ObjectHideFlags: 0
