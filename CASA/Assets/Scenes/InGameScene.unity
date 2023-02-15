@@ -422,8 +422,7 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 198814468752185112, guid: 8093244e02fb51344886d995293cd848,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.maxNumParticles
       value: 100
       objectReference: {fileID: 0}
@@ -4478,30 +4477,6 @@ Prefab:
       propertyPath: m_Name
       value: Tube_coral_prefab (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -77.455
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
   m_IsPrefabAsset: 0
@@ -5288,6 +5263,11 @@ Prefab:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
+        type: 2}
+      propertyPath: startDelay.scalar
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
   m_IsPrefabAsset: 0
@@ -5612,8 +5592,7 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 198257998562200090, guid: 12c38b978b6c5de4a8a3931bc3d3c25c,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
@@ -5779,18 +5758,15 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 198257998562200090, guid: 12c38b978b6c5de4a8a3931bc3d3c25c,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.startSpeed.scalar
       value: 9.2
       objectReference: {fileID: 0}
-    - target: {fileID: 198257998562200090, guid: 12c38b978b6c5de4a8a3931bc3d3c25c,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.startLifetime.scalar
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 198257998562200090, guid: 12c38b978b6c5de4a8a3931bc3d3c25c,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.maxNumParticles
       value: 100
       objectReference: {fileID: 0}
@@ -6145,8 +6121,7 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -40
       objectReference: {fileID: 0}
-    - target: {fileID: 198152607378723524, guid: d99606b977dd7554cb04717594abd71a,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
@@ -7430,13 +7405,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 198191417078727728, guid: d7fa69545ed2cae4fa6010ac2671f3af,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.maxNumParticles
       value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 198191417078727728, guid: d7fa69545ed2cae4fa6010ac2671f3af,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.startLifetime.scalar
       value: 1.76
       objectReference: {fileID: 0}
@@ -7452,8 +7425,7 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -40
       objectReference: {fileID: 0}
-    - target: {fileID: 198191417078727728, guid: d7fa69545ed2cae4fa6010ac2671f3af,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.startSize.scalar
       value: 2
       objectReference: {fileID: 0}
@@ -7511,23 +7483,19 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 9.481203
       objectReference: {fileID: 0}
-    - target: {fileID: 198814468752185112, guid: 8093244e02fb51344886d995293cd848,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.startLifetime.scalar
       value: 3.28
       objectReference: {fileID: 0}
-    - target: {fileID: 198814468752185112, guid: 8093244e02fb51344886d995293cd848,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.startSpeed.scalar
       value: 5.41
       objectReference: {fileID: 0}
-    - target: {fileID: 198814468752185112, guid: 8093244e02fb51344886d995293cd848,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.startSize.scalar
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 198814468752185112, guid: 8093244e02fb51344886d995293cd848,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: InitialModule.size3D
       value: 1
       objectReference: {fileID: 0}
@@ -7773,7 +7741,27 @@ Prefab:
     - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
         type: 2}
       propertyPath: looping
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
+        type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
+        type: 2}
+      propertyPath: startDelay.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
@@ -9075,7 +9063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1132100385
 Transform:
   m_ObjectHideFlags: 0
@@ -12405,8 +12393,7 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 198257998562200090, guid: 12c38b978b6c5de4a8a3931bc3d3c25c,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
@@ -13300,7 +13287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 1773557040}
   gameTime: 91
-  gameTime2: 81
+  gameTime2: 0
   stopTimer: 0
 --- !u!114 &1526821699
 MonoBehaviour:
@@ -13347,7 +13334,7 @@ MonoBehaviour:
   frame: {fileID: 1898058665}
   pressEnter: {fileID: 1663870237}
   transition: {fileID: 2053736750}
-  resetTime: 89
+  resetTime: 0
 --- !u!114 &1526821702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13890,6 +13877,26 @@ Prefab:
     - target: {fileID: 4674194554009158, guid: 48f25c8554af0c34aaede4f84becd26f, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 48f25c8554af0c34aaede4f84becd26f,
+        type: 2}
+      propertyPath: ShapeModule.m_Position.x
+      value: -1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 48f25c8554af0c34aaede4f84becd26f,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 48f25c8554af0c34aaede4f84becd26f,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 48f25c8554af0c34aaede4f84becd26f,
+        type: 2}
+      propertyPath: startDelay.scalar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48f25c8554af0c34aaede4f84becd26f, type: 2}
@@ -14688,8 +14695,7 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 198152607378723524, guid: d99606b977dd7554cb04717594abd71a,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
@@ -15220,26 +15226,6 @@ Prefab:
       propertyPath: m_Name
       value: Tube_coral_prefab (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -72.395004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4674194554009158, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
   m_IsPrefabAsset: 0
@@ -15378,7 +15364,32 @@ Prefab:
     - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
         type: 2}
       propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
+        type: 2}
+      propertyPath: ShapeModule.m_Position.y
+      value: -0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
+        type: 2}
+      propertyPath: ShapeModule.m_Position.x
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
+        type: 2}
+      propertyPath: startDelay.scalar
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198491848011072700, guid: 7812f8cc174c56d44bbf45b1d529874e,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7812f8cc174c56d44bbf45b1d529874e, type: 2}
@@ -15450,8 +15461,7 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 198191417078727728, guid: d7fa69545ed2cae4fa6010ac2671f3af,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: looping
       value: 1
       objectReference: {fileID: 0}
