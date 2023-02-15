@@ -9063,7 +9063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1132100385
 Transform:
   m_ObjectHideFlags: 0
@@ -13333,7 +13333,6 @@ MonoBehaviour:
   finalScore: {fileID: 734847322}
   frame: {fileID: 1898058665}
   pressEnter: {fileID: 1663870237}
-  transition: {fileID: 2053736750}
   resetTime: 0
 --- !u!114 &1526821702
 MonoBehaviour:
@@ -13350,7 +13349,7 @@ MonoBehaviour:
   goodObjectList:
   - {fileID: 1696158550041056, guid: eeb79856943e5704e8bb5d10166b8367, type: 2}
   - {fileID: 1817237297476426, guid: a5bdd0d59ba09e74ea2e3d22d5f0895b, type: 2}
-  - {fileID: 1516117533416232, guid: 979d5793be1d764468209edd5f010027, type: 2}
+  - {fileID: 1404003250942284, guid: ced677c75bb2d114e9596e6521d7c059, type: 2}
   - {fileID: 1575996735089252, guid: 5a7826dbd9fdd5541933e1d412843be0, type: 2}
   - {fileID: 1411356092007988, guid: f09f4e752388b23408acb2fcd15af7db, type: 2}
   - {fileID: 1118434254644988, guid: 00a2cafe03cb8d743b2913933da96e86, type: 2}
@@ -16775,11 +16774,6 @@ Prefab:
 --- !u!224 &2053736749 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224466739426475280, guid: 36faacfb7eba688489764e1df702a87f,
-    type: 2}
-  m_PrefabInternal: {fileID: 2053736748}
---- !u!1 &2053736750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1944172544670026, guid: 36faacfb7eba688489764e1df702a87f,
     type: 2}
   m_PrefabInternal: {fileID: 2053736748}
 --- !u!1001 &2054662314

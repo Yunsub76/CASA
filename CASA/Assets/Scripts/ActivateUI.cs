@@ -16,7 +16,6 @@ public class ActivateUI : MonoBehaviour {
     [SerializeField] GameObject finalScore;
     [SerializeField] GameObject frame;
     [SerializeField] GameObject pressEnter;
-    [SerializeField] GameObject transition;
 
     [SerializeField] int resetTime;
 
@@ -91,16 +90,5 @@ public class ActivateUI : MonoBehaviour {
         totalScore.SetActive(false);
         finalScore.SetActive(false);
         pressEnter.SetActive(false);
-    }
-
-    public void PlayTransition()
-    {
-        transition.SetActive(true);
-        Invoke("TurnOffTransition", 5);
-    }
-
-    void TurnOffTransition()
-    {
-        transition.SetActive(false);
     }
 }
