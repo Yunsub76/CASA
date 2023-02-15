@@ -1,10 +1,12 @@
-﻿using System;
+﻿using System.IO.Compression;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RightPositionDiscriminator : MonoBehaviour
 {
+    private GameObject gameManager;
+
     private int wasteTypeIndex;
     private List<GameObject> goodPrefab;
 
@@ -12,14 +14,24 @@ public class RightPositionDiscriminator : MonoBehaviour
     private List<float[]> wasteCoordinateList;
     
     private int type = 0;
-    private int Point = 0;
+    private int score;
     private bool justOnce = false;
+    private bool IsSingle;
+
+    private SoundManager soundManagerScript;
+    GenerateFallingTrash generateFallingTrash;
 
     void Awake()
     {
-        goodPrefab = GameObject.Find("GameManager").GetComponent<GoodObjectList>().goodObjectList;
-        areaToCoordinate = GameObject.Find("GameManager").GetComponent<AreaToCoordinate>();
+        gameManager = GameObject.Find("GameManager");
+        goodPrefab = gameManager.GetComponent<GoodObjectList>().goodObjectList;
+        areaToCoordinate = gameManager.GetComponent<AreaToCoordinate>();
+        score = gameManager.GetComponent<ScoreManager>().score;
+        IsSingle = gameManager.GetComponent<GenerateFallingTrash>().isSingle;
+        generateFallingTrash = gameManager.GetComponent<GenerateFallingTrash>();
+
         wasteCoordinateList = areaToCoordinate.wasteCoordinateList;
+        soundManagerScript = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     void Start()
@@ -56,17 +68,36 @@ public class RightPositionDiscriminator : MonoBehaviour
                 this.gameObject.transform.position.z > wasteCoordinateList[wasteTypeIndex][2] &&
                 this.gameObject.transform.position.z < wasteCoordinateList[wasteTypeIndex][3] &&
                 this.gameObject.transform.position.y < wasteCoordinateList[wasteTypeIndex][4])
-            {   
-                Point += 100;
+            {
+                gameManager.GetComponent<ScoreManager>().score += 100;
+                gameManager.GetComponent<ScoreManager>().changeLightNum = true;
                 justOnce = true;
-                Debug.Log("잘들어갔어요!");
-                
-                GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
-                Vector3 fallingTrashPosition = fallingTrash.transform.position;
-                Destroy(fallingTrash);
-
-                Instantiate(goodPrefab[0], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), Quaternion.identity);
+                changingTrash();
+                soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
             }
         }
+    }
+
+    private void changingTrash()
+    {
+        GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
+        if (fallingTrash != null && generateFallingTrash.positive == true)
+        {
+            Vector3 fallingTrashPosition = fallingTrash.transform.position;
+            Destroy(fallingTrash);
+
+            int i = Random.Range(0, 14);
+            Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), goodPrefab[i].transform.rotation);
+            if(IsSingle == true)
+            {
+                int Ra = Random.Range(20, 35);
+                int Rb = Random.Range(15, 40);
+                int Rc = Random.Range(-10, 0);
+     
+                Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x + Ra + Rc, fallingTrashPosition.y, fallingTrashPosition.z + Rb), goodPrefab[i].transform.rotation);
+                Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x + Rb + Rc, fallingTrashPosition.y, fallingTrashPosition.z + Ra), goodPrefab[i].transform.rotation);
+            }
+        }    
     }
 };

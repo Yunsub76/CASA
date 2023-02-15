@@ -2,37 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class SliderTimer : MonoBehaviour {
-
-
+public class SliderTimer : MonoBehaviour 
+{
 	public Slider timerSlider;
-	public Text timertext;
 	public float gameTime;
-
+	public float gameTime2;
 	public bool stopTimer;
+	Image fillArea;
+	Color newcolor;
+	GameObject gameManager;
+	
 
-	void Start () {
+	void Awake() {
 		stopTimer = false;
 		timerSlider.maxValue = gameTime;
-		timerSlider.value = gameTime;
+		timerSlider.value = gameTime2;
+		fillArea = timerSlider.fillRect.GetComponent<Image>();
+		gameManager = GameObject.Find("GameManager");
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		float time = gameTime - Time.time;
-		int minutes = Mathf.FloorToInt(time / 60);
-		int seconds = Mathf.FloorToInt(time - minutes * 60f);
+	void Update() {
+		if(gameTime2 < 91)
+		{ 
+			gameTime2 = gameTime2 + Time.deltaTime;
 
-		string textTime = string.Format("{0:0}:{1:00}", minutes, seconds);
-
-		if(time <= 0)
-        {
-			stopTimer = true;
-        }
-		if(stopTimer == false)
-        {
-			timertext.text = textTime;
-			timerSlider.value = time;
-        }
+			if (gameTime2 >= gameTime)
+			{
+				stopTimer = true;
+				EndGame();
+				
+			}
+			if (stopTimer == false)
+			{
+				timerSlider.value = gameTime2;
+			}
+		}
+	}
+	void EndGame()
+    {
+		Invoke("DisableUI", 1);
+    }
+	void DisableUI()
+    {
+		gameManager.GetComponent<ActivateUI>().UIDisabled();
 	}
 }

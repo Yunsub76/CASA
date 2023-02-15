@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 8e2ac322be76d074ebfc82619fd37d33
+=======
+guid: 0f2dfc7fbd526464fa0fcd551c61331f
+>>>>>>> UI_HJ_WORKING
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 100100000

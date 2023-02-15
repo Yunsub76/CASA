@@ -166,3 +166,7 @@ D:\윤섭\CGLab\CASA\CASA\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cac
 D:\윤섭\CGLab\CASA\CASA\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\윤섭\CGLab\CASA\CASA\obj\Debug\Assembly-CSharp.dll
 D:\윤섭\CGLab\CASA\CASA\obj\Debug\Assembly-CSharp.pdb
+C:\Users\my coms\CASA\CASA\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+C:\Users\my coms\CASA\CASA\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\my coms\CASA\CASA\obj\Debug\Assembly-CSharp.dll
+C:\Users\my coms\CASA\CASA\obj\Debug\Assembly-CSharp.pdb
