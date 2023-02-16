@@ -15,16 +15,16 @@ public class SoundManager : MonoBehaviour
 
     public void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
+       if (instance == null)
+       {
+           instance = this;
             DontDestroyOnLoad(instance);
             BGMSound();
-        }
-        else
-        {
+       }
+       else
+       {
             Destroy(gameObject);
-        }
+       }
     }
     
     public void BGMVolume(float volume)

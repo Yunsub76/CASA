@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GenerateFallingTrash : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GenerateFallingTrash : MonoBehaviour
     private float difficultyTime = 3f;
     public bool isTeam = false;
     public bool positive = true;
+    bool endBGMPlay = false;
 
     private LoadManager loadManager;
 
@@ -45,7 +47,7 @@ public class GenerateFallingTrash : MonoBehaviour
     void FixedUpdate()
     {
         setDifficulty();
-        if(sliderTimer.gameTime2 > sliderTimer.gameTime - 1)
+        if(sliderTimer.gameTime2 > sliderTimer.gameTime )
             endingSystem();
     }
 
@@ -180,14 +182,24 @@ public class GenerateFallingTrash : MonoBehaviour
     {
         PositiveEnding.SetActive(true);
         soundManagerScript.bGMNumber = 2;
+        if (endBGMPlay == false)
+        {
+            soundManagerScript.BGMSound();
+            endBGMPlay = true;
+        }
     }
 
     void ForNegativeEnding()
     {
         NegativeEnding.SetActive(true);
         soundManagerScript.bGMNumber = 4;
-        
-        soundManagerScript.SFXSound(soundManagerScript.sFXList[9]);
+        if (endBGMPlay == false)
+        {
+            soundManagerScript.BGMSound();
+            endBGMPlay = true;
+        }
+
+
         NPCs.SetActive(false);
     }
 }
