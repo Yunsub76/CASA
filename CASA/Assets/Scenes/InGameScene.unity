@@ -1841,7 +1841,7 @@ Transform:
   m_GameObject: {fileID: 62637086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.521523, y: 2.5634987, z: -1.6438485}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1439667375}
   - {fileID: 633107044}
@@ -4056,8 +4056,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 148855621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.35, y: -26.9, z: 139.48}
-  m_LocalScale: {x: 220, y: 10, z: 150}
+  m_LocalPosition: {x: 1.35, y: -26.9, z: 136.5}
+  m_LocalScale: {x: 550.66003, y: 10, z: 157.08}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -44350,7 +44350,7 @@ MonoBehaviour:
   - {fileID: 1324577815079554, guid: 131e18069e5c4cb42adc48d142aa705d, type: 2}
   GameArea: {fileID: 148855621}
   soundManager: {fileID: 239062846}
-  isSingle: 1
+  isTeam: 0
   positive: 1
   PositiveEnding: {fileID: 1132100384}
   NegativeEnding: {fileID: 1864470513}

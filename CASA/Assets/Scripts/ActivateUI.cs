@@ -35,13 +35,12 @@ public class ActivateUI : MonoBehaviour {
 
     public void UIDisabled()
     {
-
         image.SetActive(false);
         slider.SetActive(false);
         scoreText.SetActive(false);
         if (GetComponent<SliderTimer>().stopTimer == true)
         {
-            Invoke("FrameActivate",5);
+            Invoke("FrameActivate",1);
         }
     }    
 

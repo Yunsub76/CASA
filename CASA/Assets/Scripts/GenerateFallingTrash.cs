@@ -19,8 +19,7 @@ public class GenerateFallingTrash : MonoBehaviour
     private Collider GameAreaCollider = null;
 
     private float difficultyTime = 3f;
-    private bool isTeam = false;
-    public bool isSingle = true;
+    public bool isTeam = false;
     public bool positive = true;
 
     private LoadManager loadManager;
@@ -48,12 +47,12 @@ public class GenerateFallingTrash : MonoBehaviour
         setDifficulty();
     }
 
-    void SetRandomPosition()
+    public void SetRandomPosition()
     {
         float x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
         float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
         int i = Random.Range(0, 5);  
-        trashPosition = new Vector3(x, 140.0f, z);
+        trashPosition = new Vector3(x, 150.0f, z);
         fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
         soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
     }
@@ -67,14 +66,12 @@ public class GenerateFallingTrash : MonoBehaviour
             int i = Random.Range(0, 5); 
             trashPosition = new Vector3(x, 150.0f, z);
             fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
-            soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
-
+            
             x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
             z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
             i = Random.Range(0, 5); 
             trashPosition = new Vector3(x, 150.0f, z);
             fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
-            soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
         }
     }
 
@@ -86,7 +83,7 @@ public class GenerateFallingTrash : MonoBehaviour
             soundManagerScript.bGMNumber = 1;
             soundManagerScript.BGMSound();
             positive = true;
-            Debug.Log(positive);
+            currentMode();
         }
 
         if (Input.GetKeyDown(KeyCode.N))
@@ -95,26 +92,47 @@ public class GenerateFallingTrash : MonoBehaviour
             soundManagerScript.bGMNumber = 3; 
             soundManagerScript.BGMSound();
             positive = false;
-            Debug.Log(positive);
+            currentMode();
         }
 
         if(Input.GetKeyDown(KeyCode.Q))
         {
             isTeam = false;
-            isSingle = true;
+            currentMode();
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
             isTeam = true;
-            isSingle = false;
+            currentMode();
+        }
+    }
+
+    void currentMode()
+    {
+        if (positive == true)
+        {
+            Debug.Log("[현재 게임 엔딩 설정] 긍정엔딩");
+        }
+        else
+        {
+            Debug.Log("[현재 게임 엔딩 설정] 부정엔딩");
+        }
+
+        if (isTeam == true)
+        {
+            Debug.Log("[현재 게임 인원 설정] 3인용");
+        }
+        else
+        {
+            Debug.Log("[현재 게임 인원 설정] 1인용");
         }
     }
 
     IEnumerator RePositionWithDelay()
     {
         yield return new WaitForSecondsRealtime(6);
-        while (true)
+        while (true && positive == true)
         {
             if (!loadManager.pause)
             {

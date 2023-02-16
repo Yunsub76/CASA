@@ -16,7 +16,6 @@ public class RightPositionDiscriminator : MonoBehaviour
     private int type = 0;
     private int score;
     private bool justOnce = false;
-    private bool IsSingle;
 
     private SoundManager soundManagerScript;
     GenerateFallingTrash generateFallingTrash;
@@ -27,7 +26,6 @@ public class RightPositionDiscriminator : MonoBehaviour
         goodPrefab = gameManager.GetComponent<GoodObjectList>().goodObjectList;
         areaToCoordinate = gameManager.GetComponent<AreaToCoordinate>();
         score = gameManager.GetComponent<ScoreManager>().score;
-        IsSingle = gameManager.GetComponent<GenerateFallingTrash>().isSingle;
         generateFallingTrash = gameManager.GetComponent<GenerateFallingTrash>();
 
         wasteCoordinateList = areaToCoordinate.wasteCoordinateList;
@@ -48,7 +46,7 @@ public class RightPositionDiscriminator : MonoBehaviour
         {
             wasteTypeIndex = 2;
         }
-        else if(this.gameObject.tag == "General")
+        else
         {
             wasteTypeIndex = 3;
         }
@@ -61,6 +59,11 @@ public class RightPositionDiscriminator : MonoBehaviour
 
     private void IsInCorrectPlace()
     {
+        if(generateFallingTrash.positive == false)
+        {
+            wasteTypeIndex = 0;
+        }
+
         if(justOnce == false)
         { 
             if(this.gameObject.transform.position.x > wasteCoordinateList[wasteTypeIndex][0] &&
@@ -73,6 +76,19 @@ public class RightPositionDiscriminator : MonoBehaviour
                 gameManager.GetComponent<ScoreManager>().changeLightNum = true;
                 justOnce = true;
                 changingTrash();
+                if (generateFallingTrash.positive == false) //부정 모드일 때 쓰레기를 넣을 때마다 떨어지게 함
+                {
+                    if (generateFallingTrash.isTeam == true) //협동 모드일 때 쓰레기 넣을 때 하나씩 들어가게 함
+                    {
+                        generateFallingTrash.SetRandomPosition();
+                    }
+                    else  //개인 모드일 때 같은 결말을 위해 하나 버릴 때 3개씩 떨어지게 함
+                    {
+                        generateFallingTrash.SetRandomPosition();
+                        generateFallingTrash.SetRandomPosition();
+                        generateFallingTrash.SetRandomPosition();
+                    }
+                }
                 soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
             }
         }
@@ -89,12 +105,12 @@ public class RightPositionDiscriminator : MonoBehaviour
 
             int i = Random.Range(0, 14);
             Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), goodPrefab[i].transform.rotation);
-            if(IsSingle == true)
+            if (generateFallingTrash.isTeam == false) //개인 모드일 때 1쓰레기 당 eco 3개
             {
-                int Ra = Random.Range(20, 35);
-                int Rb = Random.Range(15, 40);
-                int Rc = Random.Range(-10, 0);
-     
+                int Ra = Random.Range(30, 45);
+                int Rb = Random.Range(25, 50);
+                int Rc = Random.Range(-15, 0);
+                
                 Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x + Ra + Rc, fallingTrashPosition.y, fallingTrashPosition.z + Rb), goodPrefab[i].transform.rotation);
                 Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x + Rb + Rc, fallingTrashPosition.y, fallingTrashPosition.z + Ra), goodPrefab[i].transform.rotation);
             }
