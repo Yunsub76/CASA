@@ -43281,7 +43281,7 @@ Prefab:
     - target: {fileID: 224344879464822588, guid: 75a49cd4ec0533048a10eab0822acf37,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -9.999924
+      value: -37
       objectReference: {fileID: 0}
     - target: {fileID: 224344879464822588, guid: 75a49cd4ec0533048a10eab0822acf37,
         type: 2}
@@ -43326,6 +43326,21 @@ Prefab:
     - target: {fileID: 1273627416738876, guid: 75a49cd4ec0533048a10eab0822acf37, type: 2}
       propertyPath: m_Name
       value: ScoreDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 224344879464822588, guid: 75a49cd4ec0533048a10eab0822acf37,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224344879464822588, guid: 75a49cd4ec0533048a10eab0822acf37,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224047933369037926, guid: 75a49cd4ec0533048a10eab0822acf37,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a49cd4ec0533048a10eab0822acf37, type: 2}
@@ -44301,7 +44316,7 @@ MonoBehaviour:
   finalScore: {fileID: 734847322}
   frame: {fileID: 1898058665}
   pressEnter: {fileID: 1663870237}
-  resetTime: 0
+  resetTime: 89
 --- !u!114 &1526821702
 MonoBehaviour:
   m_ObjectHideFlags: 0
