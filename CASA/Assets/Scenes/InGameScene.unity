@@ -4454,8 +4454,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 148855621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.35, y: -26.9, z: 136.5}
-  m_LocalScale: {x: 550.66003, y: 10, z: 157.08}
+  m_LocalPosition: {x: -29, y: -26.9, z: 136.5}
+  m_LocalScale: {x: 605.7261, y: 10, z: 157.08}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -5215,7 +5215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 403171814}
-  speed: 0.8
+  speed: 0.4
   stopObj: {fileID: 0}
 --- !u!1 &170630865
 GameObject:
@@ -6565,7 +6565,7 @@ Prefab:
     - target: {fileID: 114405305355463672, guid: bcc47ae6fe82fae46a137b25ec5e3d9a,
         type: 2}
       propertyPath: speed
-      value: 0.7
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 114405305355463672, guid: bcc47ae6fe82fae46a137b25ec5e3d9a,
         type: 2}
@@ -12594,7 +12594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1507707827}
-  speed: 0.9
+  speed: 0.4
   stopObj: {fileID: 413299055}
 --- !u!1 &415315577
 GameObject:
@@ -13677,7 +13677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 403171814}
-  speed: 0.8
+  speed: 0.4
   stopObj: {fileID: 0}
 --- !u!95 &467642557
 Animator:
@@ -15514,7 +15514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2029551548}
-  speed: 0.6
+  speed: 0.3
   stopObj: {fileID: 410104240}
 --- !u!4 &529053469
 Transform:
@@ -18163,7 +18163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1507825500}
-  speed: 0.8
+  speed: 0.4
   stopObj: {fileID: 410104240}
 --- !u!4 &619427470
 Transform:
@@ -19808,7 +19808,7 @@ Prefab:
     - target: {fileID: 114405305355463672, guid: bcc47ae6fe82fae46a137b25ec5e3d9a,
         type: 2}
       propertyPath: speed
-      value: 3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 114405305355463672, guid: bcc47ae6fe82fae46a137b25ec5e3d9a,
         type: 2}
@@ -20801,6 +20801,11 @@ Prefab:
     - target: {fileID: 4247052022514392, guid: a31a7f35b843794438d8495df1c9ad34, type: 2}
       propertyPath: m_RootOrder
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682054006320544, guid: a31a7f35b843794438d8495df1c9ad34,
+        type: 2}
+      propertyPath: speed
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a31a7f35b843794438d8495df1c9ad34, type: 2}
@@ -22652,7 +22657,7 @@ Prefab:
     - target: {fileID: 114337098257429072, guid: 274a967f923a6a6498977c48d5de8146,
         type: 2}
       propertyPath: speed
-      value: 0.7
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 274a967f923a6a6498977c48d5de8146, type: 2}
@@ -25627,7 +25632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1507707827}
-  speed: 0.9
+  speed: 0.4
   stopObj: {fileID: 413299055}
 --- !u!95 &837789790
 Animator:
@@ -28300,6 +28305,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 191.94319
       objectReference: {fileID: 0}
+    - target: {fileID: 114339262158348470, guid: 72222d62472a4064184aece580060d27,
+        type: 2}
+      propertyPath: speed
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72222d62472a4064184aece580060d27, type: 2}
   m_IsPrefabAsset: 0
@@ -28974,7 +28984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1507825500}
-  speed: 0.8
+  speed: 0.3
   stopObj: {fileID: 410104240}
 --- !u!1 &942834504
 GameObject:
@@ -30798,7 +30808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 836422793}
-  speed: 0.6
+  speed: 0.3
   stopObj: {fileID: 836422792}
 --- !u!1 &1016987111
 GameObject:
@@ -35664,7 +35674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 403171814}
-  speed: 0.8
+  speed: 0.3
   stopObj: {fileID: 403171813}
 --- !u!95 &1184529234
 Animator:
@@ -42619,7 +42629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 747340545}
-  speed: 0.9
+  speed: 0.4
   stopObj: {fileID: 747340544}
 --- !u!1 &1401628134
 GameObject:
@@ -48682,7 +48692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 575570399}
-  speed: 0.7
+  speed: 0.3
   stopObj: {fileID: 0}
 --- !u!95 &1566753767
 Animator:
@@ -52868,16 +52878,27 @@ Prefab:
     - target: {fileID: 224896428347791840, guid: abc7aa4c8eb5d984aa5161a2a025077d,
         type: 2}
       propertyPath: m_LocalScale.x
-      value: 4.5729985
+      value: 3.45
       objectReference: {fileID: 0}
     - target: {fileID: 224896428347791840, guid: abc7aa4c8eb5d984aa5161a2a025077d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 15
+      value: 29.5
       objectReference: {fileID: 0}
     - target: {fileID: 1121111490428248, guid: abc7aa4c8eb5d984aa5161a2a025077d, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114363581351833484, guid: abc7aa4c8eb5d984aa5161a2a025077d,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9baa3cc8338ca7c44a064c3660a44c5d,
+        type: 3}
+    - target: {fileID: 114363581351833484, guid: abc7aa4c8eb5d984aa5161a2a025077d,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc7aa4c8eb5d984aa5161a2a025077d, type: 2}
@@ -53096,7 +53117,7 @@ Prefab:
     - target: {fileID: 114655229786736996, guid: 913d15df79b1c404cae28934a8c772bc,
         type: 2}
       propertyPath: speed
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4569561913594982, guid: 913d15df79b1c404cae28934a8c772bc, type: 2}
       propertyPath: m_LocalScale.y
@@ -53827,7 +53848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2000396562}
-  speed: 0.7
+  speed: 0.3
   stopObj: {fileID: 2000396561}
 --- !u!1001 &1777752116
 Prefab:
@@ -62939,7 +62960,7 @@ Prefab:
     - target: {fileID: 114580645387138004, guid: 19808a27dde24fc499c5386ef90191bb,
         type: 2}
       propertyPath: speed
-      value: 0.8
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114580645387138004, guid: 19808a27dde24fc499c5386ef90191bb,
         type: 2}
