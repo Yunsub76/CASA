@@ -44225,7 +44225,7 @@ MonoBehaviour:
   finalScore: {fileID: 734847322}
   frame: {fileID: 1898058665}
   pressEnter: {fileID: 1663870237}
-  resetTime: 89
+  resetTime: 88
 --- !u!114 &1526821702
 MonoBehaviour:
   m_ObjectHideFlags: 0
