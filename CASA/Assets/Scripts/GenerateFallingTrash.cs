@@ -45,6 +45,8 @@ public class GenerateFallingTrash : MonoBehaviour
     void FixedUpdate()
     {
         setDifficulty();
+        if(sliderTimer.gameTime2 > sliderTimer.gameTime - 1)
+            endingSystem();
     }
 
     public void SetRandomPosition()
@@ -136,7 +138,7 @@ public class GenerateFallingTrash : MonoBehaviour
         {
             if (!loadManager.pause)
             {
-                if (sliderTimer.gameTime2 < 89)
+                if (sliderTimer.gameTime2 < 89 )
                 {
 
                     yield return new WaitForSecondsRealtime(difficultyTime);
@@ -146,8 +148,6 @@ public class GenerateFallingTrash : MonoBehaviour
                 else
                 {
                     yield return new WaitForSecondsRealtime(3);
-
-                    endingSystem();
 
                     break;
                 }
@@ -179,11 +179,15 @@ public class GenerateFallingTrash : MonoBehaviour
     void ForPositiveEnding()
     {
         PositiveEnding.SetActive(true);
+        soundManagerScript.bGMNumber = 2;
     }
 
     void ForNegativeEnding()
     {
         NegativeEnding.SetActive(true);
+        soundManagerScript.bGMNumber = 4;
+        
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[9]);
         NPCs.SetActive(false);
     }
 }
