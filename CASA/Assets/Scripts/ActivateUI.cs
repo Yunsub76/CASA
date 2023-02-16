@@ -22,16 +22,7 @@ public class ActivateUI : MonoBehaviour {
 
     bool endScoreText = false;
 
-    void Update()
-    {
-        if (endScoreText == true)
-        {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                EndScoreDisabled();
-            }
-        }
-    }
+
 
     public void UIDisabled()
     {
@@ -76,7 +67,7 @@ public class ActivateUI : MonoBehaviour {
         finalScore.GetComponent<Text>().text = string.Format("{0:0}", GetComponent<ScoreManager>().score);
         finalScore.SetActive(true);
         endScoreText = true;
-        Invoke("PressEnterActive", 1);
+        Invoke("EndScoreDisabled", 5);
     }
     void PressEnterActive()
     {
