@@ -32,6 +32,8 @@ public class OptitrackRigidBody : MonoBehaviour
     [Tooltip("Subscribes to this asset when using Unicast streaming.")]
     public bool NetworkCompensation = true;
 
+	Vector3 prevPosition = Vector3.zero;
+
     void Start()
     {
         // If the user didn't explicitly associate a client, find a suitable default.
@@ -81,10 +83,26 @@ public class OptitrackRigidBody : MonoBehaviour
     void UpdatePose()
     {
         OptitrackRigidBodyState rbState = StreamingClient.GetLatestRigidBodyState( RigidBodyId, NetworkCompensation);
+
         if ( rbState != null )
         {
-            this.transform.localPosition = rbState.Pose.Position;
-            this.transform.localRotation = rbState.Pose.Orientation;
+			if(prevPosition == null) {
+				prevPosition = rbState.Pose.Position;
+				return;
+			}
+
+			float dist = Vector3.Distance(prevPosition, rbState.Pose.Position);
+
+			if(dist == 0 || dist > 0.2) {
+				this.transform.localPosition = Vector3.zero;
+				this.transform.localRotation = Quaternion.identity;
+			}
+			else {
+				this.transform.localPosition = rbState.Pose.Position;
+				this.transform.localRotation = rbState.Pose.Orientation;
+			}
+
+			prevPosition = rbState.Pose.Position;
         }
     }
 }
