@@ -41864,6 +41864,7 @@ GameObject:
   - component: {fileID: 1054997076}
   - component: {fileID: 1054997075}
   - component: {fileID: 1054997074}
+  - component: {fileID: 1054997077}
   m_Layer: 0
   m_Name: N_Background
   m_TagString: Untagged
@@ -41938,6 +41939,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1054997072}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1054997077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054997072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 458818afa99208544a0ab47e01ae2fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1055194866
 GameObject:
   m_ObjectHideFlags: 0
@@ -61695,7 +61707,7 @@ MonoBehaviour:
   finalScore: {fileID: 734847322}
   frame: {fileID: 1898058665}
   pressEnter: {fileID: 1663870237}
-  resetTime: 0
+  resetTime: 89
 --- !u!114 &1526821702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61749,6 +61761,7 @@ MonoBehaviour:
   PositiveEnding: {fileID: 1132100384}
   NegativeEnding: {fileID: 1864470513}
   NPCs: {fileID: 62637086}
+  transitionNegativeBGScript: {fileID: 1054997072}
 --- !u!114 &1526821704
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,12 +30,16 @@ public class GenerateFallingTrash : MonoBehaviour
     [SerializeField] private GameObject NegativeEnding;
     [SerializeField] private GameObject NPCs;
 
+    [SerializeField] GameObject transitionNegativeBGScript;
+    private TransitionBackground transitionNegativeBG;
+
     void Awake()
     {
         soundManagerScript = soundManager.GetComponent<SoundManager>();
         sliderTimer = this.GetComponent<SliderTimer>();
 
         loadManager = this.GetComponent<LoadManager>();
+        transitionNegativeBG = transitionNegativeBGScript.GetComponent<TransitionBackground>();
     }
 
     void Start()
@@ -198,6 +202,7 @@ public class GenerateFallingTrash : MonoBehaviour
             soundManagerScript.BGMSound();
             endBGMPlay = true;
         }
+        transitionNegativeBG.ChangeColor();
 
 
         NPCs.SetActive(false);
