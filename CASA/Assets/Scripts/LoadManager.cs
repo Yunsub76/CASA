@@ -35,12 +35,13 @@ public class LoadManager : MonoBehaviour
 
 	void restart()
     {
-		SceneManager.LoadSceneAsync("StartSceneBackground");
+		int currentIndex = SceneManager.GetActiveScene().buildIndex;
+		SceneManager.LoadScene(currentIndex);
 	}
 
 	void loadInGameScene()
     {
-		SceneManager.LoadSceneAsync("StartSceneBackground");
+		SceneManager.LoadSceneAsync("InGameScene");
 	}
 
 	void pauseGame()
