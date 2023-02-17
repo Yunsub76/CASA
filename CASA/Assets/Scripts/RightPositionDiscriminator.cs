@@ -20,6 +20,8 @@ public class RightPositionDiscriminator : MonoBehaviour
     private SoundManager soundManagerScript;
     GenerateFallingTrash generateFallingTrash;
 
+    Vector3 prevPosition = Vector3.zero;
+
     void Awake()
     {
         gameManager = GameObject.Find("GameManager");
@@ -72,24 +74,35 @@ public class RightPositionDiscriminator : MonoBehaviour
                 this.gameObject.transform.position.z < wasteCoordinateList[wasteTypeIndex][3] &&
                 this.gameObject.transform.position.y < wasteCoordinateList[wasteTypeIndex][4])
             {
-                gameManager.GetComponent<ScoreManager>().score += 100;
-                gameManager.GetComponent<ScoreManager>().changeLightNum = true;
-                justOnce = true;
-                changingTrash();
-                if (generateFallingTrash.positive == false) //부정 모드일 때 쓰레기를 넣을 때마다 떨어지게 함
+                if (prevPosition == null)
                 {
-                    if (generateFallingTrash.isTeam == true) //협동 모드일 때 쓰레기 넣을 때 하나씩 들어가게 함
-                    {
-                        generateFallingTrash.SetRandomPosition();
-                    }
-                    else  //개인 모드일 때 같은 결말을 위해 하나 버릴 때 3개씩 떨어지게 함
-                    {
-                        generateFallingTrash.SetRandomPosition();
-                        generateFallingTrash.SetRandomPosition();
-                        generateFallingTrash.SetRandomPosition();
-                    }
+                    prevPosition = this.transform.position;
+                    return;
                 }
-                soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
+
+                float dist = Vector3.Distance(prevPosition, this.transform.position);
+
+                if (dist != 0)
+                {
+                    gameManager.GetComponent<ScoreManager>().score += 100;
+                    gameManager.GetComponent<ScoreManager>().changeLightNum = true;
+                    justOnce = true;
+                    changingTrash();
+                    if (generateFallingTrash.positive == false) //부정 모드일 때 쓰레기를 넣을 때마다 떨어지게 함
+                    {
+                        if (generateFallingTrash.isTeam == true) //협동 모드일 때 쓰레기 넣을 때 하나씩 들어가게 함
+                        {
+                            generateFallingTrash.SetRandomPosition();
+                        }
+                        else  //개인 모드일 때 같은 결말을 위해 하나 버릴 때 3개씩 떨어지게 함
+                        {
+                            generateFallingTrash.SetRandomPosition();
+                            generateFallingTrash.SetRandomPosition();
+                            generateFallingTrash.SetRandomPosition();
+                        }
+                    }
+                    soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
+                }
             }
         }
     }
