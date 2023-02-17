@@ -41,7 +41,10 @@ public class LoadManager : MonoBehaviour
 
 	void loadInGameScene()
     {
-		SceneManager.LoadSceneAsync("InGameScene");
+		if (SceneManager.GetActiveScene().buildIndex > 1)
+		{
+			SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+1);
+		}
 	}
 
 	void pauseGame()

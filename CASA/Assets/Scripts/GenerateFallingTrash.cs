@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GenerateFallingTrash : MonoBehaviour
 {
@@ -63,6 +64,18 @@ public class GenerateFallingTrash : MonoBehaviour
         trashPosition = new Vector3(x, 150.0f, z);
         fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
         soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
+
+        x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
+        z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
+        i = Random.Range(0, 5);
+        trashPosition = new Vector3(x, 150.0f, z);
+        fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
+
+        x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
+        z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
+        i = Random.Range(0, 5);
+        trashPosition = new Vector3(x, 150.0f, z);
+        fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
     }
 
     void SetRandomPositionTeam()
@@ -75,44 +88,50 @@ public class GenerateFallingTrash : MonoBehaviour
             trashPosition = new Vector3(x, 150.0f, z);
             fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
             
-            x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
-            z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
-            i = Random.Range(0, 5); 
-            trashPosition = new Vector3(x, 150.0f, z);
-            fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
+            for(int a = 0; a < 8; a++)
+            {
+                x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
+                z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
+                i = Random.Range(0, 5);
+                trashPosition = new Vector3(x, 150.0f, z);
+                fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
+            }
         }
     }
 
     void setDifficulty()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            difficultyTime = 4f; 
-            soundManagerScript.bGMNumber = 1;
-            soundManagerScript.BGMSound();
-            positive = true;
-            currentMode();
-        }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                difficultyTime = 4f;
+                soundManagerScript.bGMNumber = 1;
+                soundManagerScript.BGMSound();
+                positive = true;
+                currentMode();
+            }
 
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            difficultyTime = 2f;
-            soundManagerScript.bGMNumber = 3; 
-            soundManagerScript.BGMSound();
-            positive = false;
-            currentMode();
-        }
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                difficultyTime = 2f;
+                soundManagerScript.bGMNumber = 3;
+                soundManagerScript.BGMSound();
+                positive = false;
+                currentMode();
+            }
 
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            isTeam = false;
-            currentMode();
-        }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                isTeam = false;
+                currentMode();
+            }
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            isTeam = true;
-            currentMode();
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                isTeam = true;
+                currentMode();
+            }
         }
     }
 
@@ -185,16 +204,19 @@ public class GenerateFallingTrash : MonoBehaviour
     void ForPositiveEnding()
     {
         PositiveEnding.SetActive(true);
+        NegativeEnding.SetActive(false);
         soundManagerScript.bGMNumber = 2;
         if (endBGMPlay == false)
         {
             soundManagerScript.BGMSound();
             endBGMPlay = true;
         }
+
     }
 
     void ForNegativeEnding()
     {
+        PositiveEnding.SetActive(false);
         NegativeEnding.SetActive(true);
         soundManagerScript.bGMNumber = 4;
         if (endBGMPlay == false)
