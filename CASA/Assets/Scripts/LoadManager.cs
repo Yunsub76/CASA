@@ -43,7 +43,7 @@ public class LoadManager : MonoBehaviour
     {
 		if (SceneManager.GetActiveScene().buildIndex > 1)
 		{
-			SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+1);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
 		}
 	}
 

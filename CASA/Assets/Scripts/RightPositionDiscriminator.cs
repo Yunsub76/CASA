@@ -8,7 +8,7 @@ public class RightPositionDiscriminator : MonoBehaviour
     private GameObject gameManager;
 
     private int wasteTypeIndex;
-    private List<GameObject> goodPrefab;
+    private GameObject ScorePreFab;
 
     private AreaToCoordinate areaToCoordinate;
     private List<float[]> wasteCoordinateList;
@@ -21,11 +21,12 @@ public class RightPositionDiscriminator : MonoBehaviour
     GenerateFallingTrash generateFallingTrash;
 
     Vector3 prevPosition = Vector3.zero;
+    Vector3 fallingTrashPosition = new Vector3(0,0,0);
 
     void Awake()
     {
         gameManager = GameObject.Find("GameManager");
-        goodPrefab = gameManager.GetComponent<GoodObjectList>().goodObjectList;
+        ScorePreFab = gameManager.GetComponent<GoodObjectList>().ScorePreFab;
         areaToCoordinate = gameManager.GetComponent<AreaToCoordinate>();
         score = gameManager.GetComponent<ScoreManager>().score;
         generateFallingTrash = gameManager.GetComponent<GenerateFallingTrash>();
@@ -86,36 +87,32 @@ public class RightPositionDiscriminator : MonoBehaviour
 
                 if (dist != 0)
                 {
-                    gameManager.GetComponent<ScoreManager>().score += 100;
-                    gameManager.GetComponent<ScoreManager>().changeLightNum = true;
+                    gameManager.GetComponent<ScoreManager>().changeLightNum = true; 
                     justOnce = true;
                     
-                    if (generateFallingTrash.positive == false) //부정 모드일 때 쓰레기를 넣을 때마다 떨어지게 함
+                    if (generateFallingTrash.positive == false) //부정 모드일 때 
                     {
-                        if (generateFallingTrash.isTeam == true) //협동 모드일 때 쓰레기 넣을 때 하나씩 들어가게 함
+                        if (generateFallingTrash.isTeam == true) //협동 모드일 때 
                         {
                             generateFallingTrash.SetRandomPosition();
+                            gameManager.GetComponent<ScoreManager>().score += 100;
                         }
-                        else  //개인 모드일 때 같은 결말을 위해 하나 버릴 때 3개씩 떨어지게 함
+                        else  //개인 모드
                         {
                             generateFallingTrash.SetRandomPosition();
-                            generateFallingTrash.SetRandomPosition();
-                            generateFallingTrash.SetRandomPosition();
+                            gameManager.GetComponent<ScoreManager>().score += 300;
                         }
                     }
-                    else
+                    else  //긍정 모드일 때 
                     {
-                        if (generateFallingTrash.isTeam == true) //협동 모드일 때 쓰레기 넣을 때 하나씩 들어가게 함
+                        changingTrash();
+                        if (generateFallingTrash.isTeam == true) //협동 모드
                         {
-                            changingTrash(); //협동 모드일 때 3쓰레기  eco 3개 wmr  9쓰레기 eco 9개
-                            Invoke("changingTrash", 1f);
-                            Invoke("changingTrash", 2f);
+                            gameManager.GetComponent<ScoreManager>().score += 100;
                         }
-                        else
+                        else  //개인 모드 
                         {
-                            changingTrash(); //개인 모드일 때 3쓰레기  eco 9개
-                            Invoke("changingTrash", 1f);
-                            Invoke("changingTrash", 2f);
+                            gameManager.GetComponent<ScoreManager>().score += 300;
                         }
                     }
                     soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
@@ -126,23 +123,38 @@ public class RightPositionDiscriminator : MonoBehaviour
 
     private void changingTrash()
     {
-        GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
-        if (fallingTrash != null)
+        if (this.gameObject.tag == "Plastic")
         {
-            Vector3 fallingTrashPosition = fallingTrash.transform.position;
-            Destroy(fallingTrash);
-
-            int i = Random.Range(0, 14);
-            Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), goodPrefab[i].transform.rotation);
-            if (generateFallingTrash.isTeam == false)
-            {
-                int Ra = Random.Range(30, 45);
-                int Rb = Random.Range(25, 50);
-                int Rc = Random.Range(-15, 0);
-
-                Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x + Ra + Rc, fallingTrashPosition.y, fallingTrashPosition.z + Rb), goodPrefab[i].transform.rotation);
-                Instantiate(goodPrefab[i], new Vector3(fallingTrashPosition.x + Rb + Rc, fallingTrashPosition.y, fallingTrashPosition.z + Ra), goodPrefab[i].transform.rotation);
-            }
+            if (generateFallingTrash.spawnedPlasticList[0] == null)
+                return;
+            // 생성된 오브젝트 리스트에 추가
+            fallingTrashPosition = generateFallingTrash.spawnedPlasticList[0].transform.position;
+            Destroy(generateFallingTrash.spawnedPlasticList[0]);
+            generateFallingTrash.spawnedPlasticList.RemoveAt(0);
         }
+        else if (this.gameObject.tag == "Paper")
+        {
+            if (generateFallingTrash.spawnedPaperList[0] == null)
+                return;
+            fallingTrashPosition = generateFallingTrash.spawnedPaperList[0].transform.position;
+            Destroy(generateFallingTrash.spawnedPaperList[0]);
+            generateFallingTrash.spawnedPaperList.RemoveAt(0);
+        }
+        else if (this.gameObject.tag == "Can")
+        {
+            if (generateFallingTrash.spawnedCanList[0] == null)
+                return;
+            fallingTrashPosition = generateFallingTrash.spawnedCanList[0].transform.position;
+            Destroy(generateFallingTrash.spawnedCanList[0]);
+            generateFallingTrash.spawnedCanList.RemoveAt(0);
+        }
+        StartCoroutine(ProjectScore());
+    }
+
+    IEnumerator ProjectScore()
+    {
+        //GameObject ScoreObject = Instantiate(ScorePreFab, new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), ScorePreFab.transform.rotation);
+        yield return new WaitForSecondsRealtime(6);
+       // Destroy(ScoreObject);
     }
 };

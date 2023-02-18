@@ -10,7 +10,6 @@ public class GenerateFallingTrash : MonoBehaviour
     private Vector3 trashPosition;  
     
     private GameObject fallingTrash;
-    [SerializeField] private GameObject[] fallingTrashArray = new GameObject[5];
 
     [SerializeField] GameObject GameArea;
 
@@ -21,18 +20,33 @@ public class GenerateFallingTrash : MonoBehaviour
     private Collider GameAreaCollider = null;
 
     private float difficultyTime = 3f;
-    public bool isTeam = false;
-    public bool positive = true;
-    bool endBGMPlay = false;
+    public bool isTeam = false; 
+    public bool positive = true; 
+    bool endBGMPlay = false; 
+     
+    private LoadManager loadManager; 
 
-    private LoadManager loadManager;
+    [SerializeField] private GameObject PositiveEnding; 
+    [SerializeField] private GameObject NegativeEnding; 
+    [SerializeField] private GameObject NPCs; 
 
-    [SerializeField] private GameObject PositiveEnding;
-    [SerializeField] private GameObject NegativeEnding;
-    [SerializeField] private GameObject NPCs;
+    [SerializeField] GameObject transitionNegativeBGScript; 
+    private TransitionBackground transitionNegativeBG; 
 
-    [SerializeField] GameObject transitionNegativeBGScript;
-    private TransitionBackground transitionNegativeBG;
+    public GameObject prefab; // 생성할 프리팹 오브젝트
+    public float spawnInterval = 5.0f; // 생성 간격(초)
+
+    //생성된 오브젝트 리스트
+    public List<GameObject> spawnedPlasticList = new List<GameObject>(); 
+    public List<GameObject> spawnedPaperList = new List<GameObject>(); 
+    public List<GameObject> spawnedCanList = new List<GameObject>(); 
+
+    [SerializeField] private GameObject[] fallingTrashArray = new GameObject[3]; // 플라스틱, 종이, 캔 
+    private int wasteTypeIndex = 0;
+    enum wasteType { Plastic, Paper, Can };
+
+
+    private float timer = 0.0f; // 생성 타이머
 
     void Awake()
     {
@@ -56,47 +70,34 @@ public class GenerateFallingTrash : MonoBehaviour
             endingSystem();
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void SetRandomPosition()
     {
         float x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
         float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
-        int i = Random.Range(0, 5);  
-        trashPosition = new Vector3(x, 150.0f, z);
-        fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
-        soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
+        trashPosition = new Vector3(x, 150.0f, z); timer += Time.deltaTime; // 경과 시간 측정
+        wasteTypeIndex = Random.Range(0, 3); 
+        // 프리팹 오브젝트 생성
+        GameObject newObject = Instantiate(fallingTrashArray[wasteTypeIndex], trashPosition, Quaternion.identity);
 
-        x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
-        z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
-        i = Random.Range(0, 5);
-        trashPosition = new Vector3(x, 150.0f, z);
-        fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
-
-        x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
-        z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
-        i = Random.Range(0, 5);
-        trashPosition = new Vector3(x, 150.0f, z);
-        fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
-    }
-
-    void SetRandomPositionTeam()
-    {
-        if(isTeam == true)
+        if (newObject.gameObject.tag == "Plastic")
         {
-            float x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
-            float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
-            int i = Random.Range(0, 5); 
-            trashPosition = new Vector3(x, 150.0f, z);
-            fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
-            
-            for(int a = 0; a < 8; a++)
-            {
-                x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
-                z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
-                i = Random.Range(0, 5);
-                trashPosition = new Vector3(x, 150.0f, z);
-                fallingTrash = Instantiate(fallingTrashArray[i], trashPosition, fallingTrashArray[i].transform.rotation);
-            }
+            // 생성된 오브젝트 리스트에 추가
+            spawnedPlasticList.Add(newObject);
         }
+        else if (newObject.gameObject.tag == "Paper")
+        {
+            spawnedPaperList.Add(newObject);
+        }
+        else if (newObject.gameObject.tag == "Can")
+        {
+            spawnedCanList.Add(newObject);
+        }
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
     }
 
     void setDifficulty()
@@ -105,7 +106,6 @@ public class GenerateFallingTrash : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
-                difficultyTime = 4f;
                 soundManagerScript.bGMNumber = 1;
                 soundManagerScript.BGMSound();
                 positive = true;
@@ -114,7 +114,6 @@ public class GenerateFallingTrash : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.N))
             {
-                difficultyTime = 2f;
                 soundManagerScript.bGMNumber = 3;
                 soundManagerScript.BGMSound();
                 positive = false;
@@ -123,12 +122,14 @@ public class GenerateFallingTrash : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                difficultyTime = 3f;
                 isTeam = false;
                 currentMode();
             }
 
             if (Input.GetKeyDown(KeyCode.W))
             {
+                difficultyTime = 2.6f;
                 isTeam = true;
                 currentMode();
             }
@@ -165,10 +166,15 @@ public class GenerateFallingTrash : MonoBehaviour
             {
                 if (sliderTimer.gameTime2 < 89 )
                 {
-
                     yield return new WaitForSecondsRealtime(difficultyTime);
                     SetRandomPosition();
-                    SetRandomPositionTeam();
+                    if(isTeam == true)
+                    {
+                        yield return new WaitForSecondsRealtime(0.2f);
+                        SetRandomPosition();
+                        yield return new WaitForSecondsRealtime(0.2f);
+                        SetRandomPosition();
+                    }
                 }
                 else
                 {
@@ -211,7 +217,6 @@ public class GenerateFallingTrash : MonoBehaviour
             soundManagerScript.BGMSound();
             endBGMPlay = true;
         }
-
     }
 
     void ForNegativeEnding()
@@ -225,7 +230,6 @@ public class GenerateFallingTrash : MonoBehaviour
             endBGMPlay = true;
         }
         transitionNegativeBG.ChangeColor();
-
 
         NPCs.SetActive(false);
     }
