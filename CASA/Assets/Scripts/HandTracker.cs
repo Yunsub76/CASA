@@ -51,13 +51,9 @@ public class HandTracker : MonoBehaviour {
 	public int numOfCircles = 0;
 	public int numOfRCircles = 0;
 
-	GameObject centerPoint;
+	[SerializeField] GameObject centerPoint;
 
 	// Use this for initialization
-	void Start()
-	{
-		centerPoint = GameObject.Find("CenterPoint1");
-	}
 
 	float GetSign(float y, float mean_y)
 	{
