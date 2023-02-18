@@ -75223,7 +75223,7 @@ GameObject:
   - component: {fileID: 1741153697}
   - component: {fileID: 1741153696}
   m_Layer: 0
-  m_Name: CenterPoint
+  m_Name: CenterPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

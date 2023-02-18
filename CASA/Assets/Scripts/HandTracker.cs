@@ -44,15 +44,17 @@ public class HandTracker : MonoBehaviour {
 
 	// For circular tracking values
 	int cirular_counter = 0;
+	int R_cirular_counter = 0;
 	CIRCULAR_STATE prev_circular_state = CIRCULAR_STATE.UNKNOWN;
 	int numOfCircles = 0;
+	int numOfRCircles = 0;
 
 	GameObject centerPoint;
 
 	// Use this for initialization
 	void Start()
 	{
-		centerPoint = GameObject.Find("CenterPoint");
+		centerPoint = GameObject.Find("CenterPoint1");
 	}
 
 	float GetSign(float y, float mean_y)
@@ -148,33 +150,33 @@ public class HandTracker : MonoBehaviour {
 
 			case CIRCULAR_STATE.RS1:
 				if (prev_circular_state == CIRCULAR_STATE.RS4)
-					cirular_counter += 1;
+					R_cirular_counter += 1;
 				else
-					cirular_counter = 1;
+					R_cirular_counter = 1;
 				prev_circular_state = state;
 				break;
 
 			case CIRCULAR_STATE.RS2:
 				if (prev_circular_state == CIRCULAR_STATE.RS1)
-					cirular_counter += 1;
+					R_cirular_counter += 1;
 				else
-					cirular_counter = 1;
+					R_cirular_counter = 1;
 				prev_circular_state = state;
 				break;
 
 			case CIRCULAR_STATE.RS3:
 				if (prev_circular_state == CIRCULAR_STATE.RS2)
-					cirular_counter += 1;
+					R_cirular_counter += 1;
 				else
-					cirular_counter = 1;
+					R_cirular_counter = 1;
 				prev_circular_state = state;
 				break;
 
 			case CIRCULAR_STATE.RS4:
 				if (prev_circular_state == CIRCULAR_STATE.RS3)
-					cirular_counter += 1;
+					R_cirular_counter += 1;
 				else
-					cirular_counter = 1;
+					R_cirular_counter = 1;
 				prev_circular_state = state;
 				break;
 		}
@@ -185,14 +187,23 @@ public class HandTracker : MonoBehaviour {
 			cirular_counter = 1;
 		}
 
+		if (R_cirular_counter >= 5)
+		{
+			numOfRCircles += 1;
+			R_cirular_counter = 1;
+		}
+
+		/*
 		if( (zc_type == ZC_TYPE.NEG2POS || zc_type == ZC_TYPE.POS2NEG) || 
 			(zc_type_H == ZC_TYPE.NEG2POS || zc_type_H == ZC_TYPE.POS2NEG) ) 
 		{
 			// When a zero crossing happens, we update the previous circular state.
 			//prev_circular_state = state;
-		}	
+		}
+		*/
 
-		Debug.Log(zc_type_H + "(" + zeroCrossings_H + ")/"  + zc_type  + "(" + zeroCrossings + ")/" + prev_circular_state + "/" + cirular_counter + "/" + numOfCircles);
+		//Debug.Log(zc_type_H + "(" + zeroCrossings_H + ")/"  + zc_type  + "(" + zeroCrossings + ")/" + prev_circular_state + "/" + cirular_counter + "/" + numOfCircles);
+		Debug.Log(numOfCircles + " / "+  numOfRCircles);
 	}
 
 	void VerticalTracking()
