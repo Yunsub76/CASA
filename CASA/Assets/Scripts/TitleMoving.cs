@@ -22,7 +22,7 @@ public class TitleMoving : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "center"){
-			//Debug.Log("DD");
+			Debug.Log("DD");
 			this.gameObject.GetComponent<titleUp>().enabled = true;
 		}
 	}
