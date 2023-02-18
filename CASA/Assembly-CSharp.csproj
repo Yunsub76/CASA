@@ -131,13 +131,17 @@
      <Compile Include="Assets\Scripts\titleUp.cs" />
      <Compile Include="Assets\Scripts\TransitionBackground.cs" />
      <Compile Include="Assets\Scripts\UI_ActiveScript.cs" />
+     <Compile Include="Assets\Scripts\UI_Blink.cs" />
      <Compile Include="Assets\Scripts\UI_blinkText.cs" />
+     <Compile Include="Assets\Scripts\UI_Destroy.cs" />
      <Compile Include="Assets\Scripts\UI_ItemMoving.cs" />
      <Compile Include="Assets\Scripts\UI_itemRotation.cs" />
+     <Compile Include="Assets\Scripts\UI_MissionAnm.cs" />
      <Compile Include="Assets\Scripts\UI_MouseEvent.cs" />
      <Compile Include="Assets\Scripts\UI_pressEnter.cs" />
      <Compile Include="Assets\Scripts\UI_rankMoving.cs" />
      <Compile Include="Assets\Scripts\UI_TypingEff.cs" />
+     <Compile Include="Assets\Scripts\UI_WarningStop.cs" />
      <Compile Include="Assets\Underwater life deluxe\Scripts\GhostFreeRoamCamera\Scripts\GhostFreeRoamCamera.cs" />
      <None Include="Assets\GreenForest\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

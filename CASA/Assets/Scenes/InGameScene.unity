@@ -66860,6 +66860,7 @@ MonoBehaviour:
   - {fileID: 1696158550041056, guid: d9c03f48e3d47ec409076b7d5b937466, type: 2}
   - {fileID: 1575996735089252, guid: 9555643b8cddcd64fa4ef3f4443500ef, type: 2}
   - {fileID: 1411356092007988, guid: d296f536900df8f47a8ce99288d2e1cf, type: 2}
+  ScorePreFab: {fileID: 0}
 --- !u!114 &1526821703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66872,12 +66873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e492ee8afdaa664c8361383dc7033a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingTrashArray:
-  - {fileID: 1564899837598040, guid: 5040094f451c731418c5f4f120c2ede0, type: 2}
-  - {fileID: 1298573617301450, guid: 60a98c5288444a847a8c6979874633a9, type: 2}
-  - {fileID: 1475658978944810, guid: 18f3e5f57c4c74f488bab72f0f56a384, type: 2}
-  - {fileID: 1168071604999590, guid: c6a782f6f045dba469cdc74f41e582ea, type: 2}
-  - {fileID: 1324577815079554, guid: 131e18069e5c4cb42adc48d142aa705d, type: 2}
   GameArea: {fileID: 148855621}
   soundManager: {fileID: 239062846}
   isTeam: 0
@@ -66886,6 +66881,15 @@ MonoBehaviour:
   NegativeEnding: {fileID: 1864470513}
   NPCs: {fileID: 62637086}
   transitionNegativeBGScript: {fileID: 1054997072}
+  prefab: {fileID: 1601684117581226, guid: 4ef8074ebb4d9fd4a85eda923915e2e0, type: 2}
+  spawnInterval: 5
+  spawnedPlasticList: []
+  spawnedPaperList: []
+  spawnedCanList: []
+  fallingTrashArray:
+  - {fileID: 1298573617301450, guid: 60a98c5288444a847a8c6979874633a9, type: 2}
+  - {fileID: 1324577815079554, guid: 131e18069e5c4cb42adc48d142aa705d, type: 2}
+  - {fileID: 1564899837598040, guid: 5040094f451c731418c5f4f120c2ede0, type: 2}
 --- !u!114 &1526821704
 MonoBehaviour:
   m_ObjectHideFlags: 0
