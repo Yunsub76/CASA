@@ -6,6 +6,9 @@ public class UI_MissionAnm : MonoBehaviour {
 	Vector3 velo = Vector3.zero;
 	public Transform target;
 
+	float timer = 0.0f;
+	public float activeTime;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,6 +16,9 @@ public class UI_MissionAnm : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = Vector3.SmoothDamp(transform.position, target.position, ref velo, 0.5f);
+		timer += Time.deltaTime;
+		if(timer > activeTime){
+			transform.position = Vector3.SmoothDamp(transform.position, target.position, ref velo, 0.5f);
+		}
 	}
 }
