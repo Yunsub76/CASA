@@ -23,7 +23,7 @@ public class SliderTimer : MonoBehaviour
 
 	// Update is called once per frame
 	void Update() {
-		if(gameTime2 < 91)
+		if(gameTime2 < gameTime)
 		{ 
 			gameTime2 = gameTime2 + Time.deltaTime;
 

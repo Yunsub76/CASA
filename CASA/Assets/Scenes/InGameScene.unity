@@ -70866,7 +70866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 1773557040}
-  gameTime: 91
+  gameTime: 101
   gameTime2: 0
   stopTimer: 0
 --- !u!114 &1526821699
@@ -70927,7 +70927,7 @@ MonoBehaviour:
   finalScore: {fileID: 734847322}
   frame: {fileID: 1898058665}
   pressEnter: {fileID: 1663870237}
-  resetTime: 40
+  resetTime: 0
 --- !u!114 &1526821702
 MonoBehaviour:
   m_ObjectHideFlags: 0

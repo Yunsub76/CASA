@@ -40,7 +40,7 @@ public class ScoreManager : MonoBehaviour {
         {
             teamBalance = 1;
         }
-        Debug.Log(score);
+
         if (score >= 5000*teamBalance && score < 6000*teamBalance)
         {
             NumCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfCircles;

@@ -43,10 +43,11 @@ public class GenerateFallingTrash : MonoBehaviour
 
     [SerializeField] private GameObject[] fallingTrashArray = new GameObject[3]; // 플라스틱, 종이, 캔 
     private int wasteTypeIndex = 0;
-    enum wasteType { Plastic, Paper, Can };
 
+    private int[] TrashLimitationArray = new int[3] {0, 0, 0};
 
-    private float timer = 0.0f; // 생성 타이머
+    int a = 0;
+    int b = 3;
 
     void Awake()
     {
@@ -79,25 +80,58 @@ public class GenerateFallingTrash : MonoBehaviour
     {
         float x = Random.Range(GameAreaCollider.bounds.min.x, GameAreaCollider.bounds.max.x);
         float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
-        trashPosition = new Vector3(x, 150.0f, z); timer += Time.deltaTime; // 경과 시간 측정
-        wasteTypeIndex = Random.Range(0, 3); 
-        // 프리팹 오브젝트 생성
-        GameObject newObject = Instantiate(fallingTrashArray[wasteTypeIndex], trashPosition, Quaternion.identity);
+        trashPosition = new Vector3(x, 150.0f, z);
 
-        if (newObject.gameObject.tag == "Plastic")
+        if (TrashLimitationArray[0] == 14)
         {
-            // 생성된 오브젝트 리스트에 추가
-            spawnedPlasticList.Add(newObject);
+            a = 1;
+            if (TrashLimitationArray[1] == 8)
+            {
+                a = 2;
+            }
         }
-        else if (newObject.gameObject.tag == "Paper")
+        else if (TrashLimitationArray[2] == 8)
         {
-            spawnedPaperList.Add(newObject);
+            b = 2;
+            if (TrashLimitationArray[1] == 8)
+            {
+                b = 1;
+            }
         }
-        else if (newObject.gameObject.tag == "Can")
+        
+        wasteTypeIndex = Random.Range(a, b);
+
+        if (TrashLimitationArray[1] == 8)
         {
-            spawnedCanList.Add(newObject);
+           if (wasteTypeIndex == 1)
+            {
+                wasteTypeIndex = 2;
+            }
         }
-        soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
+
+        if (TrashLimitationArray[0]+TrashLimitationArray[1]+TrashLimitationArray[2] < 30)
+        {
+            // 프리팹 오브젝트 생성
+            GameObject newObject = Instantiate(fallingTrashArray[wasteTypeIndex], trashPosition, Quaternion.identity);
+
+            if (newObject.gameObject.tag == "Plastic")
+            {
+                // 생성된 오브젝트 리스트에 추가
+                spawnedPlasticList.Add(newObject);
+                TrashLimitationArray[0] += 1;
+            }
+            else if (newObject.gameObject.tag == "Paper")
+            {
+                spawnedPaperList.Add(newObject);
+                TrashLimitationArray[1] += 1;
+            }
+            else if (newObject.gameObject.tag == "Can")
+            {
+                spawnedCanList.Add(newObject);
+                TrashLimitationArray[2] += 1;
+            }
+            soundManagerScript.SFXSound(soundManagerScript.sFXList[13]);
+        }
     }
 
     void setDifficulty()

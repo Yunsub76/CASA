@@ -205,8 +205,6 @@ public class HandTracker : MonoBehaviour {
 			//prev_circular_state = state;
 		}
 		*/
-
-		Debug.Log(numOfCircles + " / "+  numOfRCircles);
 	}
 
 	void VerticalTracking()
