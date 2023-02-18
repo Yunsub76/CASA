@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class NameInput : MonoBehaviour {
 	public GameObject playUI;
 	public Text Name;
-	public Text Name2;
+	//public Text Name2;
 	public GameObject timerUI;
 	
 	public InputField playerNameInput;
@@ -39,8 +39,8 @@ public class NameInput : MonoBehaviour {
 
 			playUI.gameObject.SetActive(true);
 			playerName = playerNameInput.text;
-			Name.text = playerName + "!";
-			Name2.text = playerName +",";
+			//Name.text = playerName + "!";
+			Name.text = playerName +",";
 			//timerUI.gameObject.SetActive(true);
 
 		}
