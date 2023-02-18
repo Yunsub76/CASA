@@ -115,6 +115,7 @@
      <Compile Include="Assets\Scripts\FrameActivate.cs" />
      <Compile Include="Assets\Scripts\GenerateFallingTrash.cs" />
      <Compile Include="Assets\Scripts\GoodObjectList.cs" />
+     <Compile Include="Assets\Scripts\HandCircular.cs" />
      <Compile Include="Assets\Scripts\HandTracker.cs" />
      <Compile Include="Assets\Scripts\IsGroundedStop.cs" />
      <Compile Include="Assets\Scripts\LightManager.cs" />
