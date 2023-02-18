@@ -5,7 +5,7 @@ using UnityEngine;
 public class HandTracker : MonoBehaviour {
 
 	enum ZC_TYPE { NONE, POSITIVE, NEGATIVE, POS2NEG, NEG2POS };
-	enum CIRCULAR_STATE { UNKNOWN, S1, S2, S3, S4 };
+	enum CIRCULAR_STATE { UNKNOWN, S1, S2, S3, S4 , RS1, RS2, RS3, RS4};
 	//     hor.(x).   vert(y).
 	// S1: POS2NEG,  NEGATIVE
 	// S2: NEGATIVE, NEG2POS
@@ -16,14 +16,14 @@ public class HandTracker : MonoBehaviour {
 	List<Vector3> filterWindow = new List<Vector3>();
 	//float filter_elapsed_time = 0.0f;
 	public int filter_window_count = 5;
-
+		
 	List<Vector3> window = new List<Vector3>();
 	float prev_y = 0.0f;
 	//float elapsed_time = 0.0f;
 	int zeroCrossings = 0;
-	public int window_count = 10;
+	public int window_count = 50;
 
-	public float minimun_height = 0.2f;
+	public float minimun_height = 0.1f;
 
 	ZC_TYPE zc_type = ZC_TYPE.NONE;
 
@@ -36,9 +36,9 @@ public class HandTracker : MonoBehaviour {
 	float prev_x = 0.0f;
 	//float elapsed_time = 0.0f;
 	int zeroCrossings_H = 0;
-	public int window_H_count = 10;
+	public int window_H_count = 50;//15;
 
-	public float minimun_width = 0.2f;
+	public float minimun_width = 0.1f;
 
 	ZC_TYPE zc_type_H = ZC_TYPE.NONE;
 
@@ -47,10 +47,12 @@ public class HandTracker : MonoBehaviour {
 	CIRCULAR_STATE prev_circular_state = CIRCULAR_STATE.UNKNOWN;
 	int numOfCircles = 0;
 
+	GameObject centerPoint;
+
 	// Use this for initialization
 	void Start()
 	{
-
+		centerPoint = GameObject.Find("CenterPoint");
 	}
 
 	float GetSign(float y, float mean_y)
@@ -79,6 +81,16 @@ public class HandTracker : MonoBehaviour {
 			return CIRCULAR_STATE.S3;
 		else if (type_x == ZC_TYPE.POSITIVE && type_y == ZC_TYPE.POS2NEG)
 			return CIRCULAR_STATE.S4;
+		
+		if (type_x == ZC_TYPE.NEG2POS && type_y == ZC_TYPE.NEGATIVE)
+			return CIRCULAR_STATE.RS1;
+		else if (type_x == ZC_TYPE.POSITIVE && type_y == ZC_TYPE.NEG2POS)
+			return CIRCULAR_STATE.RS2;
+		else if (type_x == ZC_TYPE.POS2NEG && type_y == ZC_TYPE.POSITIVE)
+			return CIRCULAR_STATE.RS3;
+		else if (type_x == ZC_TYPE.NEGATIVE && type_y == ZC_TYPE.POS2NEG)
+			return CIRCULAR_STATE.RS4;
+		
 		return CIRCULAR_STATE.UNKNOWN;
 	}
 
@@ -86,6 +98,10 @@ public class HandTracker : MonoBehaviour {
 	{
 		window.Clear();
 		filterWindow.Clear();
+
+		window_H.Clear();
+		filterWindow_H.Clear();
+
 		//elapsed_time = 0.0f;
 		zeroCrossings = 0;
 	}
@@ -93,8 +109,8 @@ public class HandTracker : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		VerticalTracking();
 		HorizontalTracking();
+		VerticalTracking();
 		var state = GetState(zc_type_H, zc_type);
 		switch (state)
 		{
@@ -103,6 +119,7 @@ public class HandTracker : MonoBehaviour {
 					cirular_counter += 1;
 				else
 					cirular_counter = 1;
+				prev_circular_state = state;
 				break;
 
 			case CIRCULAR_STATE.S2:
@@ -110,6 +127,7 @@ public class HandTracker : MonoBehaviour {
 					cirular_counter += 1;
 				else
 					cirular_counter = 1;
+				prev_circular_state = state;
 				break;
 
 			case CIRCULAR_STATE.S3:
@@ -117,6 +135,7 @@ public class HandTracker : MonoBehaviour {
 					cirular_counter += 1;
 				else
 					cirular_counter = 1;
+				prev_circular_state = state;
 				break;
 
 			case CIRCULAR_STATE.S4:
@@ -124,6 +143,39 @@ public class HandTracker : MonoBehaviour {
 					cirular_counter += 1;
 				else
 					cirular_counter = 1;
+				prev_circular_state = state;
+				break;
+
+			case CIRCULAR_STATE.RS1:
+				if (prev_circular_state == CIRCULAR_STATE.RS4)
+					cirular_counter += 1;
+				else
+					cirular_counter = 1;
+				prev_circular_state = state;
+				break;
+
+			case CIRCULAR_STATE.RS2:
+				if (prev_circular_state == CIRCULAR_STATE.RS1)
+					cirular_counter += 1;
+				else
+					cirular_counter = 1;
+				prev_circular_state = state;
+				break;
+
+			case CIRCULAR_STATE.RS3:
+				if (prev_circular_state == CIRCULAR_STATE.RS2)
+					cirular_counter += 1;
+				else
+					cirular_counter = 1;
+				prev_circular_state = state;
+				break;
+
+			case CIRCULAR_STATE.RS4:
+				if (prev_circular_state == CIRCULAR_STATE.RS3)
+					cirular_counter += 1;
+				else
+					cirular_counter = 1;
+				prev_circular_state = state;
 				break;
 		}
 
@@ -133,9 +185,14 @@ public class HandTracker : MonoBehaviour {
 			cirular_counter = 1;
 		}
 
-		prev_circular_state = state;
+		if( (zc_type == ZC_TYPE.NEG2POS || zc_type == ZC_TYPE.POS2NEG) || 
+			(zc_type_H == ZC_TYPE.NEG2POS || zc_type_H == ZC_TYPE.POS2NEG) ) 
+		{
+			// When a zero crossing happens, we update the previous circular state.
+			//prev_circular_state = state;
+		}	
 
-		Debug.Log(state + "/" + cirular_counter + "/" + numOfCircles);
+		Debug.Log(zc_type_H + "(" + zeroCrossings_H + ")/"  + zc_type  + "(" + zeroCrossings + ")/" + prev_circular_state + "/" + cirular_counter + "/" + numOfCircles);
 	}
 
 	void VerticalTracking()
@@ -175,6 +232,8 @@ public class HandTracker : MonoBehaviour {
 			}
 			mean_y /= n;
 
+			//float mean_y = centerPoint.transform.position.y;
+
 			float sign1 = GetSign(prev_y, mean_y);
 			float sign2 = GetSign(curr_y, mean_y);
 
@@ -199,6 +258,7 @@ public class HandTracker : MonoBehaviour {
 			}
 
 			window.RemoveAt(0);
+			Debug.Log(curr_y + "/" + mean_y );
 		}
 		//Debug.Log(filterWindow.Count + "/" + min_y + "/" + max_y + "/" + height + "/" + zeroCrossings);
 
@@ -217,6 +277,7 @@ public class HandTracker : MonoBehaviour {
 		float curr_x = 0.0f;
 		float min_x = 10000.0f;
 		float max_x = -10000.0f;
+		
 		if (filterWindow_H.Count > filter_window_H_count)
 		{
 			int n = filterWindow_H.Count;
@@ -229,18 +290,20 @@ public class HandTracker : MonoBehaviour {
 			curr_x /= n;
 			filterWindow_H.RemoveAt(0);
 		}
-		float height = max_x - min_x;
+		float width = max_x - min_x;
 
 
-		if (window_H.Count > window_H_count && height > minimun_width)
+		//if (window_H.Count > window_H_count && width > minimun_width)
 		{
-			float mean_x = 0.0f;
+			/*float mean_x = 0.0f;
 			int n = window_H.Count;
-			foreach (var item in window_H)
+			foreach (var item in window_H)	
 			{
 				mean_x += item.x;
 			}
-			mean_x /= n;
+			mean_x /= n;*/
+
+			float mean_x = centerPoint.transform.position.x;
 
 			float sign1_x = GetSign(prev_x, mean_x);
 			float sign2_x = GetSign(curr_x, mean_x);
