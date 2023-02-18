@@ -20,7 +20,7 @@ public class HandTracker : MonoBehaviour {
 	List<Vector3> window = new List<Vector3>();
 	float prev_y = 0.0f;
 	//float elapsed_time = 0.0f;
-	int zeroCrossings = 0;
+	public int zeroCrossings = 0;  //vertical
 	public int window_count = 50;
 
 	public float minimun_height = 0.1f;
@@ -35,7 +35,7 @@ public class HandTracker : MonoBehaviour {
 	List<Vector3> window_H = new List<Vector3>();
 	float prev_x = 0.0f;
 	//float elapsed_time = 0.0f;
-	int zeroCrossings_H = 0;
+	public int zeroCrossings_H = 0; //Horizontal
 	public int window_H_count = 50;//15;
 
 	public float minimun_width = 0.1f;
@@ -46,8 +46,10 @@ public class HandTracker : MonoBehaviour {
 	int cirular_counter = 0;
 	int R_cirular_counter = 0;
 	CIRCULAR_STATE prev_circular_state = CIRCULAR_STATE.UNKNOWN;
-	int numOfCircles = 0;
-	int numOfRCircles = 0;
+
+	//그린 원 개수
+	public int numOfCircles = 0;
+	public int numOfRCircles = 0;
 
 	GameObject centerPoint;
 
@@ -96,7 +98,7 @@ public class HandTracker : MonoBehaviour {
 		return CIRCULAR_STATE.UNKNOWN;
 	}
 
-	public void Init()
+	public void InitReset()
 	{
 		window.Clear();
 		filterWindow.Clear();
@@ -106,6 +108,12 @@ public class HandTracker : MonoBehaviour {
 
 		//elapsed_time = 0.0f;
 		zeroCrossings = 0;
+
+		cirular_counter = 1;
+		R_cirular_counter = 1;
+
+		numOfCircles = 0;
+		numOfRCircles = 0;
 	}
 
 	// Update is called once per frame
@@ -202,7 +210,6 @@ public class HandTracker : MonoBehaviour {
 		}
 		*/
 
-		//Debug.Log(zc_type_H + "(" + zeroCrossings_H + ")/"  + zc_type  + "(" + zeroCrossings + ")/" + prev_circular_state + "/" + cirular_counter + "/" + numOfCircles);
 		Debug.Log(numOfCircles + " / "+  numOfRCircles);
 	}
 

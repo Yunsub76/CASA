@@ -106,14 +106,7 @@ public class RightPositionDiscriminator : MonoBehaviour
                     else  //긍정 모드일 때 
                     {
                         changingTrash();
-                        if (generateFallingTrash.isTeam == true) //협동 모드
-                        {
-                            gameManager.GetComponent<ScoreManager>().score += 100;
-                        }
-                        else  //개인 모드 
-                        {
-                            gameManager.GetComponent<ScoreManager>().score += 300;
-                        }
+                        gameManager.GetComponent<ScoreManager>().score += 100;
                     }
                     soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
                 }
