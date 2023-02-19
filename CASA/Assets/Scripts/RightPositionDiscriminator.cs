@@ -9,6 +9,7 @@ public class RightPositionDiscriminator : MonoBehaviour
 
     private int wasteTypeIndex;
     private GameObject ScorePreFab;
+    private GameObject ScorePreFab_300;
 
     private AreaToCoordinate areaToCoordinate;
     private List<float[]> wasteCoordinateList;
@@ -106,7 +107,14 @@ public class RightPositionDiscriminator : MonoBehaviour
                     else  //긍정 모드일 때 
                     {
                         changingTrash();
-                        gameManager.GetComponent<ScoreManager>().score += 100;
+                        if (generateFallingTrash.isTeam == true) //협동 모드일 때 
+                        {
+                            gameManager.GetComponent<ScoreManager>().score += 100;
+                        }
+                        else  //개인 모드
+                        {
+                            gameManager.GetComponent<ScoreManager>().score += 300;
+                        }
                     }
                     soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
                 }
@@ -146,8 +154,8 @@ public class RightPositionDiscriminator : MonoBehaviour
 
     IEnumerator ProjectScore()
     {
-        //GameObject ScoreObject = Instantiate(ScorePreFab, new Vector3(fallingTrashPosition.x, fallingTrashPosition.y, fallingTrashPosition.z), ScorePreFab.transform.rotation);
-        yield return new WaitForSecondsRealtime(6);
-       // Destroy(ScoreObject);
+       GameObject ScoreObject = Instantiate(ScorePreFab, fallingTrashPosition, ScorePreFab.transform.rotation);
+       yield return new WaitForSecondsRealtime(3);
+       Destroy(ScoreObject);
     }
 };

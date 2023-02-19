@@ -49,6 +49,8 @@ public class GenerateFallingTrash : MonoBehaviour
     int a = 0;
     int b = 3;
 
+    public bool IsMissionTime = false;
+
     void Awake()
     {
         soundManagerScript = soundManager.GetComponent<SoundManager>();
@@ -61,7 +63,10 @@ public class GenerateFallingTrash : MonoBehaviour
     void Start()
     {
         GameAreaCollider = GameArea.GetComponent<Collider>();
-        StartCoroutine(RePositionWithDelay());
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            StartCoroutine(RePositionWithDelay());
+        }
     }
 
     void FixedUpdate()
@@ -196,9 +201,9 @@ public class GenerateFallingTrash : MonoBehaviour
         yield return new WaitForSecondsRealtime(6);
         while (true && positive == true)
         {
-            if (!loadManager.pause)
+            if (!loadManager.pause && IsMissionTime == false)
             {
-                if (sliderTimer.gameTime2 < 89 )
+                if (sliderTimer.gameTime2 < sliderTimer.gameTime)
                 {
                     yield return new WaitForSecondsRealtime(difficultyTime);
                     SetRandomPosition();

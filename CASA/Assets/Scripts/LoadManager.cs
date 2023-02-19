@@ -41,7 +41,7 @@ public class LoadManager : MonoBehaviour
 
 	void loadInGameScene()
     {
-		if (SceneManager.GetActiveScene().buildIndex > 1)
+		if (SceneManager.GetActiveScene().buildIndex < 1)
 		{
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
 		}
