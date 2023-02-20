@@ -56,7 +56,7 @@ public class ScoreManager : MonoBehaviour {
             teamBalance = 1;
         }
 
-        if ((score >= 4700 && score < 6000) || sliderTimer.gameTime2 > 5) //최종 시간에 도달하거나 4700점에 도달할 시 마지막 미션 등장
+        if ((score >= 4700 && score < 6000) || sliderTimer.gameTime2 > sliderTimer.gameTime -1) //최종 시간에 도달하거나 4700점에 도달할 시 마지막 미션 등장
         {
             NumCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfCircles;
             GaugeArray[2].GetComponent<Slider>().value = NumCircle;
@@ -75,7 +75,7 @@ public class ScoreManager : MonoBehaviour {
                     FinishThirdEvent();
             }
         }
-        else if(score >= 2500 || sliderTimer.gameTime2 > 60) //60초 후나 2500점 도달하면 두번째 미션 등장
+        else if(score >= 2500) //60초 후나 2500점 도달하면 두번째 미션 등장
         {
             NumVertical = HandObjectArray[0].GetComponent<HandTracker>().zeroCrossings + HandObjectArray[1].GetComponent<HandTracker>().zeroCrossings + HandObjectArray[2].GetComponent<HandTracker>().zeroCrossings;
             GaugeArray[1].GetComponent<Slider>().value = NumVertical-6;
@@ -122,7 +122,6 @@ public class ScoreManager : MonoBehaviour {
         MissionUIArray[0].SetActive(false);
         score += 1000;
         generateFallingTrash.IsMissionTime = false;
-        activateUI.IsGaming = false;
         if (generateFallingTrash.positive == true)
             PositiveEndingObjectArray[0].SetActive(true);
         else
@@ -173,6 +172,7 @@ public class ScoreManager : MonoBehaviour {
         MissionUIArray[2].SetActive(false);
         score += 1000;
         generateFallingTrash.IsMissionTime = false;
+		activateUI.IsGaming = false;
         if (generateFallingTrash.positive == true)
             PositiveEndingObjectArray[2].SetActive(true);
         else
