@@ -6114,6 +6114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218dd7ec5a1074a4daed234eed5a190e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  XYTextUI: {fileID: 154050081}
   filter_window_count: 5
   zeroCrossings: 0
   window_count: 10
@@ -6955,6 +6956,81 @@ Transform:
   m_Father: {fileID: 1412704544}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &154050079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 154050080}
+  - component: {fileID: 154050082}
+  - component: {fileID: 154050081}
+  m_Layer: 5
+  m_Name: XYZText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &154050080
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154050079}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000157, y: 1.0000157, z: 1.0000157}
+  m_Children: []
+  m_Father: {fileID: 830271220}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -17, y: -110}
+  m_SizeDelta: {x: 238.78, y: 45.01999}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &154050081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154050079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 15cd6851fc635e84d9a3f1ab87e76671, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '-----'
+--- !u!222 &154050082
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154050079}
+  m_CullTransparentMesh: 0
 --- !u!1001 &154515711
 Prefab:
   m_ObjectHideFlags: 0
@@ -37308,6 +37384,7 @@ RectTransform:
   - {fileID: 736434252}
   - {fileID: 1333507828}
   - {fileID: 1920835897}
+  - {fileID: 154050080}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42169,7 +42246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &925961816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42181,6 +42258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218dd7ec5a1074a4daed234eed5a190e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  XYTextUI: {fileID: 0}
   filter_window_count: 5
   zeroCrossings: 0
   window_count: 10
@@ -55419,7 +55497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1256926406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61404,7 +61482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1371929732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61416,6 +61494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218dd7ec5a1074a4daed234eed5a190e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  XYTextUI: {fileID: 0}
   filter_window_count: 5
   zeroCrossings: 0
   window_count: 10
@@ -84486,7 +84565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1893562905
 MonoBehaviour:
   m_ObjectHideFlags: 0

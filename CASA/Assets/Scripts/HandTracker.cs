@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class HandTracker : MonoBehaviour {
+
+	[SerializeField] Text XYTextUI;
 
 	enum ZC_TYPE { NONE, POSITIVE, NEGATIVE, POS2NEG, NEG2POS };
 	enum CIRCULAR_STATE { UNKNOWN, S1, S2, S3, S4 , RS1, RS2, RS3, RS4};
@@ -115,6 +119,8 @@ public class HandTracker : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
+		XYTextUI.text = string.Format("{0:0}", this.transform.position);
+
 		HorizontalTracking();
 		VerticalTracking();
 		var state = GetState(zc_type_H, zc_type);
