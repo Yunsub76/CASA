@@ -16,6 +16,10 @@ public class ScoreManager : MonoBehaviour {
     private bool[] MissionBoolArray = new bool[3] { false, false, false };
 
     [SerializeField] private GameObject[] HandObjectArray = new GameObject[3];
+
+    [SerializeField] private GameObject[] PositiveEndingObjectArray = new GameObject[3];
+    [SerializeField] private GameObject[] NagativeEndingObjectArray = new GameObject[3];
+
     [SerializeField] private GameObject LoadCircularUI;
     [SerializeField] private GameObject LoadReverseCircularUI;
 
@@ -27,6 +31,7 @@ public class ScoreManager : MonoBehaviour {
     public int NumVertical;
     public int NumHorizontal;
     public int NumCircle;
+    private int NumCircleCrone;
     public int NumRCircle;
 
     void Awake()
@@ -36,7 +41,7 @@ public class ScoreManager : MonoBehaviour {
         activateUI = this.GetComponent<ActivateUI>();
         GaugeArray[0].GetComponent<Slider>().maxValue = 40 * teamBalance;
         GaugeArray[1].GetComponent<Slider>().maxValue = 40 * teamBalance;
-        GaugeArray[2].GetComponent<Slider>().maxValue = 15 * teamBalance;
+        GaugeArray[2].GetComponent<Slider>().maxValue = 30 * teamBalance;
     }
 
     void Update()
@@ -52,7 +57,7 @@ public class ScoreManager : MonoBehaviour {
             teamBalance = 1;
         }
 
-        if ((score >= 4700 && score < 6000) || sliderTimer.gameTime2 > sliderTimer.gameTime-1) //최종 시간에 도달하거나 4700점에 도달할 시 마지막 미션 등장
+        if ((score >= 4700 && score < 6000) || sliderTimer.gameTime2 > 5) //최종 시간에 도달하거나 4700점에 도달할 시 마지막 미션 등장
         {
             NumCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfCircles;
             GaugeArray[2].GetComponent<Slider>().value = NumCircle;
@@ -62,11 +67,12 @@ public class ScoreManager : MonoBehaviour {
             }
             else if (NumCircle >= 15 * teamBalance)
             {
+                NumCircleCrone = 15 * teamBalance;
                 LoadCircularUI.SetActive(false);
                 LoadReverseCircularUI.SetActive(true);
 
                 NumRCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfRCircles;
-                GaugeArray[2].GetComponent<Slider>().value = NumCircle+NumRCircle;
+                GaugeArray[2].GetComponent<Slider>().value = NumCircleCrone + NumRCircle;
                 if (NumRCircle >= 15 * teamBalance)
                     FinishThirdEvent();
             }
@@ -119,6 +125,10 @@ public class ScoreManager : MonoBehaviour {
         score += 1000;
         generateFallingTrash.IsMissionTime = false;
         activateUI.IsGaming = false;
+        if (generateFallingTrash.positive == true)
+            PositiveEndingObjectArray[0].SetActive(true);
+        else
+            NagativeEndingObjectArray[0].SetActive(true);
     }
 
     void ActiveSecondEvent()
@@ -140,6 +150,10 @@ public class ScoreManager : MonoBehaviour {
         MissionUIArray[1].SetActive(false);
         score += 1000;
         generateFallingTrash.IsMissionTime = false;
+        if (generateFallingTrash.positive == true)
+            PositiveEndingObjectArray[1].SetActive(true);
+        else
+            NagativeEndingObjectArray[1].SetActive(true);
     }
 
     void ActiveThirdEvent()
@@ -161,5 +175,9 @@ public class ScoreManager : MonoBehaviour {
         MissionUIArray[2].SetActive(false);
         score += 1000;
         generateFallingTrash.IsMissionTime = false;
+        if (generateFallingTrash.positive == true)
+            PositiveEndingObjectArray[2].SetActive(true);
+        else
+            NagativeEndingObjectArray[2].SetActive(true);
     }
 }

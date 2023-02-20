@@ -23,7 +23,7 @@ public class HandTracker : MonoBehaviour {
 	public int zeroCrossings = 0;  //vertical
 	public int window_count = 50;
 
-	public float minimun_height = 0.1f;
+	public float minimun_height = 0.15f;
 
 	ZC_TYPE zc_type = ZC_TYPE.NONE;
 
@@ -38,7 +38,7 @@ public class HandTracker : MonoBehaviour {
 	public int zeroCrossings_H = 0; //Horizontal
 	public int window_H_count = 50;//15;
 
-	public float minimun_width = 0.1f;
+	public float minimun_width = 0.15f;
 
 	ZC_TYPE zc_type_H = ZC_TYPE.NONE;
 
@@ -62,7 +62,6 @@ public class HandTracker : MonoBehaviour {
 		else if (y < mean_y)
 			return -1;
 		return 0.0f;
-
 	}
 
 	CIRCULAR_STATE GetState(ZC_TYPE type_x, ZC_TYPE type_y)
