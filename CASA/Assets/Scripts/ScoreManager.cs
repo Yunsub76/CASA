@@ -37,6 +37,8 @@ public class ScoreManager : MonoBehaviour {
     public int NumCircle;
     public int NumRCircle;
 
+    [SerializeField] GameObject MissionPointUI;
+
     int basicBGM;
     private SoundManager soundManagerScript;
     void Awake()
@@ -44,8 +46,8 @@ public class ScoreManager : MonoBehaviour {
         generateFallingTrash = this.GetComponent<GenerateFallingTrash>();
         sliderTimer = this.GetComponent<SliderTimer>();
         activateUI = this.GetComponent<ActivateUI>();
-        GaugeArray[0].GetComponent<Slider>().maxValue = 40 * teamBalance;
-        GaugeArray[1].GetComponent<Slider>().maxValue = 40 * teamBalance;
+        GaugeArray[0].GetComponent<Slider>().maxValue = 30 * teamBalance;
+        GaugeArray[1].GetComponent<Slider>().maxValue = 30 * teamBalance;
         GaugeArray[2].GetComponent<Slider>().maxValue = 20 * teamBalance;
         soundManagerScript = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         basicBGM = soundManagerScript.bGMNumber;
@@ -97,8 +99,8 @@ public class ScoreManager : MonoBehaviour {
                 LoadReverseCircularUI.SetActive(true);
 
                 NumRCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfRCircles;
-                GaugeArray[2].GetComponent<Slider>().value = 15 * teamBalance + NumRCircle;
-                if (NumRCircle >= 15 * teamBalance)
+                GaugeArray[2].GetComponent<Slider>().value = 10 * teamBalance + NumRCircle;
+                if (NumRCircle >= 10 * teamBalance)
                     FinishThirdEvent();
             }
         }
@@ -111,7 +113,7 @@ public class ScoreManager : MonoBehaviour {
             {
                 ActiveSecondEvent();
             }
-            else if (NumVertical >= 40 * teamBalance)
+            else if (NumVertical >= 30 * teamBalance)
             {
                 FinishSecondEvent();
             }
@@ -125,7 +127,7 @@ public class ScoreManager : MonoBehaviour {
             {
                 ActiveFirstEvent();
             }
-            else if (NumHorizontal >= 40 * teamBalance)
+            else if (NumHorizontal >= 30 * teamBalance)
             {
                 FinishFirstEvent();
             }
@@ -162,7 +164,7 @@ public class ScoreManager : MonoBehaviour {
             PositiveEndingObjectArray[0].SetActive(true);
         else
             NagativeEndingObjectArray[0].SetActive(true);
-        
+        ActiveUI();
     }
 
     void ActiveSecondEvent()
@@ -178,7 +180,6 @@ public class ScoreManager : MonoBehaviour {
             HandObjectArray[2].GetComponent<HandTracker>().InitReset();
         MissionBoolArray[1] = true;
         generateFallingTrash.IsMissionTime = true;
-        
     }
 
     void FinishSecondEvent()
@@ -195,7 +196,7 @@ public class ScoreManager : MonoBehaviour {
             PositiveEndingObjectArray[1].SetActive(true);
         else
             NagativeEndingObjectArray[1].SetActive(true);
-        
+        ActiveUI();
     }
 
     void ActiveThirdEvent()
@@ -237,6 +238,18 @@ public class ScoreManager : MonoBehaviour {
             PositiveEndingObjectArray[2].SetActive(true);
         else
             NagativeEndingObjectArray[2].SetActive(true);
-        
+        generateFallingTrash.endingSystem();
+        ActiveUI();
+    }
+
+    void ActiveUI()
+    {
+        MissionPointUI.SetActive(true);
+        Invoke("unActiveUI", 2);
+    }
+
+    void unActiveUI()
+    {
+        MissionPointUI.SetActive(false);
     }
 }

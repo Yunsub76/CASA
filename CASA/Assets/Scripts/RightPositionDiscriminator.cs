@@ -28,6 +28,7 @@ public class RightPositionDiscriminator : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager");
         ScorePreFab = gameManager.GetComponent<GoodObjectList>().ScorePreFab;
+        ScorePreFab_300 = gameManager.GetComponent<GoodObjectList>().ScorePreFab_300;
         areaToCoordinate = gameManager.GetComponent<AreaToCoordinate>();
         score = gameManager.GetComponent<ScoreManager>().score;
         generateFallingTrash = gameManager.GetComponent<GenerateFallingTrash>();
@@ -154,7 +155,15 @@ public class RightPositionDiscriminator : MonoBehaviour
 
     IEnumerator ProjectScore()
     {
-       GameObject ScoreObject = Instantiate(ScorePreFab, fallingTrashPosition, ScorePreFab.transform.rotation);
+        GameObject ScoreObject = null;
+        if (generateFallingTrash.isTeam == true) //협동 모드일 때 
+        {
+            ScoreObject = Instantiate(ScorePreFab, fallingTrashPosition, ScorePreFab.transform.rotation);
+        }
+        else if (generateFallingTrash.isTeam == false)
+        {
+            ScoreObject = Instantiate(ScorePreFab_300, fallingTrashPosition, ScorePreFab.transform.rotation);
+        }
        yield return new WaitForSecondsRealtime(3);
        Destroy(ScoreObject);
     }

@@ -73,8 +73,6 @@ public class GenerateFallingTrash : MonoBehaviour
     void FixedUpdate()
     {
         setDifficulty();
-        if(sliderTimer.gameTime2 > sliderTimer.gameTime)
-            endingSystem();
     }
 
     private void Update()
@@ -199,6 +197,19 @@ public class GenerateFallingTrash : MonoBehaviour
 
     IEnumerator RePositionWithDelay()
     {
+        yield return new WaitForSecondsRealtime(5f); 
+        if (activateUI.IsGaming == true && positive == false)
+        {
+            SetRandomPosition();
+            if (isTeam == true)
+            {
+                yield return new WaitForSecondsRealtime(0.2f);
+                SetRandomPosition();
+                yield return new WaitForSecondsRealtime(0.2f);
+                SetRandomPosition();
+            }
+        }
+        
         while (true && positive == true)
         {
             if (!loadManager.pause && IsMissionTime == false && activateUI.IsGaming == true)
@@ -229,7 +240,7 @@ public class GenerateFallingTrash : MonoBehaviour
         }
     }
 
-    void endingSystem()
+    public void endingSystem()
     {
         if (positive == true)
         {
