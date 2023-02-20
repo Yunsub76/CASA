@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class UI_ItemMoving : MonoBehaviour {
 
-	public GameObject trash;
+	public GameObject paper;
+	public GameObject can;
+	public GameObject plastic;
 	public GameObject score;
 	public float sec=0;
 	
@@ -23,16 +25,30 @@ public class UI_ItemMoving : MonoBehaviour {
 		while(true){
 			
 			if(sec == 0){
-				trash.gameObject.SetActive(true);
+				score.gameObject.SetActive(true);
 				yield return new WaitForSeconds(3.0f);
-				trash.gameObject.SetActive(false);
+				score.gameObject.SetActive(false);
 				sec = 1;				
 			}
 
 			if(sec == 1){
-				score.gameObject.SetActive(true);
+				paper.gameObject.SetActive(true);
 				yield return new WaitForSeconds(3.0f);
-				score.gameObject.SetActive(false);
+				paper.gameObject.SetActive(false);
+				sec = 2;
+			}
+
+			if(sec == 2){
+				can.gameObject.SetActive(true);
+				yield return new WaitForSeconds(3.0f);
+				can.gameObject.SetActive(false);
+				sec = 3;
+			}
+
+			if(sec == 3){
+				plastic.gameObject.SetActive(true);
+				yield return new WaitForSeconds(3.0f);
+				plastic.gameObject.SetActive(false);
 				sec = 0;
 			}
 
