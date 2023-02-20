@@ -168,9 +168,9 @@ public class GenerateFallingTrash : MonoBehaviour
                 isTeam = false;
                 currentMode();
                 scoreManager.teamBalance = 1;
-                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
-                scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
-                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 20 * scoreManager.teamBalance;
+                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30;
+                scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 30;
+                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 20;
             }
 
             if (Input.GetKeyDown(KeyCode.W))
@@ -256,12 +256,19 @@ public class GenerateFallingTrash : MonoBehaviour
     {
         if (positive == true)
         {
-            GameObject fallingTrash = GameObject.FindWithTag("fallingTrash");
-            if (fallingTrash != null)
+            while(spawnedPlasticList.Count == 0)
             {
-                Vector3 fallingTrashPosition = fallingTrash.transform.position;
-                Destroy(fallingTrash);
+                spawnedPlasticList.RemoveAt(0);
             }
+            while (spawnedPaperList.Count == 0)
+            {
+                spawnedPaperList.RemoveAt(0);
+            }
+            while (spawnedCanList.Count == 0)
+            {
+                spawnedCanList.RemoveAt(0);
+            }
+
             ForPositiveEnding();
         }
         else if (positive == false)

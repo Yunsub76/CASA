@@ -16,15 +16,20 @@ public class ActivateUI : MonoBehaviour {
     [SerializeField] GameObject finalScore;
     [SerializeField] GameObject frame;
     [SerializeField] GameObject pressEnter;
-
+    [SerializeField] GameObject positiveKText;
+    [SerializeField] GameObject positiveEText;
+    [SerializeField] GameObject negativeKText;
+    [SerializeField] GameObject negativeEText;
+    GenerateFallingTrash generateFalling;
     [SerializeField] int resetTime;
 
     public bool IsGaming = false;
 
     bool endScoreText = false;
-
-
-
+    void Awake()
+    {
+        generateFalling = GetComponent<GenerateFallingTrash>();
+    }
     public void UIDisabled()
     {
         image.SetActive(false);
@@ -67,8 +72,18 @@ public class ActivateUI : MonoBehaviour {
     {
         finalScore.GetComponent<Text>().text = string.Format("{0:0}", GetComponent<ScoreManager>().score);
         finalScore.SetActive(true);
+        if (generateFalling.positive == true) 
+        {
+            positiveKText.SetActive(true);
+            positiveEText.SetActive(true);
+        }
+        else if (generateFalling.positive == false) 
+        {
+            negativeKText.SetActive(true);
+            negativeEText.SetActive(true);
+        }
         endScoreText = true;
-        Invoke("EndScoreDisabled", 5);
+        Invoke("EndScoreDisabled", 15);
     }
     void PressEnterActive()
     {
@@ -81,5 +96,9 @@ public class ActivateUI : MonoBehaviour {
         totalScore.SetActive(false);
         finalScore.SetActive(false);
         pressEnter.SetActive(false);
+        positiveKText.SetActive(false);
+        positiveEText.SetActive(false);
+        negativeKText.SetActive(false);
+        negativeEText.SetActive(false);
     }
 }

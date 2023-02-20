@@ -52,6 +52,10 @@ public class ScoreManager : MonoBehaviour {
         scoreSave0 = GaugeArray[0].GetComponent<Slider>().value;
         scoreSave1 = GaugeArray[1].GetComponent<Slider>().value;
         scoreSave2 = GaugeArray[2].GetComponent<Slider>().value;
+
+        GaugeArray[0].GetComponent<Slider>().maxValue = 30 * teamBalance;
+        GaugeArray[1].GetComponent<Slider>().maxValue = 30 * teamBalance;
+        GaugeArray[2].GetComponent<Slider>().maxValue = 20 * teamBalance;
     }
 
     void Update()
@@ -169,7 +173,7 @@ public class ScoreManager : MonoBehaviour {
         else
             NagativeEndingObjectArray[0].SetActive(true);
         ActiveUI();
-        //Invoke("Whale",2);
+        Invoke("Whale",15);
     }
 
     void ActiveSecondEvent()
