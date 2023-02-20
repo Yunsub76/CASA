@@ -31,7 +31,6 @@ public class ScoreManager : MonoBehaviour {
     public int NumVertical;
     public int NumHorizontal;
     public int NumCircle;
-    private int NumCircleCrone;
     public int NumRCircle;
 
     void Awake()
@@ -67,12 +66,11 @@ public class ScoreManager : MonoBehaviour {
             }
             else if (NumCircle >= 15 * teamBalance)
             {
-                NumCircleCrone = 15 * teamBalance;
                 LoadCircularUI.SetActive(false);
                 LoadReverseCircularUI.SetActive(true);
 
                 NumRCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfRCircles;
-                GaugeArray[2].GetComponent<Slider>().value = NumCircleCrone + NumRCircle;
+                GaugeArray[2].GetComponent<Slider>().value = 15 * teamBalance + NumRCircle;
                 if (NumRCircle >= 15 * teamBalance)
                     FinishThirdEvent();
             }
