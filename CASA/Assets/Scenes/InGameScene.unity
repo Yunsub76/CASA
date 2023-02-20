@@ -3924,7 +3924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &91595599
 Transform:
   m_ObjectHideFlags: 0
@@ -4080,7 +4080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &94894640
 Transform:
   m_ObjectHideFlags: 0
@@ -6681,7 +6681,7 @@ Transform:
   m_GameObject: {fileID: 148855621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11, y: -56, z: 256.1}
-  m_LocalScale: {x: 1029.0317, y: 10, z: 380.13364}
+  m_LocalScale: {x: 885.6876, y: 10, z: 380.13364}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -8808,11 +8808,21 @@ Prefab:
     - target: {fileID: 114243754008967104, guid: 44df22bea6a19b149af26e6ac64d6591,
         type: 2}
       propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114243754008967104, guid: 44df22bea6a19b149af26e6ac64d6591,
+        type: 2}
+      propertyPath: m_MaxValue
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44df22bea6a19b149af26e6ac64d6591, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &190587517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1288650364435328, guid: 44df22bea6a19b149af26e6ac64d6591,
+    type: 2}
+  m_PrefabInternal: {fileID: 190587516}
 --- !u!1 &190776082
 GameObject:
   m_ObjectHideFlags: 0
@@ -10885,7 +10895,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -47981,7 +47991,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -62485,7 +62495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1402758820
 RectTransform:
   m_ObjectHideFlags: 0
@@ -68775,6 +68785,10 @@ MonoBehaviour:
   - {fileID: 925961815}
   LoadCircularUI: {fileID: 774090989}
   LoadReverseCircularUI: {fileID: 774090990}
+  GaugeArray:
+  - {fileID: 1087160909}
+  - {fileID: 237050235}
+  - {fileID: 190587517}
   NumVertical: 0
   NumHorizontal: 0
   NumCircle: 0
@@ -68798,6 +68812,7 @@ MonoBehaviour:
   frame: {fileID: 1898058665}
   pressEnter: {fileID: 1663870237}
   resetTime: 0
+  IsGaming: 0
 --- !u!114 &1526821702
 MonoBehaviour:
   m_ObjectHideFlags: 0

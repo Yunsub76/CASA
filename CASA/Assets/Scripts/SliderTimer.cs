@@ -31,7 +31,8 @@ public class SliderTimer : MonoBehaviour
 			{
 				stopTimer = true;
 				EndGame();
-				
+				gameManager.GetComponent<ActivateUI>().FrameActivate();
+
 			}
 			if (stopTimer == false)
 			{

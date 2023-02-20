@@ -26,10 +26,6 @@ public class ActivateUI : MonoBehaviour {
 
     private void Update()
     {
-        if (IsGaming == false)
-        {
-            Invoke("FrameActivate", 1);
-        }
     }
 
     public void UIDisabled()
@@ -56,10 +52,13 @@ public class ActivateUI : MonoBehaviour {
         Invoke("FinalScoreMove", 2);  
     }
 
-    void FrameActivate()
+    public void FrameActivate()
     {
-        frame.SetActive(true);
-        Invoke("TotalActivate", 0.5f);
+        if (IsGaming == false)
+        {
+            frame.SetActive(true);
+            Invoke("TotalActivate", 0.5f);
+        }
     }
 
     void TotalActivate()

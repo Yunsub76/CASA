@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour {
     [SerializeField] Text ScoreTextUI;
 
     GenerateFallingTrash generateFallingTrash;
-    int teamBalance;
+    int teamBalance = 1;
 
     [SerializeField] private GameObject[] MissionUIArray = new GameObject[3];
     private bool[] MissionBoolArray = new bool[3] { false, false, false };
@@ -18,6 +18,8 @@ public class ScoreManager : MonoBehaviour {
     [SerializeField] private GameObject[] HandObjectArray = new GameObject[3];
     [SerializeField] private GameObject LoadCircularUI;
     [SerializeField] private GameObject LoadReverseCircularUI;
+
+    [SerializeField] private GameObject[] GaugeArray = new GameObject[3];
 
     SliderTimer sliderTimer;
     ActivateUI activateUI;
@@ -32,6 +34,9 @@ public class ScoreManager : MonoBehaviour {
         generateFallingTrash = this.GetComponent<GenerateFallingTrash>();
         sliderTimer = this.GetComponent<SliderTimer>();
         activateUI = this.GetComponent<ActivateUI>();
+        GaugeArray[0].GetComponent<Slider>().maxValue = 40 * teamBalance;
+        GaugeArray[1].GetComponent<Slider>().maxValue = 40 * teamBalance;
+        GaugeArray[2].GetComponent<Slider>().maxValue = 15 * teamBalance;
     }
 
     void Update()
@@ -49,35 +54,45 @@ public class ScoreManager : MonoBehaviour {
 
         if ((score >= 4700 && score < 6000) || sliderTimer.gameTime2 > sliderTimer.gameTime-1) //최종 시간에 도달하거나 4700점에 도달할 시 마지막 미션 등장
         {
+            NumCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfCircles;
+            GaugeArray[2].GetComponent<Slider>().value = NumCircle;
             if (generateFallingTrash.IsMissionTime == false)
             {
-                NumCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfCircles;
                 ActiveThirdEvent();
-                if (NumCircle >= 15 * teamBalance)
-                {
-                    LoadCircularUI.SetActive(false);
-                    LoadReverseCircularUI.SetActive(true);
+            }
+            else if (NumCircle >= 15 * teamBalance)
+            {
+                LoadCircularUI.SetActive(false);
+                LoadReverseCircularUI.SetActive(true);
 
-                    NumRCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfRCircles;
-                    if (NumRCircle >= 15 * teamBalance)
-                        FinishThirdEvent();
-                }
+                NumRCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfRCircles;
+                GaugeArray[2].GetComponent<Slider>().value = NumCircle+NumRCircle;
+                if (NumRCircle >= 15 * teamBalance)
+                    FinishThirdEvent();
             }
         }
         else if(score >= 2500 || sliderTimer.gameTime2 > 60) //60초 후나 2500점 도달하면 두번째 미션 등장
         {
             NumVertical = HandObjectArray[0].GetComponent<HandTracker>().zeroCrossings + HandObjectArray[1].GetComponent<HandTracker>().zeroCrossings + HandObjectArray[2].GetComponent<HandTracker>().zeroCrossings;
-            ActiveSecondEvent();
-            if (NumVertical >= 40 * teamBalance)
+            GaugeArray[1].GetComponent<Slider>().value = NumVertical-6;
+            if (generateFallingTrash.IsMissionTime == false)
+            {
+                ActiveSecondEvent();
+            }
+            else if (NumVertical >= 40 * teamBalance)
             {
                 FinishSecondEvent();
             }
         }
-        else if(score >= 600 || sliderTimer.gameTime2 > 30) //30초 후나 600점 도달하면 두번째 미션 등장
+        else if(score >= 600) //30초 후나 600점 도달하면 두번째 미션 등장
         {
             NumHorizontal = HandObjectArray[0].GetComponent<HandTracker>().zeroCrossings_H + HandObjectArray[1].GetComponent<HandTracker>().zeroCrossings_H + HandObjectArray[2].GetComponent<HandTracker>().zeroCrossings_H;
-            ActiveFirstEvent();
-            if(NumHorizontal >= 40 * teamBalance)
+            GaugeArray[0].GetComponent<Slider>().value = NumHorizontal;
+            if (generateFallingTrash.IsMissionTime == false)
+            {
+                ActiveFirstEvent();
+            }
+            else if (NumHorizontal >= 40 * teamBalance)
             {
                 FinishFirstEvent();
             }

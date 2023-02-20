@@ -104,6 +104,7 @@ public class HandTracker : MonoBehaviour {
 
 		//elapsed_time = 0.0f;
 		zeroCrossings = 0;
+		zeroCrossings_H = 0;
 
 		cirular_counter = 1;
 		R_cirular_counter = 1;
