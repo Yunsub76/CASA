@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.UI;
-
 public class HandTracker : MonoBehaviour {
 
-	[SerializeField] Text XYTextUI;
-
 	enum ZC_TYPE { NONE, POSITIVE, NEGATIVE, POS2NEG, NEG2POS };
-	enum CIRCULAR_STATE { UNKNOWN, S1, S2, S3, S4 , RS1, RS2, RS3, RS4};
+	public enum CIRCULAR_STATE { UNKNOWN, S1, S2, S3, S4 , RS1, RS2, RS3, RS4};
 	//     hor.(x).   vert(y).
 	// S1: POS2NEG,  NEGATIVE
 	// S2: NEGATIVE, NEG2POS
@@ -42,8 +38,8 @@ public class HandTracker : MonoBehaviour {
 	public int zeroCrossings_H = 0; //Horizontal
 	public int window_H_count = 50;//15;
 
-	public float minimun_width = 0.15f;
-
+	public float minimun_width = 0.1f;
+	
 	ZC_TYPE zc_type_H = ZC_TYPE.NONE;
 
 	// For circular tracking values
@@ -119,17 +115,19 @@ public class HandTracker : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		XYTextUI.text = string.Format("{0:0}", this.transform.position);
+		//XYTextUI.text = string.Format("{0:f}, {1:f}, {2:f}", this.transform.position.x, this.transform.position.y, this.transform.position.z);
 
 		HorizontalTracking();
 		VerticalTracking();
 		var state = GetState(zc_type_H, zc_type);
+
+
 		switch (state)
 		{
 			case CIRCULAR_STATE.S1:
 				if (prev_circular_state == CIRCULAR_STATE.S4)
 					cirular_counter += 1;
-				else
+				else if(prev_circular_state != CIRCULAR_STATE.S1)
 					cirular_counter = 1;
 				prev_circular_state = state;
 				break;
@@ -137,7 +135,7 @@ public class HandTracker : MonoBehaviour {
 			case CIRCULAR_STATE.S2:
 				if (prev_circular_state == CIRCULAR_STATE.S1)
 					cirular_counter += 1;
-				else
+				else if(prev_circular_state != CIRCULAR_STATE.S2)
 					cirular_counter = 1;
 				prev_circular_state = state;
 				break;
@@ -145,7 +143,7 @@ public class HandTracker : MonoBehaviour {
 			case CIRCULAR_STATE.S3:
 				if (prev_circular_state == CIRCULAR_STATE.S2)
 					cirular_counter += 1;
-				else
+				else if(prev_circular_state != CIRCULAR_STATE.S3)
 					cirular_counter = 1;
 				prev_circular_state = state;
 				break;
@@ -153,7 +151,7 @@ public class HandTracker : MonoBehaviour {
 			case CIRCULAR_STATE.S4:
 				if (prev_circular_state == CIRCULAR_STATE.S3)
 					cirular_counter += 1;
-				else
+				else if(prev_circular_state != CIRCULAR_STATE.S4)
 					cirular_counter = 1;
 				prev_circular_state = state;
 				break;
@@ -161,7 +159,7 @@ public class HandTracker : MonoBehaviour {
 			case CIRCULAR_STATE.RS1:
 				if (prev_circular_state == CIRCULAR_STATE.RS4)
 					R_cirular_counter += 1;
-				else
+				else if(prev_circular_state != CIRCULAR_STATE.RS1)
 					R_cirular_counter = 1;
 				prev_circular_state = state;
 				break;
@@ -169,7 +167,7 @@ public class HandTracker : MonoBehaviour {
 			case CIRCULAR_STATE.RS2:
 				if (prev_circular_state == CIRCULAR_STATE.RS1)
 					R_cirular_counter += 1;
-				else
+				else if(prev_circular_state != CIRCULAR_STATE.RS2)
 					R_cirular_counter = 1;
 				prev_circular_state = state;
 				break;
@@ -177,7 +175,7 @@ public class HandTracker : MonoBehaviour {
 			case CIRCULAR_STATE.RS3:
 				if (prev_circular_state == CIRCULAR_STATE.RS2)
 					R_cirular_counter += 1;
-				else
+				else if(prev_circular_state != CIRCULAR_STATE.RS3)
 					R_cirular_counter = 1;
 				prev_circular_state = state;
 				break;
@@ -185,7 +183,7 @@ public class HandTracker : MonoBehaviour {
 			case CIRCULAR_STATE.RS4:
 				if (prev_circular_state == CIRCULAR_STATE.RS3)
 					R_cirular_counter += 1;
-				else
+				else  if(prev_circular_state != CIRCULAR_STATE.RS4)
 					R_cirular_counter = 1;
 				prev_circular_state = state;
 				break;
@@ -215,7 +213,7 @@ public class HandTracker : MonoBehaviour {
 
 	void VerticalTracking()
 	{
-		Vector3 currPosition = transform.position;
+		Vector3 currPosition = transform.localPosition;
 		window.Add(currPosition);
 		//elapsed_time += Time.deltaTime;
 
@@ -240,17 +238,18 @@ public class HandTracker : MonoBehaviour {
 		float height = max_y - min_y;
 
 
-		if (window.Count > window_count && height > minimun_height)
+		//if (window.Count > window_count && height > minimun_height)
+		if (height > minimun_height)
 		{
-			float mean_y = 0.0f;
+			/*float mean_y = 0.0f;
 			int n = window.Count;
 			foreach (var item in window)
 			{
 				mean_y += item.y;
 			}
-			mean_y /= n;
+			mean_y /= n;*/
 
-			//float mean_y = centerPoint.transform.position.y;
+			float mean_y = centerPoint.transform.localPosition.y;
 
 			float sign1 = GetSign(prev_y, mean_y);
 			float sign2 = GetSign(curr_y, mean_y);
@@ -285,8 +284,9 @@ public class HandTracker : MonoBehaviour {
 
 	void HorizontalTracking()
 	{
-		Vector3 currPosition = transform.position;
-		window_H.Add(currPosition);
+		Vector3 currPosition = transform.localPosition;
+		//window_H.Add(currPosition);
+		window_H.Add(centerPoint.transform.localPosition);
 		//elapsed_time += Time.deltaTime;
 
 		filterWindow_H.Add(currPosition);
@@ -310,18 +310,19 @@ public class HandTracker : MonoBehaviour {
 		}
 		float width = max_x - min_x;
 
-
-		//if (window_H.Count > window_H_count && width > minimun_width)
+		//if (window_H.Count > window_H_count &&
+		if(width > minimun_width)
 		{
 			/*float mean_x = 0.0f;
 			int n = window_H.Count;
 			foreach (var item in window_H)	
 			{
 				mean_x += item.x;
+				Debug.Log(item.x);
 			}
-			mean_x /= n;*/
+			//mean_x /= n;*/
 
-			float mean_x = centerPoint.transform.position.x;
+			float mean_x = centerPoint.transform.localPosition.x;
 
 			float sign1_x = GetSign(prev_x, mean_x);
 			float sign2_x = GetSign(curr_x, mean_x);
@@ -350,4 +351,80 @@ public class HandTracker : MonoBehaviour {
 		}
 		prev_x = curr_x;
 	}
+
+	/*
+	void HorizontalTracking()
+	{
+		Vector3 currPosition = transform.position;
+		//window_H.Add(currPosition);
+		window_H.Add(centerPoint.transform.position);
+		//elapsed_time += Time.deltaTime;
+
+		filterWindow_H.Add(currPosition);
+		//filter_elapsed_time += Time.deltaTime;
+
+		float curr_x = 0.0f;
+		float min_x = 10000.0f;
+		float max_x = -10000.0f;
+		
+		if (filterWindow_H.Count > filter_window_H_count)
+		{
+			int n = filterWindow_H.Count;
+			foreach (var item in filterWindow_H)
+			{
+				curr_x += item.x;
+				if (min_x > item.x) min_x = item.x;
+				if (max_x < item.x) max_x = item.x;
+			}
+			curr_x /= n;
+			filterWindow_H.RemoveAt(0);
+		}
+		float width = max_x - min_x;
+		temp_width = width;
+
+
+		//if (window_H.Count > window_H_count &&
+		if(width > minimun_width)
+		{
+			float mean_x = 0.0f;
+			int n = window_H.Count;
+			foreach (var item in window_H)	
+			{
+				mean_x += item.x;
+				Debug.Log(item.x);
+			}
+			//mean_x /= n;
+
+			temp_mean_x = mean_x;
+
+			//float mean_x = centerPoint.transform.position.x;
+
+			float sign1_x = GetSign(prev_x, mean_x);
+			float sign2_x = GetSign(curr_x, mean_x);
+
+			if (sign1_x != sign2_x)
+			{
+				if (sign1_x < sign2_x)
+				{
+					zc_type_H = ZC_TYPE.NEG2POS;
+				}
+				else
+				{
+					zc_type_H = ZC_TYPE.POS2NEG;
+				}
+				zeroCrossings_H += 1;
+			}
+			else
+			{
+				if (sign2_x > 0)
+					zc_type_H = ZC_TYPE.POSITIVE;
+				else
+					zc_type_H = ZC_TYPE.NEGATIVE;
+			}
+
+			window_H.RemoveAt(0);
+		}
+		prev_x = curr_x;
+	}
+	*/
 }

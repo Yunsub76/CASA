@@ -86,18 +86,19 @@ public class OptitrackRigidBody : MonoBehaviour
 
         if ( rbState != null )
         {
-			if(prevPosition == null) {
-				prevPosition = rbState.Pose.Position;
-				return;
-			}
+			//if(prevPosition == null) {
+			//	prevPosition = rbState.Pose.Position;
+			//	return;
+			//}
 
 			float dist = Vector3.Distance(prevPosition, rbState.Pose.Position);
 
-			if(dist == 0 || dist > 0.2) {
+			if(false && dist == 0 || dist > 0.2) {
 				this.transform.localPosition = Vector3.zero;
 				this.transform.localRotation = Quaternion.identity;
 			}
-			else {
+			else
+			{
 				this.transform.localPosition = rbState.Pose.Position;
 				this.transform.localRotation = rbState.Pose.Orientation;
 			}
