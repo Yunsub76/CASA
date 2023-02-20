@@ -13,10 +13,9 @@ public class TransitionBackground : MonoBehaviour {
 	
 	public void ChangeColor()
     {
-        if (BGColor.material.color.a < 1)
+        while (BGColor.material.color.a < 1)
         {
 			BGColor.material.color = new Color(BGColor.material.color.r, BGColor.material.color.g, BGColor.material.color.b, BGColor.material.color.a + 0.01f);
-
 		}
     }
 }
