@@ -25,6 +25,10 @@ public class ScoreManager : MonoBehaviour {
 
     [SerializeField] private GameObject[] GaugeArray = new GameObject[3];
 
+    float scoreSave0;
+    float scoreSave1;
+    float scoreSave2;
+
     SliderTimer sliderTimer;
     ActivateUI activateUI;
 
@@ -33,6 +37,8 @@ public class ScoreManager : MonoBehaviour {
     public int NumCircle;
     public int NumRCircle;
 
+    int basicBGM;
+    private SoundManager soundManagerScript;
     void Awake()
     {
         generateFallingTrash = this.GetComponent<GenerateFallingTrash>();
@@ -41,10 +47,30 @@ public class ScoreManager : MonoBehaviour {
         GaugeArray[0].GetComponent<Slider>().maxValue = 40 * teamBalance;
         GaugeArray[1].GetComponent<Slider>().maxValue = 40 * teamBalance;
         GaugeArray[2].GetComponent<Slider>().maxValue = 20 * teamBalance;
+        soundManagerScript = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        basicBGM = soundManagerScript.bGMNumber;
+        scoreSave0 = GaugeArray[0].GetComponent<Slider>().value;
+        scoreSave1 = GaugeArray[1].GetComponent<Slider>().value;
+        scoreSave2 = GaugeArray[2].GetComponent<Slider>().value;
     }
 
     void Update()
    {
+        if (GaugeArray[0].GetComponent<Slider>().value > scoreSave0)
+        {
+            soundManagerScript.SFXSound(soundManagerScript.sFXList[1]);
+            scoreSave0 = GaugeArray[0].GetComponent<Slider>().value;
+        }
+        if (GaugeArray[1].GetComponent<Slider>().value > scoreSave1)
+        {
+            soundManagerScript.SFXSound(soundManagerScript.sFXList[1]);
+            scoreSave1 = GaugeArray[1].GetComponent<Slider>().value;
+        }
+        if (GaugeArray[2].GetComponent<Slider>().value > scoreSave2)
+        {
+            soundManagerScript.SFXSound(soundManagerScript.sFXList[1]);
+            scoreSave2 = GaugeArray[2].GetComponent<Slider>().value;
+        }
         ScoreTextUI.text = string.Format("{0:0}", score);
 
         if (generateFallingTrash.isTeam == true)
@@ -60,6 +86,7 @@ public class ScoreManager : MonoBehaviour {
         {
             NumCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfCircles;
             GaugeArray[2].GetComponent<Slider>().value = NumCircle;
+            
             if (generateFallingTrash.IsMissionTime == false)
             {
                 ActiveThirdEvent();
@@ -79,6 +106,7 @@ public class ScoreManager : MonoBehaviour {
         {
             NumVertical = HandObjectArray[0].GetComponent<HandTracker>().zeroCrossings + HandObjectArray[1].GetComponent<HandTracker>().zeroCrossings + HandObjectArray[2].GetComponent<HandTracker>().zeroCrossings;
             GaugeArray[1].GetComponent<Slider>().value = NumVertical-6;
+            
             if (generateFallingTrash.IsMissionTime == false)
             {
                 ActiveSecondEvent();
@@ -92,6 +120,7 @@ public class ScoreManager : MonoBehaviour {
         {
             NumHorizontal = HandObjectArray[0].GetComponent<HandTracker>().zeroCrossings_H + HandObjectArray[1].GetComponent<HandTracker>().zeroCrossings_H + HandObjectArray[2].GetComponent<HandTracker>().zeroCrossings_H;
             GaugeArray[0].GetComponent<Slider>().value = NumHorizontal;
+            
             if (generateFallingTrash.IsMissionTime == false)
             {
                 ActiveFirstEvent();
@@ -107,6 +136,9 @@ public class ScoreManager : MonoBehaviour {
     {
         if (MissionBoolArray[0] == true)
             return;
+        soundManagerScript.bGMNumber = 5;
+        soundManagerScript.BGMSound();
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[6]);
         MissionUIArray[0].SetActive(true);
             HandObjectArray[0].GetComponent<HandTracker>().InitReset();
             HandObjectArray[1].GetComponent<HandTracker>().InitReset();
@@ -120,6 +152,9 @@ public class ScoreManager : MonoBehaviour {
     {
         if (generateFallingTrash.IsMissionTime == false)
             return;
+        soundManagerScript.bGMNumber = basicBGM;
+        soundManagerScript.BGMSound();
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[2]);
         MissionUIArray[0].SetActive(false);
         score += 1000;
         generateFallingTrash.IsMissionTime = false;
@@ -127,24 +162,32 @@ public class ScoreManager : MonoBehaviour {
             PositiveEndingObjectArray[0].SetActive(true);
         else
             NagativeEndingObjectArray[0].SetActive(true);
+        
     }
 
     void ActiveSecondEvent()
     {
         if (MissionBoolArray[1] == true)
             return;
+        soundManagerScript.bGMNumber = 5;
+        soundManagerScript.BGMSound();
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[6]);
         MissionUIArray[1].SetActive(true);
             HandObjectArray[0].GetComponent<HandTracker>().InitReset();
             HandObjectArray[1].GetComponent<HandTracker>().InitReset();
             HandObjectArray[2].GetComponent<HandTracker>().InitReset();
         MissionBoolArray[1] = true;
         generateFallingTrash.IsMissionTime = true;
+        
     }
 
     void FinishSecondEvent()
     {
         if (generateFallingTrash.IsMissionTime == false)
             return;
+        soundManagerScript.bGMNumber = basicBGM;
+        soundManagerScript.BGMSound();
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[2]);
         MissionUIArray[1].SetActive(false);
         score += 1000;
         generateFallingTrash.IsMissionTime = false;
@@ -152,12 +195,16 @@ public class ScoreManager : MonoBehaviour {
             PositiveEndingObjectArray[1].SetActive(true);
         else
             NagativeEndingObjectArray[1].SetActive(true);
+        
     }
 
     void ActiveThirdEvent()
     {
         if (MissionBoolArray[2] == true)
             return;
+        soundManagerScript.bGMNumber = 5;
+        soundManagerScript.BGMSound();
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[6]);
         MissionUIArray[2].SetActive(true);
             HandObjectArray[0].GetComponent<HandTracker>().InitReset();
             HandObjectArray[1].GetComponent<HandTracker>().InitReset();
@@ -172,12 +219,16 @@ public class ScoreManager : MonoBehaviour {
 
         MissionBoolArray[2] = true;
         generateFallingTrash.IsMissionTime = true;
+        
     }
 
     void FinishThirdEvent()
     {
         if (generateFallingTrash.IsMissionTime == false)
             return;
+        soundManagerScript.bGMNumber = basicBGM;
+        soundManagerScript.BGMSound();
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[2]);
         MissionUIArray[2].SetActive(false);
         score += 1000;
         generateFallingTrash.IsMissionTime = false;
@@ -186,5 +237,6 @@ public class ScoreManager : MonoBehaviour {
             PositiveEndingObjectArray[2].SetActive(true);
         else
             NagativeEndingObjectArray[2].SetActive(true);
+        
     }
 }
