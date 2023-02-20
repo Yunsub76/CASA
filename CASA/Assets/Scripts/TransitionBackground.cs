@@ -15,7 +15,8 @@ public class TransitionBackground : MonoBehaviour {
     {
         while (BGColor.material.color.a < 1)
         {
-			BGColor.material.color = new Color(BGColor.material.color.r, BGColor.material.color.g, BGColor.material.color.b, BGColor.material.color.a + 0.01f);
+			BGColor.material.color = new Color(BGColor.material.color.r, BGColor.material.color.g, BGColor.material.color.b, BGColor.material.color.a + 0.001f);
+
 		}
     }
 }

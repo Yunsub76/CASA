@@ -24,9 +24,6 @@ public class ActivateUI : MonoBehaviour {
     bool endScoreText = false;
 
 
-    private void Update()
-    {
-    }
 
     public void UIDisabled()
     {

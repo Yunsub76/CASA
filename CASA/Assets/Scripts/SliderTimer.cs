@@ -11,7 +11,7 @@ public class SliderTimer : MonoBehaviour
 	Image fillArea;
 	Color newcolor;
 	GameObject gameManager;
-	
+	bool activateFinalScore = false;
 
 	void Awake() {
 		stopTimer = false;
@@ -30,9 +30,12 @@ public class SliderTimer : MonoBehaviour
 			if (gameTime2 >= 10 && gameManager.GetComponent<ActivateUI>().IsGaming == false)
 			{
 				stopTimer = true;
-				EndGame();
-				gameManager.GetComponent<ActivateUI>().FrameActivate();
-
+				if (activateFinalScore == false) 
+				{ 
+					EndGame();
+					gameManager.GetComponent<ActivateUI>().FrameActivate();
+					activateFinalScore = true;
+				}
 			}
 			if (stopTimer == false)
 			{

@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour {
     [SerializeField] Text ScoreTextUI;
 
     GenerateFallingTrash generateFallingTrash;
-    int teamBalance = 1;
+    public int teamBalance = 1;
 
     [SerializeField] private GameObject[] MissionUIArray = new GameObject[3];
     private bool[] MissionBoolArray = new bool[3] { false, false, false };
@@ -23,7 +23,7 @@ public class ScoreManager : MonoBehaviour {
     [SerializeField] private GameObject LoadCircularUI;
     [SerializeField] private GameObject LoadReverseCircularUI;
 
-    [SerializeField] private GameObject[] GaugeArray = new GameObject[3];
+    [SerializeField] public GameObject[] GaugeArray = new GameObject[3];
 
     float scoreSave0;
     float scoreSave1;
@@ -46,9 +46,7 @@ public class ScoreManager : MonoBehaviour {
         generateFallingTrash = this.GetComponent<GenerateFallingTrash>();
         sliderTimer = this.GetComponent<SliderTimer>();
         activateUI = this.GetComponent<ActivateUI>();
-        GaugeArray[0].GetComponent<Slider>().maxValue = 30 * teamBalance;
-        GaugeArray[1].GetComponent<Slider>().maxValue = 30 * teamBalance;
-        GaugeArray[2].GetComponent<Slider>().maxValue = 20 * teamBalance;
+        
         soundManagerScript = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         basicBGM = soundManagerScript.bGMNumber;
         scoreSave0 = GaugeArray[0].GetComponent<Slider>().value;
@@ -133,6 +131,11 @@ public class ScoreManager : MonoBehaviour {
             }
         }
    }
+
+    void FixedUpdate()
+    {
+        
+    }
 
     void ActiveFirstEvent()
     {

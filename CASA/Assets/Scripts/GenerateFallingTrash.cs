@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GenerateFallingTrash : MonoBehaviour
 {
@@ -52,6 +53,8 @@ public class GenerateFallingTrash : MonoBehaviour
 
     public bool IsMissionTime = false;
 
+    ScoreManager scoreManager;
+
     void Awake()
     {
         soundManagerScript = soundManager.GetComponent<SoundManager>();
@@ -59,6 +62,7 @@ public class GenerateFallingTrash : MonoBehaviour
         activateUI = this.GetComponent<ActivateUI>();
         loadManager = this.GetComponent<LoadManager>();
         transitionNegativeBG = transitionNegativeBGScript.GetComponent<TransitionBackground>();
+        scoreManager = this.GetComponent<ScoreManager>();
     }
 
     void Start()
@@ -170,6 +174,9 @@ public class GenerateFallingTrash : MonoBehaviour
                 difficultyTime = 2.6f;
                 isTeam = true;
                 currentMode();
+                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
+                scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
+                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 20 * scoreManager.teamBalance;
             }
         }
     }
