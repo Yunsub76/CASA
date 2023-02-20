@@ -20,6 +20,7 @@ public class ScoreManager : MonoBehaviour {
     [SerializeField] private GameObject LoadReverseCircularUI;
 
     SliderTimer sliderTimer;
+    ActivateUI activateUI;
 
     public int NumVertical;
     public int NumHorizontal;
@@ -30,6 +31,7 @@ public class ScoreManager : MonoBehaviour {
     {
         generateFallingTrash = this.GetComponent<GenerateFallingTrash>();
         sliderTimer = this.GetComponent<SliderTimer>();
+        activateUI = this.GetComponent<ActivateUI>();
     }
 
     void Update()
@@ -71,7 +73,7 @@ public class ScoreManager : MonoBehaviour {
                 FinishSecondEvent();
             }
         }
-        else if(score >= 600 || sliderTimer.gameTime2 > 30) //20초 후나 600점 도달하면 두번째 미션 등장
+        else if(score >= 600 || sliderTimer.gameTime2 > 30) //30초 후나 600점 도달하면 두번째 미션 등장
         {
             NumHorizontal = HandObjectArray[0].GetComponent<HandTracker>().zeroCrossings_H + HandObjectArray[1].GetComponent<HandTracker>().zeroCrossings_H + HandObjectArray[2].GetComponent<HandTracker>().zeroCrossings_H;
             ActiveFirstEvent();
@@ -101,6 +103,7 @@ public class ScoreManager : MonoBehaviour {
         MissionUIArray[0].SetActive(false);
         score += 1000;
         generateFallingTrash.IsMissionTime = false;
+        activateUI.IsGaming = false;
     }
 
     void ActiveSecondEvent()

@@ -19,24 +19,29 @@ public class ActivateUI : MonoBehaviour {
 
     [SerializeField] int resetTime;
 
+    public bool IsGaming = false;
 
     bool endScoreText = false;
 
 
+    private void Update()
+    {
+        if (IsGaming == false)
+        {
+            Invoke("FrameActivate", 1);
+        }
+    }
 
     public void UIDisabled()
     {
         image.SetActive(false);
         slider.SetActive(false);
         scoreText.SetActive(false);
-        if (GetComponent<SliderTimer>().stopTimer == true)
-        {
-            Invoke("FrameActivate",1);
-        }
     }    
 
     public void UIActivate()
     {
+        IsGaming = true;
         image.SetActive(true);
         slider.SetActive(true);
         scoreText.SetActive(true);
@@ -55,8 +60,8 @@ public class ActivateUI : MonoBehaviour {
     {
         frame.SetActive(true);
         Invoke("TotalActivate", 0.5f);
-;
     }
+
     void TotalActivate()
     {
         totalScore.SetActive(true);

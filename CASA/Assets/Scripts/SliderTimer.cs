@@ -43,6 +43,7 @@ public class SliderTimer : MonoBehaviour
     {
 		Invoke("DisableUI", 1);
     }
+
 	void DisableUI()
     {
 		gameManager.GetComponent<ActivateUI>().UIDisabled();

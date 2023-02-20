@@ -14,6 +14,9 @@ public class GenerateFallingTrash : MonoBehaviour
     [SerializeField] GameObject GameArea;
 
     [SerializeField] GameObject soundManager;
+
+    ActivateUI activateUI;
+
     private SoundManager soundManagerScript;
     private SliderTimer sliderTimer;
 
@@ -55,7 +58,7 @@ public class GenerateFallingTrash : MonoBehaviour
     {
         soundManagerScript = soundManager.GetComponent<SoundManager>();
         sliderTimer = this.GetComponent<SliderTimer>();
-
+        activateUI = this.GetComponent<ActivateUI>();
         loadManager = this.GetComponent<LoadManager>();
         transitionNegativeBG = transitionNegativeBGScript.GetComponent<TransitionBackground>();
     }
@@ -72,7 +75,7 @@ public class GenerateFallingTrash : MonoBehaviour
     void FixedUpdate()
     {
         setDifficulty();
-        if(sliderTimer.gameTime2 > sliderTimer.gameTime )
+        if(sliderTimer.gameTime2 > sliderTimer.gameTime)
             endingSystem();
     }
 
@@ -198,10 +201,9 @@ public class GenerateFallingTrash : MonoBehaviour
 
     IEnumerator RePositionWithDelay()
     {
-        yield return new WaitForSecondsRealtime(6);
         while (true && positive == true)
         {
-            if (!loadManager.pause && IsMissionTime == false)
+            if (!loadManager.pause && IsMissionTime == false && activateUI.IsGaming == true)
             {
                 if (sliderTimer.gameTime2 < sliderTimer.gameTime)
                 {
