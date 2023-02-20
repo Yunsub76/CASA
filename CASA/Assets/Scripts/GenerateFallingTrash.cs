@@ -35,8 +35,6 @@ public class GenerateFallingTrash : MonoBehaviour
 
     [SerializeField] GameObject transitionNegativeBGScript; 
     private TransitionBackground transitionNegativeBG; 
-
-    public GameObject prefab; // 생성할 프리팹 오브젝트
     public float spawnInterval = 5.0f; // 생성 간격(초)
 
     //생성된 오브젝트 리스트
@@ -250,7 +248,6 @@ public class GenerateFallingTrash : MonoBehaviour
     }
     void ForPositiveEnding()
     {
-        PositiveEnding.SetActive(true);
         NegativeEnding.SetActive(false);
         soundManagerScript.bGMNumber = 2;
         if (endBGMPlay == false)
@@ -263,7 +260,6 @@ public class GenerateFallingTrash : MonoBehaviour
     void ForNegativeEnding()
     {
         PositiveEnding.SetActive(false);
-        NegativeEnding.SetActive(true);
         soundManagerScript.bGMNumber = 4;
         if (endBGMPlay == false)
         {

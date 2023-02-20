@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/RealFinalStartScene.unity
     guid: 0e9331dd288856440a71b93166bf32dd
   - enabled: 1
-    path: Assets/Scenes/InGameScene.unity
-    guid: a0c82c2320bb0804c94501b3e04e8bb8
+    path: Assets/Scenes/InGame.unity
+    guid: 4b5fb85816466724c92eaeeb5be5d4c9
   m_configObjects: {}

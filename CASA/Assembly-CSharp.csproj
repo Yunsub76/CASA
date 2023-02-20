@@ -143,6 +143,7 @@
      <Compile Include="Assets\Scripts\UI_WarningStop.cs" />
      <Compile Include="Assets\Underwater life deluxe\Scripts\GhostFreeRoamCamera\Scripts\GhostFreeRoamCamera.cs" />
      <None Include="Assets\GreenForest\PostProcessing\Resources\Shaders\DepthOfField.shader" />
+     <None Include="Assets\Barrels\README.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\GreenForest\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
