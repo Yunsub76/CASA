@@ -40,7 +40,7 @@ public class ScoreManager : MonoBehaviour {
         activateUI = this.GetComponent<ActivateUI>();
         GaugeArray[0].GetComponent<Slider>().maxValue = 40 * teamBalance;
         GaugeArray[1].GetComponent<Slider>().maxValue = 40 * teamBalance;
-        GaugeArray[2].GetComponent<Slider>().maxValue = 30 * teamBalance;
+        GaugeArray[2].GetComponent<Slider>().maxValue = 20 * teamBalance;
     }
 
     void Update()
@@ -64,7 +64,7 @@ public class ScoreManager : MonoBehaviour {
             {
                 ActiveThirdEvent();
             }
-            else if (NumCircle >= 15 * teamBalance)
+            else if (NumCircle >= 10 * teamBalance)
             {
                 LoadCircularUI.SetActive(false);
                 LoadReverseCircularUI.SetActive(true);
