@@ -32351,6 +32351,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114976472109794944, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: bgmList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4425156722460658, guid: 8a5bc0903dfbf7741a372043548dbc26, type: 2}
       propertyPath: m_LocalPosition.x
       value: 16.882221
@@ -32387,6 +32392,26 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114976472109794944, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: bgmList.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7152bb8526403704bb562c34984a4fb6, type: 3}
+    - target: {fileID: 114976472109794944, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: sFXList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+    - target: {fileID: 114976472109794944, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: sFXList.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
+    - target: {fileID: 114976472109794944, guid: 8a5bc0903dfbf7741a372043548dbc26,
+        type: 2}
+      propertyPath: sFXList.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7886b2c5f88c34b4793f16a4974dca27, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a5bc0903dfbf7741a372043548dbc26, type: 2}
   m_IsPrefabAsset: 0
