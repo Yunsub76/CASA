@@ -111,6 +111,7 @@ public class ScoreManager : MonoBehaviour {
             HandObjectArray[0].GetComponent<HandTracker>().InitReset();
             HandObjectArray[1].GetComponent<HandTracker>().InitReset();
             HandObjectArray[2].GetComponent<HandTracker>().InitReset();
+
         MissionBoolArray[0] = true;
         generateFallingTrash.IsMissionTime = true;
     }
@@ -161,6 +162,14 @@ public class ScoreManager : MonoBehaviour {
             HandObjectArray[0].GetComponent<HandTracker>().InitReset();
             HandObjectArray[1].GetComponent<HandTracker>().InitReset();
             HandObjectArray[2].GetComponent<HandTracker>().InitReset();
+
+        HandObjectArray[0].GetComponent<HandTracker>().minimun_height = 0;
+        HandObjectArray[0].GetComponent<HandTracker>().minimun_width = 0;
+        HandObjectArray[1].GetComponent<HandTracker>().minimun_height = 0;
+        HandObjectArray[1].GetComponent<HandTracker>().minimun_width = 0;
+        HandObjectArray[2].GetComponent<HandTracker>().minimun_height = 0;
+        HandObjectArray[2].GetComponent<HandTracker>().minimun_width = 0;
+
         MissionBoolArray[2] = true;
         generateFallingTrash.IsMissionTime = true;
     }

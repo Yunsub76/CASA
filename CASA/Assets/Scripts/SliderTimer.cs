@@ -27,7 +27,7 @@ public class SliderTimer : MonoBehaviour
 		{ 
 			gameTime2 = gameTime2 + Time.deltaTime;
 
-			if (gameTime2 >= gameTime)
+			if (gameTime2 >= gameTime/3*2 && gameManager.GetComponent<ActivateUI>().IsGaming == false)
 			{
 				stopTimer = true;
 				EndGame();
