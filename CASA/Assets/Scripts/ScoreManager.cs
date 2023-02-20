@@ -160,6 +160,7 @@ public class ScoreManager : MonoBehaviour {
         soundManagerScript.bGMNumber = basicBGM;
         soundManagerScript.BGMSound();
         soundManagerScript.SFXSound(soundManagerScript.sFXList[2]);
+        
         MissionUIArray[0].SetActive(false);
         score += 1000;
         generateFallingTrash.IsMissionTime = false;
@@ -168,6 +169,7 @@ public class ScoreManager : MonoBehaviour {
         else
             NagativeEndingObjectArray[0].SetActive(true);
         ActiveUI();
+        //Invoke("Whale",2);
     }
 
     void ActiveSecondEvent()
@@ -248,11 +250,16 @@ public class ScoreManager : MonoBehaviour {
     void ActiveUI()
     {
         MissionPointUI.SetActive(true);
-        Invoke("unActiveUI", 2);
+        Invoke("UnActiveUI", 2);
     }
 
-    void unActiveUI()
+    void UnActiveUI()
     {
         MissionPointUI.SetActive(false);
+    }
+
+    void Whale()
+    {
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[9]);
     }
 }

@@ -167,6 +167,10 @@ public class GenerateFallingTrash : MonoBehaviour
                 difficultyTime = 3f;
                 isTeam = false;
                 currentMode();
+                scoreManager.teamBalance = 1;
+                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
+                scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
+                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 20 * scoreManager.teamBalance;
             }
 
             if (Input.GetKeyDown(KeyCode.W))
@@ -174,6 +178,7 @@ public class GenerateFallingTrash : MonoBehaviour
                 difficultyTime = 2.6f;
                 isTeam = true;
                 currentMode();
+                scoreManager.teamBalance = 3;
                 scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
                 scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
                 scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 20 * scoreManager.teamBalance;

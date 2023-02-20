@@ -314,8 +314,8 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MixersTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 16322
+    m_SelectedIDs: 601a0000
+    m_LastClickedID: 6752
     m_ExpandedIDs: 12eb343c
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 6}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -386,7 +386,7 @@ MonoBehaviour:
       splitSize: 6
       xOffset: 0
     m_HorizontalSplitter:
-      ID: 199
+      ID: 462
       splitterInitialOffset: 0
       currentActiveSplitter: -1
       realSizes: 6f01000059030000
@@ -545,20 +545,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Sound/Fantasy SFX for Particle Distort Texture effect library
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Sound/Fantasy SFX for Particle Distort Texture effect library
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "D:\\\uC724\uC12D\\CGLab\\CASA\\CASA"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 384d0000
-    m_LastClickedID: 19768
-    m_ExpandedIDs: 000000007440000058410000ce41000034420000484200006e4300006e470000fa490000164b00008c4c00006a4f00001c5100000854000026540000505400008a550000885a00009a5c0000485d0000c45d0000b45e0000e05f000000ca9a3b
+    scrollPos: {x: 0, y: 107}
+    m_SelectedIDs: 3e250000
+    m_LastClickedID: 9534
+    m_ExpandedIDs: 00000000ba0a00009e0b0000160c00007e0c0000920c0000b80d0000d0110000621400007e150000fc160000e0190000a81b0000a41e0000c41e0000ee1e00002a200000442500005a27000014280000942800008a290000b82a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -586,7 +586,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007440000058410000ce41000034420000484200006e4300006e470000fa490000164b00008c4c00006a4f00001c5100000854000026540000505400008a550000885a00009a5c0000485d0000c45d0000b45e0000e05f0000
+    m_ExpandedIDs: 00000000ba0a00009e0b0000160c00007e0c0000920c0000b80d0000d0110000621400007e150000fc160000e0190000a81b0000a41e0000c41e0000ee1e00002a200000442500005a27000014280000942800008a290000b82a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -701,10 +701,10 @@ MonoBehaviour:
     height: 419
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 60}
-    m_SelectedIDs: 7e0a0000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 2cf7ffff0000000080650000ee680000bc6c0000cc7400003676000036780000e27a0000
+    m_ExpandedIDs: cafbffff00000000a2300000a040000068430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -754,14 +754,14 @@ MonoBehaviour:
     height: 419
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 2658.9449114999998
+  lastFramingTime: 472.18186679999997
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -79, y: 119.5, z: 215.5}
+    m_Target: {x: 2485.54, y: 0.65074825, z: 1.6}
     speed: 2
-    m_Value: {x: -79, y: 119.5, z: 215.5}
+    m_Value: {x: 2485.54, y: 0.65074825, z: 1.6}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -793,9 +793,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.24165726, y: -0.056727737, z: 0.014153065, w: 0.9685987}
   m_Size:
-    m_Target: 1986.0477
+    m_Target: 6.46761
     speed: 2
-    m_Value: 1986.0477
+    m_Value: 6.46761
   m_Ortho:
     m_Target: 0
     speed: 2
