@@ -93,7 +93,7 @@ public class OptitrackRigidBody : MonoBehaviour
 
 			float dist = Vector3.Distance(prevPosition, rbState.Pose.Position);
 
-			if(false && dist == 0 || dist > 0.2) {
+			if(dist == 0 || dist > 1.0) {
 				this.transform.localPosition = Vector3.zero;
 				this.transform.localRotation = Quaternion.identity;
 			}

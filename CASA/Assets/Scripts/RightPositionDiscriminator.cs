@@ -16,7 +16,7 @@ public class RightPositionDiscriminator : MonoBehaviour
     
     private int type = 0;
     private int score;
-    private bool justOnce = false;
+    public bool justOnce = false;
 
     private SoundManager soundManagerScript;
     GenerateFallingTrash generateFallingTrash;
@@ -94,6 +94,8 @@ public class RightPositionDiscriminator : MonoBehaviour
 
                     GetPoint();
                 }
+
+				prevPosition = this.transform.position;
             }
         }
     }

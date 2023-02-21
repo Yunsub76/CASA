@@ -55,7 +55,7 @@ public class ScoreManager : MonoBehaviour {
 
         GaugeArray[0].GetComponent<Slider>().maxValue = 30 * teamBalance;
         GaugeArray[1].GetComponent<Slider>().maxValue = 30 * teamBalance;
-        GaugeArray[2].GetComponent<Slider>().maxValue = 20 * teamBalance;
+        GaugeArray[2].GetComponent<Slider>().maxValue = 16 * teamBalance;
     }
 
     void Update()
@@ -95,21 +95,21 @@ public class ScoreManager : MonoBehaviour {
             {
                 ActiveThirdEvent();
             }
-            else if (NumCircle >= 10 * teamBalance)
+            else if (NumCircle >= 8 * teamBalance)
             {
                 LoadCircularUI.SetActive(false);
                 LoadReverseCircularUI.SetActive(true);
 
                 NumRCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfRCircles;
                 GaugeArray[2].GetComponent<Slider>().value = 10 * teamBalance + NumRCircle;
-                if (NumRCircle >= 10 * teamBalance)
+                if (NumRCircle >= 8 * teamBalance)
                     FinishThirdEvent();
             }
         }
         else if(score >= 2500) //60초 후나 2500점 도달하면 두번째 미션 등장
         {
             NumVertical = HandObjectArray[0].GetComponent<HandTracker>().zeroCrossings + HandObjectArray[1].GetComponent<HandTracker>().zeroCrossings + HandObjectArray[2].GetComponent<HandTracker>().zeroCrossings;
-            GaugeArray[1].GetComponent<Slider>().value = NumVertical-6;
+            GaugeArray[1].GetComponent<Slider>().value = NumVertical;
             
             if (generateFallingTrash.IsMissionTime == false)
             {
@@ -123,7 +123,7 @@ public class ScoreManager : MonoBehaviour {
         else if(score >= 600) //30초 후나 600점 도달하면 두번째 미션 등장
         {
             NumHorizontal = HandObjectArray[0].GetComponent<HandTracker>().zeroCrossings_H + HandObjectArray[1].GetComponent<HandTracker>().zeroCrossings_H + HandObjectArray[2].GetComponent<HandTracker>().zeroCrossings_H;
-            GaugeArray[0].GetComponent<Slider>().value = NumHorizontal;
+            GaugeArray[0].GetComponent<Slider>().value = NumHorizontal-6;
             
             if (generateFallingTrash.IsMissionTime == false)
             {

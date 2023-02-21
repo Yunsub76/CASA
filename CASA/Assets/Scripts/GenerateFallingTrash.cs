@@ -172,7 +172,7 @@ public class GenerateFallingTrash : MonoBehaviour
                 scoreManager.teamBalance = 1;
                 scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30;
                 scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 30;
-                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 20;
+                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 16;
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -183,7 +183,7 @@ public class GenerateFallingTrash : MonoBehaviour
                 scoreManager.teamBalance = 3;
                 scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
                 scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
-                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 20 * scoreManager.teamBalance;
+                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 16 * scoreManager.teamBalance;
             }
 
             if (Input.GetKeyDown(KeyCode.Q))
@@ -273,16 +273,19 @@ public class GenerateFallingTrash : MonoBehaviour
     {
         if (positive == true)
         {
-            while(spawnedPlasticList.Count == 0)
+            while(spawnedPlasticList.Count != 0)
             {
+				Destroy(spawnedPlasticList[0]);
                 spawnedPlasticList.RemoveAt(0);
             }
-            while (spawnedPaperList.Count == 0)
+            while (spawnedPaperList.Count != 0)
             {
+				Destroy(spawnedPaperList[0]);
                 spawnedPaperList.RemoveAt(0);
             }
-            while (spawnedCanList.Count == 0)
+            while (spawnedCanList.Count != 0)
             {
+				Destroy(spawnedCanList[0]);
                 spawnedCanList.RemoveAt(0);
             }
 
