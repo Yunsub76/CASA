@@ -55,6 +55,8 @@ public class GenerateFallingTrash : MonoBehaviour
 
     ScoreManager scoreManager;
 
+    [SerializeField] private GameObject[] fakeTrashArray = new GameObject[3];
+
     void Awake()
     {
         soundManagerScript = soundManager.GetComponent<SoundManager>();
@@ -162,7 +164,7 @@ public class GenerateFallingTrash : MonoBehaviour
                 currentMode();
             }
 
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 difficultyTime = 3f;
                 isTeam = false;
@@ -173,15 +175,30 @@ public class GenerateFallingTrash : MonoBehaviour
                 scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 20;
             }
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 difficultyTime = 2.6f;
                 isTeam = true;
-                currentMode();
+                currentMode();  
                 scoreManager.teamBalance = 3;
                 scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
                 scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
                 scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 20 * scoreManager.teamBalance;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                fakeTrashArray[0].GetComponent<RightPositionDiscriminator>().GetPoint();
+            }
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                fakeTrashArray[1].GetComponent<RightPositionDiscriminator>().GetPoint();
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                fakeTrashArray[2].GetComponent<RightPositionDiscriminator>().GetPoint();
             }
         }
     }
@@ -209,8 +226,8 @@ public class GenerateFallingTrash : MonoBehaviour
 
     IEnumerator RePositionWithDelay()
     {
-        yield return new WaitForSecondsRealtime(5f); 
-        if (activateUI.IsGaming == true && positive == false)
+        yield return new WaitForSecondsRealtime(7f); 
+        if (positive == false)
         {
             SetRandomPosition();
             if (isTeam == true)

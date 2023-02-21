@@ -59,7 +59,7 @@ public class ActivateUI : MonoBehaviour {
         if (IsGaming == false)
         {
             frame.SetActive(true);
-            Invoke("TotalActivate", 0.5f);
+            Invoke("TotalActivate", 2f);
         }
     }
 

@@ -91,33 +91,8 @@ public class RightPositionDiscriminator : MonoBehaviour
                 {
                     gameManager.GetComponent<ScoreManager>().changeLightNum = true; 
                     justOnce = true;
-                    
-                    if (generateFallingTrash.positive == false) //부정 모드일 때 
-                    {
-                        if (generateFallingTrash.isTeam == true) //협동 모드일 때 
-                        {
-                            generateFallingTrash.SetRandomPosition();
-                            gameManager.GetComponent<ScoreManager>().score += 100;
-                        }
-                        else  //개인 모드
-                        {
-                            generateFallingTrash.SetRandomPosition();
-                            gameManager.GetComponent<ScoreManager>().score += 300;
-                        }
-                    }
-                    else  //긍정 모드일 때 
-                    {
-                        changingTrash();
-                        if (generateFallingTrash.isTeam == true) //협동 모드일 때 
-                        {
-                            gameManager.GetComponent<ScoreManager>().score += 100;
-                        }
-                        else  //개인 모드
-                        {
-                            gameManager.GetComponent<ScoreManager>().score += 300;
-                        }
-                    }
-                    soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
+
+                    GetPoint();
                 }
             }
         }
@@ -166,5 +141,35 @@ public class RightPositionDiscriminator : MonoBehaviour
         }
        yield return new WaitForSecondsRealtime(3);
        Destroy(ScoreObject);
+    }
+
+    public void GetPoint()
+    {
+        if (generateFallingTrash.positive == false) //부정 모드일 때 
+        {
+            if (generateFallingTrash.isTeam == true) //협동 모드일 때 
+            {
+                generateFallingTrash.SetRandomPosition();
+                gameManager.GetComponent<ScoreManager>().score += 100;
+            }
+            else  //개인 모드
+            {
+                generateFallingTrash.SetRandomPosition();
+                gameManager.GetComponent<ScoreManager>().score += 300;
+            }
+        }
+        else  //긍정 모드일 때 
+        {
+            changingTrash();
+            if (generateFallingTrash.isTeam == true) //협동 모드일 때 
+            {
+                gameManager.GetComponent<ScoreManager>().score += 100;
+            }
+            else  //개인 모드
+            {
+                gameManager.GetComponent<ScoreManager>().score += 300;
+            }
+        }
+        soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
     }
 };
