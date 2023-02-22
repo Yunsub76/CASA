@@ -92,7 +92,7 @@ public class GenerateFallingTrash : MonoBehaviour
         float z = Random.Range(GameAreaCollider.bounds.min.z, GameAreaCollider.bounds.max.z);
         trashPosition = new Vector3(x, 150.0f, z);
 
-        if (TrashLimitationArray[0] == 14)
+        if (TrashLimitationArray[0] == 11)
         {
             a = 1;
             if (TrashLimitationArray[1] == 8)
@@ -119,7 +119,7 @@ public class GenerateFallingTrash : MonoBehaviour
             }
         }
 
-        if (TrashLimitationArray[0]+TrashLimitationArray[1]+TrashLimitationArray[2] < 30)
+        if (TrashLimitationArray[0]+TrashLimitationArray[1]+TrashLimitationArray[2] < 28)
         {
             // 프리팹 오브젝트 생성
             GameObject newObject = Instantiate(fallingTrashArray[wasteTypeIndex], trashPosition, Quaternion.identity);
@@ -170,9 +170,9 @@ public class GenerateFallingTrash : MonoBehaviour
                 isTeam = false;
                 currentMode();
                 scoreManager.teamBalance = 1;
-                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30;
-                scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 30;
-                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 16;
+                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 20;
+                scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 20;
+                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 10;
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -181,9 +181,9 @@ public class GenerateFallingTrash : MonoBehaviour
                 isTeam = true;
                 currentMode();  
                 scoreManager.teamBalance = 3;
-                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
-                scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
-                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 16 * scoreManager.teamBalance;
+                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 20 * scoreManager.teamBalance;
+                scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 20 * scoreManager.teamBalance;
+                scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 10 * scoreManager.teamBalance;
             }
 
             if (Input.GetKeyDown(KeyCode.Q))

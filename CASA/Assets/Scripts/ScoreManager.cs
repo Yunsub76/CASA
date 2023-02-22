@@ -53,28 +53,31 @@ public class ScoreManager : MonoBehaviour {
         scoreSave1 = GaugeArray[1].GetComponent<Slider>().value;
         scoreSave2 = GaugeArray[2].GetComponent<Slider>().value;
 
-        GaugeArray[0].GetComponent<Slider>().maxValue = 30 * teamBalance;
-        GaugeArray[1].GetComponent<Slider>().maxValue = 30 * teamBalance;
-        GaugeArray[2].GetComponent<Slider>().maxValue = 16 * teamBalance;
+        GaugeArray[0].GetComponent<Slider>().maxValue = 20 * teamBalance;
+        GaugeArray[1].GetComponent<Slider>().maxValue = 20 * teamBalance;
+        GaugeArray[2].GetComponent<Slider>().maxValue = 10 * teamBalance;
     }
 
     void Update()
    {
-        if (GaugeArray[0].GetComponent<Slider>().value > scoreSave0)
+        if (GaugeArray[0].GetComponent<Slider>().value - scoreSave0> 1)
         {
             soundManagerScript.SFXSound(soundManagerScript.sFXList[1]);
             scoreSave0 = GaugeArray[0].GetComponent<Slider>().value;
+			//Debug.Log("1");
         }
-        if (GaugeArray[1].GetComponent<Slider>().value > scoreSave1)
+        if (GaugeArray[1].GetComponent<Slider>().value - scoreSave1> 1)
         {
             soundManagerScript.SFXSound(soundManagerScript.sFXList[1]);
             scoreSave1 = GaugeArray[1].GetComponent<Slider>().value;
-        }
-        if (GaugeArray[2].GetComponent<Slider>().value > scoreSave2)
+			//Debug.Log("2");
+		}
+        if (GaugeArray[2].GetComponent<Slider>().value - scoreSave2 > 1)
         {
             soundManagerScript.SFXSound(soundManagerScript.sFXList[1]);
             scoreSave2 = GaugeArray[2].GetComponent<Slider>().value;
-        }
+			//Debug.Log("3");
+		}
         ScoreTextUI.text = string.Format("{0:0}", score);
 
         if (generateFallingTrash.isTeam == true)
@@ -95,14 +98,14 @@ public class ScoreManager : MonoBehaviour {
             {
                 ActiveThirdEvent();
             }
-            else if (NumCircle >= 8 * teamBalance)
+            else if (NumCircle >= 5 * teamBalance)
             {
                 LoadCircularUI.SetActive(false);
                 LoadReverseCircularUI.SetActive(true);
 
                 NumRCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfRCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfRCircles;
-                GaugeArray[2].GetComponent<Slider>().value = 10 * teamBalance + NumRCircle;
-                if (NumRCircle >= 8 * teamBalance)
+                GaugeArray[2].GetComponent<Slider>().value = 5 * teamBalance + NumRCircle;
+                if (NumRCircle >= 5 * teamBalance)
                     FinishThirdEvent();
             }
         }
@@ -115,7 +118,7 @@ public class ScoreManager : MonoBehaviour {
             {
                 ActiveSecondEvent();
             }
-            else if (NumVertical >= 30 * teamBalance)
+            else if (NumVertical >= 20 * teamBalance)
             {
                 FinishSecondEvent();
             }
@@ -129,7 +132,7 @@ public class ScoreManager : MonoBehaviour {
             {
                 ActiveFirstEvent();
             }
-            else if (NumHorizontal >= 30 * teamBalance)
+            else if (NumHorizontal >= 20 * teamBalance)
             {
                 FinishFirstEvent();
             }

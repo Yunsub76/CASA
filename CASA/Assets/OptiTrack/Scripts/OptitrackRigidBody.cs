@@ -33,6 +33,7 @@ public class OptitrackRigidBody : MonoBehaviour
     public bool NetworkCompensation = true;
 
 	Vector3 prevPosition = Vector3.zero;
+	bool is_first = true;
 
     void Start()
     {
@@ -44,7 +45,7 @@ public class OptitrackRigidBody : MonoBehaviour
             // If we still couldn't find one, disable this component.
             if ( this.StreamingClient == null )
             {
-                Debug.LogError( GetType().FullName + ": Streaming client not set, and no " + typeof( OptitrackStreamingClient ).FullName + " components found in scene; disabling this component.", this );
+               // Debug.LogError( GetType().FullName + ": Streaming client not set, and no " + typeof( OptitrackStreamingClient ).FullName + " components found in scene; disabling this component.", this );
                 this.enabled = false;
                 return;
             }
@@ -86,10 +87,11 @@ public class OptitrackRigidBody : MonoBehaviour
 
         if ( rbState != null )
         {
-			//if(prevPosition == null) {
-			//	prevPosition = rbState.Pose.Position;
-			//	return;
-			//}
+			if(is_first) {
+				prevPosition = rbState.Pose.Position;
+				is_first = false;
+				return;
+			}
 
 			float dist = Vector3.Distance(prevPosition, rbState.Pose.Position);
 

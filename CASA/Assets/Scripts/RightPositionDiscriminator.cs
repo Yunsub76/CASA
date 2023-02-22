@@ -21,7 +21,7 @@ public class RightPositionDiscriminator : MonoBehaviour
     private SoundManager soundManagerScript;
     GenerateFallingTrash generateFallingTrash;
 
-    Vector3 prevPosition = Vector3.zero;
+    float prevPositionY = 0;
     Vector3 fallingTrashPosition = new Vector3(0,0,0);
 
     void Awake()
@@ -77,17 +77,17 @@ public class RightPositionDiscriminator : MonoBehaviour
                 this.gameObject.transform.position.z < wasteCoordinateList[wasteTypeIndex][3] &&
                 this.gameObject.transform.position.y < wasteCoordinateList[wasteTypeIndex][4])
             {
-                soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
+                //soundManagerScript.SFXSound(soundManagerScript.sFXList[4]);
 
-                if (prevPosition == null)
+                if (prevPositionY == null)
                 {
-                    prevPosition = this.transform.localPosition;
+                    prevPositionY = this.transform.localPosition.y;
                     return;
                 }
 
-                float dist = Vector3.Distance(prevPosition, this.transform.localPosition);
+                float dist = prevPositionY - this.transform.localPosition.y;
 
-                if (dist != 0 && dist > 0.3f)
+                if (dist != 0 && dist < 0.1f && dist > -0.1f)
                 {
                     gameManager.GetComponent<ScoreManager>().changeLightNum = true; 
                     justOnce = true;
@@ -95,7 +95,7 @@ public class RightPositionDiscriminator : MonoBehaviour
                     GetPoint();
                 }
 
-				prevPosition = this.transform.position;
+				prevPositionY = this.transform.position.y;
             }
         }
     }

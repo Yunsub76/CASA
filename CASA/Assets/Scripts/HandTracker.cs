@@ -275,7 +275,7 @@ public class HandTracker : MonoBehaviour {
 			}
 
 			window.RemoveAt(0);
-			Debug.Log(curr_y + "/" + mean_y );
+			//Debug.Log(curr_y + "/" + mean_y );
 		}
 		//Debug.Log(filterWindow.Count + "/" + min_y + "/" + max_y + "/" + height + "/" + zeroCrossings);
 
