@@ -109,7 +109,7 @@ public class ScoreManager : MonoBehaviour {
             OpenThirdMission = true;
         }
 
-        if (((score >= 4700 && score < 6000) || sliderTimer.gameTime2 > sliderTimer.gameTime -1) && OpenThirdMission == true) //최종 시간에 도달하거나 4700점에 도달할 시 마지막 미션 등장
+        if ((score >= 4500 || sliderTimer.gameTime2 > sliderTimer.gameTime -1) && OpenThirdMission == true) //최종 시간에 도달하거나 4700점에 도달할 시 마지막 미션 등장
         {
             NumCircle = HandObjectArray[0].GetComponent<HandTracker>().numOfCircles + HandObjectArray[1].GetComponent<HandTracker>().numOfCircles + HandObjectArray[2].GetComponent<HandTracker>().numOfCircles;
             GaugeArray[2].GetComponent<Slider>().value = NumCircle;

@@ -17,12 +17,15 @@ public class RightPositionDiscriminator : MonoBehaviour
     private int type = 0;
     private int score;
     public bool justOnce = false;
+	bool scoreGiven = false;
 
     private SoundManager soundManagerScript;
     GenerateFallingTrash generateFallingTrash;
 
     float prevPositionY = 0;
     Vector3 fallingTrashPosition = new Vector3(0,0,0);
+
+	float elapsedTime = 0.0f;
 
     void Awake()
     {
@@ -92,12 +95,31 @@ public class RightPositionDiscriminator : MonoBehaviour
                     gameManager.GetComponent<ScoreManager>().changeLightNum = true; 
                     justOnce = true;
 
-                    GetPoint();
+                    //GetPoint();
                 }
 
 				prevPositionY = this.transform.position.y;
             }
+			elapsedTime = 0;
         }
+		else if(!scoreGiven) {
+			elapsedTime += Time.deltaTime;
+			if(elapsedTime > 0.5f) {
+				if( this.gameObject.transform.position.x <= wasteCoordinateList[wasteTypeIndex][0] ||
+					this.gameObject.transform.position.x >= wasteCoordinateList[wasteTypeIndex][1] ||
+					this.gameObject.transform.position.z <= wasteCoordinateList[wasteTypeIndex][2] ||
+					this.gameObject.transform.position.z >= wasteCoordinateList[wasteTypeIndex][3] ||
+					this.gameObject.transform.position.y >= wasteCoordinateList[wasteTypeIndex][4])
+				{
+					justOnce =  false;
+				}
+				else
+				{
+					GetPoint();
+					scoreGiven = true;
+				}
+			}
+		}
     }
 
     private void changingTrash()
