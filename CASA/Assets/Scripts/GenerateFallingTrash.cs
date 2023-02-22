@@ -170,7 +170,7 @@ public class GenerateFallingTrash : MonoBehaviour
                 isTeam = false;
                 currentMode();
                 scoreManager.teamBalance = 1;
-                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 20;
+                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30;
                 scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 20;
                 scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 10;
             }
@@ -181,7 +181,7 @@ public class GenerateFallingTrash : MonoBehaviour
                 isTeam = true;
                 currentMode();  
                 scoreManager.teamBalance = 3;
-                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 20 * scoreManager.teamBalance;
+                scoreManager.GaugeArray[0].GetComponent<Slider>().maxValue = 30 * scoreManager.teamBalance;
                 scoreManager.GaugeArray[1].GetComponent<Slider>().maxValue = 20 * scoreManager.teamBalance;
                 scoreManager.GaugeArray[2].GetComponent<Slider>().maxValue = 10 * scoreManager.teamBalance;
             }
