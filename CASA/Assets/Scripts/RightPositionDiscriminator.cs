@@ -81,13 +81,13 @@ public class RightPositionDiscriminator : MonoBehaviour
 
                 if (prevPosition == null)
                 {
-                    prevPosition = this.transform.position;
+                    prevPosition = this.transform.localPosition;
                     return;
                 }
 
-                float dist = Vector3.Distance(prevPosition, this.transform.position);
+                float dist = Vector3.Distance(prevPosition, this.transform.localPosition);
 
-                if (dist != 0)
+                if (dist != 0 && dist > 0.3f)
                 {
                     gameManager.GetComponent<ScoreManager>().changeLightNum = true; 
                     justOnce = true;
